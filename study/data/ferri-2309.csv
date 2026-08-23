@@ -1,0 +1,47 @@
+# Re: Guidonia open-jet tunnel held Re approximately constant at 0.34-0.42e6 across all Mach (report p.13/15); nominal mid-band 3.8e5 recorded per point. Corrected 2026-08-23; see docs/protocol-deviations.md D10.
+report,figure,airfoil,family,tc_percent,camber,Re,mach,transition,alpha_deg,CL_nominal,CD,quality_tier,method,uncertainty_cd,uncertainty_M,notes
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.400,free,"-1,0",,0.0116,A,agent-QC label-anchored,0.0005,0.004,CORRECTED 2026-08-23: replaces first manual read which was 5-8 counts high (glyph tops read instead of centers)
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.500,free,"-1,0",,0.0116,A,agent-QC label-anchored,0.0004,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.600,free,"-1,0",,0.0115,A,agent-QC label-anchored,0.0004,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.650,free,"-1,0",,0.0121,A,agent-QC label-anchored,0.0004,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.700,free,"-1,0",,0.0120,A,agent-QC label-anchored,0.0004,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.720,free,"-1,0",,0.0136,B,agent-QC label-anchored,0.0008,0.004,marker printed small/faint; confirmed in three crops
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.750,free,"-1,0",,0.0158,A,agent-QC label-anchored,0.0005,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.780,free,"-1,0",,0.0170,A,agent-QC label-anchored,0.0005,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.800,free,"-1,0",,0.0185,A,agent-QC label-anchored,0.0005,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.822,free,"-1,0",,0.0232,A,agent-QC label-anchored,0.0007,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.845,free,"-1,0",,0.0296,A,agent-QC label-anchored,0.0006,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.869,free,"-1,0",,0.0342,A,agent-QC label-anchored,0.0006,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.897,free,"-1,0",,0.0485,B,agent-QC label-anchored,0.0009,0.003,steep region; M uncertainty dominates
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.920,free,"-1,0",,0.0661,B,agent-QC label-anchored,0.0008,0.004,congested cluster; glyph confirmed at 16x
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.941,free,"-1,0",,0.0742,A,agent-QC label-anchored,0.0008,0.004,endpoint; the previously reported 0.078 endpoint was the alpha=1 square glyph
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.400,free,1,,0.0141,B,agent label-anchored,0.0006,0.004,overlaps alpha=-2 triangle through plateau; center from box edges
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.501,free,1,,0.0140,B,agent label-anchored,0.0005,0.004,overlaps alpha=-2 triangle
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.601,free,1,,0.0140,B,agent label-anchored,0.0005,0.004,overlaps alpha=-2 triangle
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.650,free,1,,0.0139,A,agent label-anchored,0.0004,0.004,clean glyph
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.700,free,1,,0.0149,A,agent label-anchored,0.0004,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.750,free,1,,0.0169,A,agent label-anchored,0.0005,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.780,free,1,,0.0191,A,agent label-anchored,0.0004,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.800,free,1,,0.0209,A,agent label-anchored,0.0004,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.820,free,1,,0.0242,A,agent label-anchored,0.0005,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.848,free,1,,0.0330,A,agent label-anchored,0.0005,0.004,alpha=-2 triangle directly above
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.870,free,1,,0.0364,A,agent label-anchored,0.0006,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.898,free,1,,0.0539,A,agent label-anchored,0.0006,0.004,verified square at 20x zoom
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.919,free,1,,0.0719,B,agent label-anchored,0.0007,0.004,verified at 24x; near-glyphs excluded by shape check
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.939,free,1,,0.0796,B,agent label-anchored,0.0008,0.004,endpoint in dense cluster; separable from diamond and circle endpoints
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.400,free,2,,0.0179,B,agent label-anchored,0.0007,0.004,circle atop fused pair with alpha=-3 inverted triangle
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.500,free,2,,0.0175,C,agent label-anchored,0.0008,0.004,almost fully overlapped with alpha=-3; center partly inferred
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.600,free,2,,0.0178,B,agent label-anchored,0.0006,0.004,inverted triangle just below
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.650,free,2,,0.0196,A,agent label-anchored,0.0006,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.700,free,2,,0.0220,A,agent label-anchored,0.0006,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.720,free,2,,0.0239,A,agent label-anchored,0.0006,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.750,free,2,,0.0250,A,agent label-anchored,0.0007,0.004,alpha=3 curve line crosses marker
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.765,free,2,,0.0249,A,agent label-anchored,0.0007,0.004,local flat spot in the rise
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.780,free,2,,0.0260,A,agent label-anchored,0.0006,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.800,free,2,,0.0263,B,agent label-anchored,0.0007,0.004,partially fused with alpha=-2 triangle
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.820,free,2,,0.0300,B,agent label-anchored,0.0008,0.004,alpha=-2 triangle fused just below
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.850,free,2,,0.0401,C,agent label-anchored,0.0012,0.004,marker swallowed by alpha=-3 overlap; from lower glyph plus curve line
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.870,free,2,,0.0461,A,agent label-anchored,0.0007,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.899,free,2,,0.0639,A,agent label-anchored,0.0008,0.004,
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.920,free,2,,0.0792,B,agent label-anchored,0.0009,0.004,round glyph verified at zoom
+WR-L143,33cont,2309,4-digit,9,2,3.8e5,0.941,free,2,,0.0877,A,agent label-anchored,0.0008,0.004,endpoint; clean circle between alpha=3 and alpha=4 flags

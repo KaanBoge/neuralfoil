@@ -1,2 +1,6 @@
-# neuralfoil
-NeuralFoil Studio and experimental validation study
+# NeuralFoil
+
+Interactive NeuralFoil Studio and the experimental validation study.
+
+- [Open NeuralFoil Studio](https://kaanboge.github.io/neuralfoil/)
+- [Browse the study files](study/)

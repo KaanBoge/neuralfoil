@@ -1,0 +1,48 @@
+report,figure,airfoil,family,tc_percent,camber,Re,mach,transition,alpha_deg,CL_nominal,CD,quality_tier,method,uncertainty_cd,uncertainty_M,notes
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.301,fixed,-0.14,0,0.00900,A,marker-machine+shape,0.0002,0.003,circle glyph confirmed visually at low-M tail
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.457,fixed,-0.14,0,0.00906,A,marker-machine,0.0002,0.003,on circle plateau track x1220
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.489,fixed,-0.14,0,0.00914,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.519,fixed,-0.14,0,0.00915,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.569,fixed,-0.14,0,0.00913,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.705,fixed,-0.14,0,0.00975,B,line-trace,0.0003,0.004,plateau line no discrete marker resolved
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.730,fixed,-0.14,0,0.00980,B,line-trace,0.0003,0.004,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.755,fixed,-0.14,0,0.01018,B,line-trace,0.0004,0.005,entering knee
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.790,fixed,-0.14,0,0.01210,C,band-strand,0.0008,0.006,knee band; strand assignment by continuity only
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.818,fixed,-0.14,0,0.02070,A,marker-machine+shape,0.0003,0.004,circle glyphs confirmed in knee crop
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.830,fixed,-0.14,0,0.02900,B,line-trace,0.0006,0.005,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.840,fixed,-0.14,0,0.03110,A,marker-machine+shape,0.0002,0.003,circle endpoint confirmed visually
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.358,fixed,-0.14,0,0.00791,A,marker-machine,0.0003,0.003,on square plateau track x1265; glyph partly saturated
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.403,fixed,-0.14,0,0.00790,A,marker-machine,0.0003,0.003,
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.460,fixed,-0.14,0,0.00800,B,line-trace,0.0003,0.004,square track continuous; markers merged with line
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.520,fixed,-0.14,0,0.00805,B,line-trace,0.0003,0.004,
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.580,fixed,-0.14,0,0.00810,B,line-trace,0.0003,0.004,
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.705,fixed,-0.14,0,0.00842,B,line-trace,0.0003,0.004,
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.740,fixed,-0.14,0,0.00824,B,line-trace,0.0004,0.004,
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.762,fixed,-0.14,0,0.00834,B,line-trace,0.0004,0.005,
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.800,fixed,-0.14,0,0.01300,A,marker-machine,0.0004,0.004,n22 marker at rise base
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.810,fixed,-0.14,0,0.01530,A,marker-machine+shape,0.0003,0.004,open square glyph confirmed in knee crop
+TM-81927,8,0012,4-digit,12,0,6.0e6,0.840,fixed,-0.14,0,0.03360,A,marker-machine+shape,0.0002,0.003,square endpoint confirmed visually; highest CD of all series
+TM-81927,8,0012,4-digit,12,0,9.0e6,0.520,fixed,-0.14,0,0.01110,B,line-trace,0.0005,0.006,faint diamond track appears only above M~0.50; trip-overdrag elevated plateau
+TM-81927,8,0012,4-digit,12,0,9.0e6,0.560,fixed,-0.14,0,0.01110,B,line-trace,0.0005,0.006,
+TM-81927,8,0012,4-digit,12,0,9.0e6,0.705,fixed,-0.14,0,0.01100,A,line-trace,0.0003,0.004,strong track in upper piece
+TM-81927,8,0012,4-digit,12,0,9.0e6,0.730,fixed,-0.14,0,0.01099,A,line-trace,0.0003,0.004,
+TM-81927,8,0012,4-digit,12,0,9.0e6,0.775,fixed,-0.14,0,0.01350,C,band-strand,0.0008,0.006,knee band; continuity assignment
+TM-81927,8,0012,4-digit,12,0,9.0e6,0.790,fixed,-0.14,0,0.01130,C,band-strand,0.0010,0.008,non-monotonic vs 0.775 row; band ambiguity dominates
+TM-81927,8,0012,4-digit,12,0,9.0e6,0.818,fixed,-0.14,0,0.01730,A,marker-machine+shape,0.0003,0.004,diamond glyph confirmed in knee crop
+TM-81927,8,0012,4-digit,12,0,9.0e6,0.826,fixed,-0.14,0,0.02350,C,band-strand,0.0010,0.006,series terminates near M 0.825-0.83; no diamond endpoint at 0.84
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.301,free,-0.14,0,0.00630,A,marker-machine+shape,0.0002,0.003,plus glyph confirmed visually at low-M tail
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.354,free,-0.14,0,0.00613,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.482,free,-0.14,0,0.00612,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.516,free,-0.14,0,0.00601,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.534,free,-0.14,0,0.00601,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.579,free,-0.14,0,0.00602,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.640,free,-0.14,0,0.00633,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.667,free,-0.14,0,0.00631,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.688,free,-0.14,0,0.00631,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.695,free,-0.14,0,0.00625,A,marker-machine,0.0002,0.003,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.735,free,-0.14,0,0.00650,B,line-trace,0.0003,0.004,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.757,free,-0.14,0,0.00675,B,line-trace,0.0003,0.004,onset of gentle rise
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.774,free,-0.14,0,0.00728,B,line-trace,0.0004,0.005,
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.785,free,-0.14,0,0.00890,A,marker-machine,0.0004,0.004,wide plus-profile marker n34
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.791,free,-0.14,0,0.00916,A,marker-machine,0.0004,0.004,wide plus-profile marker maxlen56
+TM-81927,8,0012,4-digit,12,0,3.0e6,0.840,free,-0.14,0,0.02960,A,marker-machine+shape,0.0002,0.003,plus endpoint confirmed visually

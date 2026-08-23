@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>pdf harness</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+<div id="s">loading pdf.js...</div>
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+const DOCS = {};
+async function getDoc(name) {
+  if (!DOCS[name]) DOCS[name] = await pdfjsLib.getDocument("/" + name).promise;
+  return DOCS[name];
+}
+/* render one page region at scale; crop = [x0,y0,w,h] as fractions of page, optional */
+window.renderPage = async function (name, pageNum, scale, crop, q) {
+  const doc = await getDoc(name);
+  const page = await doc.getPage(pageNum);
+  const vp = page.getViewport({ scale: scale || 2 });
+  const cv = document.createElement("canvas");
+  cv.width = Math.round(vp.width); cv.height = Math.round(vp.height);
+  await page.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise;
+  let out = cv;
+  if (crop) {
+    const c2 = document.createElement("canvas");
+    c2.width = Math.round(cv.width * crop[2]); c2.height = Math.round(cv.height * crop[3]);
+    c2.getContext("2d").drawImage(cv, Math.round(cv.width * crop[0]), Math.round(cv.height * crop[1]),
+      c2.width, c2.height, 0, 0, c2.width, c2.height);
+    out = c2;
+  }
+  return out.toDataURL("image/jpeg", q || 0.8);
+};
+/* contact sheet: pages p0..p1 as small thumbs in a grid */
+window.contactSheet = async function (name, p0, p1, cols, thumbW, q) {
+  const doc = await getDoc(name);
+  const n = p1 - p0 + 1, rows = Math.ceil(n / cols);
+  const first = await doc.getPage(p0);
+  const vp0 = first.getViewport({ scale: 1 });
+  const thumbH = Math.round(thumbW * vp0.height / vp0.width);
+  const cv = document.createElement("canvas");
+  cv.width = cols * thumbW; cv.height = rows * (thumbH + 14);
+  const ctx = cv.getContext("2d");
+  ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, cv.width, cv.height);
+  for (let i = 0; i < n; i++) {
+    const page = await doc.getPage(p0 + i);
+    const vp = page.getViewport({ scale: thumbW / vp0.width });
+    const tc = document.createElement("canvas");
+    tc.width = Math.round(vp.width); tc.height = Math.round(vp.height);
+    await page.render({ canvasContext: tc.getContext("2d"), viewport: vp }).promise;
+    const x = (i % cols) * thumbW, y = Math.floor(i / cols) * (thumbH + 14);
+    ctx.drawImage(tc, x, y + 14, thumbW, thumbH);
+    ctx.fillStyle = "#c00"; ctx.font = "bold 12px sans-serif";
+    ctx.fillText("p" + (p0 + i), x + 2, y + 11);
+    ctx.strokeStyle = "#999"; ctx.strokeRect(x, y + 14, thumbW, thumbH);
+  }
+  return cv.toDataURL("image/jpeg", q || 0.6);
+};
+document.getElementById("s").textContent = "harness ready";
+window.HARNESS = 1;
+/* headless mode: ?mode=sheet&file=harris.pdf&p0=30&p1=89&cols=10&w=150
+   or ?mode=page&file=harris.pdf&p=40&scale=2&crop=0,0,1,1 */
+(async () => {
+  const q = new URLSearchParams(location.search);
+  if (!q.get("mode")) return;
+  try {
+    let url;
+    if (q.get("mode") === "sheet") {
+      url = await contactSheet(q.get("file"), +q.get("p0"), +q.get("p1"), +q.get("cols") || 10, +q.get("w") || 150, 0.7);
+    } else {
+      const crop = q.get("crop") ? q.get("crop").split(",").map(Number) : null;
+      url = await renderPage(q.get("file"), +q.get("p"), +q.get("scale") || 2, crop, 0.85);
+    }
+    if (q.get("out")) {
+      await fetch("/save?name=" + encodeURIComponent(q.get("out")), { method: "POST", body: url });
+      document.title = "SAVED";
+    }
+    const img = new Image();
+    img.style.cssText = "position:fixed;left:0;top:0";
+    img.src = url;
+    document.body.innerHTML = "";
+    document.body.style.margin = "0";
+    document.body.appendChild(img);
+  } catch (e) {
+    if (q.get("out")) await fetch("/save?name=" + encodeURIComponent(q.get("out")) + ".err", { method: "POST", body: String(e.message) }).catch(() => {});
+    document.body.innerHTML = "<h1 style='color:red'>RENDER ERROR: " + e.message + "</h1>";
+  }
+})();
+</script>
+</body>
+</html>
