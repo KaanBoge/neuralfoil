@@ -120,3 +120,15 @@ The study's experimental base was widened from 4 reports to the entire machine-r
 **A finding the atlas got backwards:** at low Reynolds numbers, thin sections (under 7 percent t/c) are the worst measured territory (median 45 counts) and thick sections the best (median 11), the opposite of the all-Re atlas thickness U. The site's thickness guard is now Reynolds-aware. Worst airfoils: GM15 (216 counts), E423 (161), BW-3 (111), all thin or extremely cambered low-Re designs; best: S8052, S8037, S8036 (8 to 14 counts). Geometry matches for all extremes were name-verified; nominal-versus-built geometry differences remain bounded by the Part 7 noise-floor probe.
 
 Files: lsat-corpus.csv, lsat-nf.csv, lsat-report.txt, lsat-by-airfoil.csv, lsat-thresholds.json, and the four lsat_*.py pipeline scripts.
+
+## PART 11. Lift, stall and the conventions test (2026-08-29, evening)
+
+**The measured lift corpus.** The LIFT files of Summary of Low-Speed Airfoil Data volumes 1 to 3 plus the SoarTech 8 per-Reynolds lift curves: 31,075 clean measured lift points on 108 airfoils across 474 sweeps, most of which continue through stall, territory the drag polars never enter. All eight sizes were run at every measured angle; CLmax and stall angle were read from a fine quarter-degree prediction grid per sweep.
+
+**Results.** Pre-stall CL MAE 0.0902 for the mean-of-8 core against 0.0937 for the classic xlarge; the ensemble core wins in every alpha regime (near-stall 0.122 vs 0.129, stall and post-stall 0.126 vs 0.131, negative 0.078 vs 0.084). The pre-stall error level independently confirms the low-Reynolds lift-level finding from Ferri (Part 8) across 108 airfoils. On the 471 sweeps whose measurements capture an actual lift peak: CLmax is overpredicted on 74 percent of sweeps, mean bias +0.046, MAE 0.078 (classic 0.085); the stall angle is predicted 0.85 degrees early on average, MAE 2.29 degrees. The practical reading for low-Reynolds designers: treat predicted CLmax as optimistic by about 0.05, and do not trust the stall angle closer than about two degrees.
+
+**The convention is not doing the work.** A stratified 1,747-point resample of the drag corpus rerun at n_crit 7 and 11 scores median error 14.8 / 13.7 / 19.7 counts against 13.7 at the adopted n_crit 9, so every conclusion in Parts 10 and 11 is robust to the transition convention, and 9 is also the best of the three.
+
+**Site consequences shipped.** The verdict engine's near-stall caution now quotes the measured CLmax bias; the corpus card carries the lift table; and for the 89 corpus airfoils the New NeuralFoil charts now overlay the actual measured wind-tunnel points on the banded prediction, with the source volume and nearest measured Reynolds number named.
+
+Files: lsat-lift-report.txt, lsat-clmax.csv, nc-sens-result.txt, lsat_lift.py, nc_sens.py, make_overlay.py, nfweights/measured.json.

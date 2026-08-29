@@ -90,7 +90,7 @@ const STUDY_LINKS = [
 ];
 
 /* ------------------------------------------------------------- weights IO */
-let NETS = null, DMEAN = null, DICOV = null, REF = null;
+let NETS = null, DMEAN = null, DICOV = null, REF = null, MEAS = null;
 let loadPromise = null, loadState = "idle", loadMsg = "";
 function nfbLoad() {
   if (loadPromise) return loadPromise;
@@ -125,6 +125,7 @@ function nfbLoad() {
     DMEAN = tens("scaled_input_distribution", "mean_inputs_scaled");
     DICOV = tens("scaled_input_distribution", "inv_cov_inputs_scaled");
     try { REF = await (await fetch("nfweights/ref.json")).json(); } catch (e) { REF = null; }
+    try { MEAS = await (await fetch("nfweights/measured.json")).json(); } catch (e) { MEAS = null; }
     loadState = "ready";
     loadMsg = selfTest();
     nfbCache = {}; sweepCache = {};
@@ -315,7 +316,7 @@ function verdicts(alpha, Re, mach, out) {
   else if (Re < 2.5e5) add("all", 1, "Low Reynolds number: measured median drag error 12 to 21 counts here, with a p90 near 100 (LSAT corpus, 10,608 points). Above Re 250,000 the median falls to about 10 counts, comparable to the measurement's own spanwise spread.");
   if (Math.abs(alpha) > 20) add("all", 2, "Post-stall region: the analytic 360-degree blend takes over here and the study holds no validation data for it.");
   else if (alpha < -8 || alpha > 12) add("all", 2, "Measured median drag error 48 counts at alpha -10 to -4 and 86 counts above +12 (LSAT corpus); the atlas shows the same collapse at high alpha.");
-  else if (alpha < -4 || alpha > 8) add("all", 1, "Outside the measured comfort band: median error rises to 35 counts by alpha +8 to +12 and 48 on the negative side (LSAT corpus).");
+  else if (alpha < -4 || alpha > 8) add("all", 1, "Outside the measured comfort band: median drag error rises to 35 counts by alpha +8 to +12 and 48 on the negative side; near stall, measured CLmax is overpredicted on 74 percent of 471 sweeps (mean +0.05) and stall is called 0.9 degrees early on average (LSAT corpus).");
   if (Re < 6e5 && tc < 0.07) add("all", 2, "Thin section at low Reynolds number: measured median drag error 45 counts below 7 percent t/c (LSAT corpus). Thin cambered low-Re sections are NeuralFoil's worst measured territory.");
   else if (Re < 6e5 && tc < 0.09) add("all", 1, "Thinner than 9 percent at low Reynolds number: measured median error 19 counts (LSAT corpus).");
   else if (tc > 0.21) add("all", 2, "Very thick section, far outside the atlas thickness U (proxy threshold; no measured corpus covers this).");
@@ -521,17 +522,39 @@ function drawAlphaCharts(rows) {
   const cd = rows.map(r => [r[0], r[1].CD.mean * CT]), cdb = rows.map(r => [r[0], r[1].CD.lo * CT, r[1].CD.hi * CT]);
   const cdc = rows.map(r => [r[0], r[1].classic.CD * CT]);
   const cur = ensemblePoint(nfbUI.alpha, nfbUI.re, nfbUI.mach);
-  drawChart($("nfbClA"), { title: "CL vs alpha, band = 8-net disagreement", xlabel: "alpha, degrees",
-    x0: -10, x1: 20, y0: Math.min(...clb.map(p => p[1])) - 0.1, y1: Math.max(...clb.map(p => p[2])) + 0.1,
+  /* measured wind-tunnel overlay: real LSAT points for this airfoil, nearest measured Re */
+  let dots = null, note = "";
+  if (MEAS && nfbUI.mach <= 0.3 && MEAS[FOIL.file]) {
+    let best = null;
+    for (const reKey in MEAS[FOIL.file]) {
+      const d = Math.abs(Math.log(+reKey / nfbUI.re));
+      if (!best || d < best.d) best = { d, re: +reKey, b: MEAS[FOIL.file][reKey] };
+    }
+    if (best) {
+      dots = best.b.pts;
+      note = "Dots on the charts are real measured wind-tunnel points for this airfoil (UIUC LSAT " + best.b.src +
+        ", Re " + Math.round(best.re / 1e3) + "k, the nearest measured Reynolds number to your setting" +
+        (best.d > 0.7 ? "; note it differs substantially from your Re" : "") + ").";
+    }
+  }
+  if ($("nfbMeasNote")) $("nfbMeasNote").textContent = note;
+  const mCL = dots ? dots.map(p => ({ x: p[0], y: p[1], color: C.good })) : [];
+  const mCD = dots ? dots.map(p => ({ x: p[0], y: p[2] * CT, color: C.good })) : [];
+  const yLo = Math.min(...clb.map(p => p[1]), ...mCL.map(m => m.y)) - 0.1;
+  const yHi = Math.max(...clb.map(p => p[2]), ...mCL.map(m => m.y)) + 0.1;
+  drawChart($("nfbClA"), { title: "CL vs alpha, band = 8-net disagreement" + (dots ? ", dots = measured" : ""),
+    xlabel: "alpha, degrees",
+    x0: -10, x1: 20, y0: yLo, y1: yHi,
     xfmt: v => v.toFixed(0), band: clb, bandColor: C.acc,
     series: [{ pts: clc, color: C.muted, dash: [5, 4], width: 1.2 }, { pts: cl, color: C.acc }],
-    markers: [{ x: nfbUI.alpha, y: cur.CL.mean, color: C.ink }] });
-  const cdmax = Math.min(Math.max(...cdb.map(p => p[2])) + 20, 1500);
-  drawChart($("nfbCdA"), { title: "CD vs alpha, drag counts", xlabel: "alpha, degrees",
+    markers: mCL.concat([{ x: nfbUI.alpha, y: cur.CL.mean, color: C.ink }]) });
+  const cdmax = Math.min(Math.max(...cdb.map(p => p[2]), ...mCD.map(m => m.y)) + 20, 1500);
+  drawChart($("nfbCdA"), { title: "CD vs alpha, drag counts" + (dots ? ", dots = measured" : ""),
+    xlabel: "alpha, degrees",
     x0: -10, x1: 20, y0: 0, y1: cdmax, xfmt: v => v.toFixed(0), yfmt: v => v.toFixed(0),
     band: cdb, bandColor: C.acc,
     series: [{ pts: cdc, color: C.muted, dash: [5, 4], width: 1.2 }, { pts: cd, color: C.acc }],
-    markers: [{ x: nfbUI.alpha, y: cur.CD.mean * CT, color: C.ink }] });
+    markers: mCD.concat([{ x: nfbUI.alpha, y: cur.CD.mean * CT, color: C.ink }]) });
 }
 
 function renderVS() {
@@ -598,7 +621,8 @@ function buildUI() {
     "The prediction is the mean of all eight model sizes (ties the classic on Harris, 21 percent better drag on TN 1546, slightly better lift; " +
     "confirmed at scale on the 10,608-point LSAT measured corpus, where it beats the classic on 58 percent of points). " +
     "Every force and moment coefficient carries its 8-network disagreement band, a fabrication-free measured lower-bound indicator of error, and a verdict from the study's " +
-    "measured failure map that says in words when not to trust it. It works on any airfoil in the search bar above, your own coordinate file, or a NACA design from the Geometry tab. " +
+    "measured failure map that says in words when not to trust it. It works on any airfoil in the search bar above, your own coordinate file, or a NACA design from the Geometry tab; " +
+    "for the 89 airfoils covered by the LSAT measured corpus, the charts below also overlay the actual wind-tunnel points. " +
     'n_crit and forced trips come from the analysis-conditions panel in the toolbar. <span id="nfbStatus" style="color:var(--muted)"></span></div>' +
     '<div class="card" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">' +
     '<b id="nfbFoil"></b>' +
@@ -610,6 +634,7 @@ function buildUI() {
     '<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">' +
     '<canvas id="nfbClA" height="240" style="flex:1;min-width:320px"></canvas>' +
     '<canvas id="nfbCdA" height="240" style="flex:1;min-width:320px"></canvas></div>' +
+    '<div id="nfbMeasNote" class="note" style="margin-top:4px;color:var(--good)"></div>' +
     '<p class="note" style="margin-top:10px">Bands are the p10 to p90 disagreement of the eight networks: a measured lower bound on error, not a coverage guarantee. ' +
     "The study's registered conformal bound was honestly uninformative (567 counts) and no spread scale factor transfers between wind tunnels, so this page refuses to fake one. " +
     'Dashed lines are the classic single-network NeuralFoil. Full evidence: see New vs Classic and the <a href="study/data/research-answer.md">study answer document</a>.</p>';
@@ -653,6 +678,8 @@ function buildUI() {
     "<li>The confidence blindspot is far worse than the atlas proxy suggested: 38.9 percent of high-confidence points (above 0.90) carry more than 20 counts of real error in this regime.</li>" +
     "<li>New finding: at low Reynolds numbers thin sections are the worst territory (median 45 counts below 7 percent t/c) while thick sections are the best, the opposite of the all-Re atlas U. The thickness guard is now Reynolds-aware.</li>" +
     "<li>Context: above Re 150,000 the median error (10 to 12 counts) is comparable to the measurement's own spanwise drag variation (median half-spread 10 counts).</li>" +
+    "<li>The n_crit 9 convention is not doing the work: a stratified 1,747-point resample scores median error 14.8 / 13.7 / 19.7 counts at n_crit 7 / 9 / 11, so the conclusions are robust to the transition convention and 9 is also the best of the three.</li>" +
+    "<li>Lift, measured for the first time at this scale (31,075 points, 108 airfoils, 474 sweeps including stall): pre-stall CL MAE 0.090, and the mean-of-8 beats the classic in every alpha regime. CLmax is overpredicted on 74 percent of the 471 stall-capturing sweeps (MAE 0.078, optimistic bias +0.046) and the stall angle is called 0.85 degrees early on average (MAE 2.3 degrees). Plan conservatively near stall.</li>" +
     "<li>Worst measured airfoils: GM15 (216 counts), E423 (161), BW-3 (111): thin or extremely cambered low-Re sections. Best: S8052, S8037, S8036 (8 to 14 counts).</li></ul>" +
     '<p class="note">Full data: <a href="study/data/lsat-report.txt">lsat-report.txt</a>, <a href="study/data/lsat-by-airfoil.csv">per-airfoil table</a>, ' +
     '<a href="study/data/lsat-corpus.csv">the parsed corpus</a>. Excluded and unmatched entries are logged, not hidden: flapped and tripped configurations, ' +

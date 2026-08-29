@@ -1,0 +1,5 @@
+  n_crit  7: n  1747  median   14.8  MAE   39.0
+  n_crit  9: n  1747  median   13.7  MAE   36.8
+  n_crit 11: n  1747  median   19.7  MAE   57.0
+
+[exited with code 0]
