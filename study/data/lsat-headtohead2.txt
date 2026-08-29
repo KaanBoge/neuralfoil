@@ -1,0 +1,20 @@
+common XFOIL-converged points: 7897 of 10567 (74.7%)
+
+DRAG (counts):
+  XFOIL 6.99             MAE   40.8  median   16.2
+  classic NF xlarge      MAE   35.8  median   13.9
+  new NF mean-of-8       MAE   35.5  median   14.1
+  new NF + corrections   MAE   32.5  median   12.9
+LIFT:
+  XFOIL 6.99             MAE 0.0890  median 0.0776
+  classic NF xlarge      MAE 0.0850  median 0.0752
+  new NF mean-of-8       MAE 0.0824  median 0.0732
+  new NF + corrections   MAE 0.0578  median 0.0463
+
+by Re band, corrected vs XFOIL (drag MAE counts):
+  Re   0k-75 k: XFOIL   68.3 | new   52.1  (n 1297)
+  Re  75k-150k: XFOIL   45.0 | new   36.8  (n 2124)
+  Re 150k-250k: XFOIL   33.4 | new   26.6  (n 2451)
+  Re 250k-600k: XFOIL   27.6 | new   22.7  (n 2025)
+
+ALL points: drag 41.8 -> 37.0; lift 0.0922 -> 0.0685
