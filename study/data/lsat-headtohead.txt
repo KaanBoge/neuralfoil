@@ -1,0 +1,21 @@
+points with NF: 10567; XFOIL converged on 7897 (74.7%)
+
+HEAD TO HEAD on the XFOIL-converged common points (drag counts):
+  XFOIL 6.99          : MAE   40.8  median   16.2
+  classic NF (xlarge) : MAE   35.8  median   13.9
+  new NF (mean-of-8)  : MAE   35.5  median   14.1
+  new NF + correction : MAE   33.3  median   13.4
+
+CL on the same points:
+  XFOIL 6.99          : MAE 0.0890  median 0.0776
+  classic NF (xlarge) : MAE 0.0850  median 0.0752
+  new NF (mean-of-8)  : MAE 0.0824  median 0.0732
+
+ALL measured points (XFOIL scored as absent where it diverged):
+  new NF: MAE 41.8 -> with correction 37.8 (medians 16.3 -> 15.0)
+
+by Re band, corrected new NF vs XFOIL (MAE counts, common points):
+  Re   0k-75 k: XFOIL   68.3 | new+corr   54.3  (n 1297)
+  Re  75k-150k: XFOIL   45.0 | new+corr   36.7  (n 2124)
+  Re 150k-250k: XFOIL   33.4 | new+corr   27.4  (n 2451)
+  Re 250k-600k: XFOIL   27.6 | new+corr   23.5  (n 2025)

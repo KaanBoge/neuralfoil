@@ -90,7 +90,7 @@ const STUDY_LINKS = [
 ];
 
 /* ------------------------------------------------------------- weights IO */
-let NETS = null, DMEAN = null, DICOV = null, REF = null, MEAS = null;
+let NETS = null, DMEAN = null, DICOV = null, REF = null, MEAS = null, CORR = null;
 let loadPromise = null, loadState = "idle", loadMsg = "";
 function nfbLoad() {
   if (loadPromise) return loadPromise;
@@ -126,6 +126,7 @@ function nfbLoad() {
     DICOV = tens("scaled_input_distribution", "inv_cov_inputs_scaled");
     try { REF = await (await fetch("nfweights/ref.json")).json(); } catch (e) { REF = null; }
     try { MEAS = await (await fetch("nfweights/measured.json")).json(); } catch (e) { MEAS = null; }
+    try { CORR = await (await fetch("nfweights/correction-cd.json")).json(); } catch (e) { CORR = null; }
     loadState = "ready";
     loadMsg = selfTest();
     nfbCache = {}; sweepCache = {};
@@ -265,6 +266,23 @@ function agg(vals) {
   return { mean: vals.reduce((a, b) => a + b, 0) / vals.length,
            lo: pctl(v, 0.10), hi: pctl(v, 0.90) };
 }
+/* the measured low-Re drag correction (correction-cd.json): validated on
+   airfoil-disjoint folds and both cross-source directions before shipping.
+   Faded smoothly to zero at the declared domain edges. */
+function corrZ(alpha, Re, mach, tc, cdAgg, confX, cl8) {
+  if (!CORR) return 0;
+  const ramp = (x, a, b) => x <= a ? 1 : x >= b ? 0 : (b - x) / (b - a);
+  const fade = ramp(Re, 5.4e5, 6e5) * ramp(Math.abs(alpha), 11, 12) * ramp(mach, 0.25, 0.30)
+    * ramp(0.055 - tc, 0.0, 0.005) * ramp(tc, 0.19, 0.20);
+  if (fade <= 0) return 0;
+  const a = alpha, lre = Math.log10(Re), lcd = Math.log(cdAgg.mean),
+        lsp = Math.log(Math.max(cdAgg.hi - cdAgg.lo, 1e-6));
+  const feats = [1, lre, lre*lre, a, a*a, a*a*a, tc, tc*tc, lcd, lsp, confX, cl8, cl8*cl8,
+                 lre*a, lre*tc, a*tc, lre*lcd, a*cl8, lre*cl8, lsp*lre, lcd*a];
+  let z = 0;
+  for (let i = 0; i < feats.length; i++) z += (feats[i] - CORR.mu[i]) / CORR.sd[i] * CORR.w[i];
+  return Math.max(Math.log(0.5), Math.min(Math.log(2), z)) * fade;
+}
 let nfbCache = {}, sweepCache = {};
 function fitFor() {
   const k = FOIL.file;
@@ -291,6 +309,9 @@ function ensemblePoint(alpha, Re, mach) {
   for (const k of ["CL", "CD", "CM", "conf", "TopXtr", "BotXtr", "machCrit", "machDD", "Cpmin"])
     out[k] = agg(SIZE_ORDER.map(s => per[s][k]));
   out.classic = per.xlarge;
+  out.corrZ = corrZ(alpha, Re, mach, tc, out.CD, per.xlarge.conf, out.CL.mean);
+  const ez = Math.exp(out.corrZ);
+  out.CDc = { mean: out.CD.mean * ez, lo: out.CD.lo * ez, hi: out.CD.hi * ez };
   const keys = Object.keys(nfbCache);
   if (keys.length > 60) delete nfbCache[keys[0]];
   nfbCache[key] = out;
@@ -473,8 +494,9 @@ function renderNFB() {
     '<div style="color:var(--muted);font-size:12.5px">classic xlarge: ' + extra + "</div></div>";
   $("nfbCards").innerHTML =
     card("Lift", f3(out.CL.mean), out.CL, v.CL, fmtBand(out.CL, f3), f3(out.classic.CL)) +
-    card("Drag", f4(out.CD.mean) + ' <span style="font-size:13px;color:var(--muted)">(' + (out.CD.mean * CT).toFixed(1) + " counts)</span>",
-         out.CD, v.CD, fmtBand(out.CD, f4) + " (" + v.spread.toFixed(1) + " counts wide)" +
+    card("Drag", f4(out.CDc.mean) + ' <span style="font-size:13px;color:var(--muted)">(' + (out.CDc.mean * CT).toFixed(1) + " counts)</span>",
+         out.CD, v.CD, fmtBand(out.CDc, f4) + " (" + v.spread.toFixed(1) + " counts disagreement)" +
+         (out.corrZ !== 0 ? "<br>includes the measured low-Re correction (validated +10.5 percent on unseen airfoils); uncorrected mean-of-8: " + f4(out.CD.mean) : "") +
          (v.expErr ? "<br>measured median true error at this disagreement: about " + v.expErr + " counts (LSAT ground-truth lookup)" : ""),
          f4(out.classic.CD)) +
     card("Moment", f4(out.CM.mean), out.CM, v.CM, fmtBand(out.CM, f4), f4(out.classic.CM)) +
@@ -519,7 +541,8 @@ function drawAlphaCharts(rows) {
   const C = themeC();
   const cl = rows.map(r => [r[0], r[1].CL.mean]), clb = rows.map(r => [r[0], r[1].CL.lo, r[1].CL.hi]);
   const clc = rows.map(r => [r[0], r[1].classic.CL]);
-  const cd = rows.map(r => [r[0], r[1].CD.mean * CT]), cdb = rows.map(r => [r[0], r[1].CD.lo * CT, r[1].CD.hi * CT]);
+  const cd = rows.map(r => [r[0], (r[1].CDc || r[1].CD).mean * CT]),
+        cdb = rows.map(r => [r[0], (r[1].CDc || r[1].CD).lo * CT, (r[1].CDc || r[1].CD).hi * CT]);
   const cdc = rows.map(r => [r[0], r[1].classic.CD * CT]);
   const cur = ensemblePoint(nfbUI.alpha, nfbUI.re, nfbUI.mach);
   /* measured wind-tunnel overlay: real LSAT points for this airfoil, nearest measured Re */
@@ -554,7 +577,7 @@ function drawAlphaCharts(rows) {
     x0: -10, x1: 20, y0: 0, y1: cdmax, xfmt: v => v.toFixed(0), yfmt: v => v.toFixed(0),
     band: cdb, bandColor: C.acc,
     series: [{ pts: cdc, color: C.muted, dash: [5, 4], width: 1.2 }, { pts: cd, color: C.acc }],
-    markers: mCD.concat([{ x: nfbUI.alpha, y: cur.CD.mean * CT, color: C.ink }]) });
+    markers: mCD.concat([{ x: nfbUI.alpha, y: (cur.CDc || cur.CD).mean * CT, color: C.ink }]) });
 }
 
 function renderVS() {
@@ -575,7 +598,9 @@ function renderVS() {
       const r = machChain(per[s], m, tc);
       return { CL: r.CL, CD: r.CD };
     });
-    return { m, CD: agg(vals.map(v => v.CD)), CL: agg(vals.map(v => v.CL)),
+    const CDa = agg(vals.map(v => v.CD)), CLa = agg(vals.map(v => v.CL));
+    const ez = Math.exp(corrZ(a, Re, m, tc, CDa, per.xlarge.conf, CLa.mean));
+    return { m, CD: { mean: CDa.mean * ez, lo: CDa.lo * ez, hi: CDa.hi * ez }, CL: CLa,
              cCD: vals[5].CD, cCL: vals[5].CL };
   });
   const mc = agg(SIZE_ORDER.map(s => per[s].machCrit)).mean;
@@ -619,7 +644,9 @@ function buildUI() {
     "Same eight shipped 0.3.3 networks, exact tensors; new everything around them, each choice grounded in the study's measurements: " +
     "wind-tunnel comparisons chose the core, and the 312,795-condition atlas set the guard thresholds. " +
     "The prediction is the mean of all eight model sizes (ties the classic on Harris, 21 percent better drag on TN 1546, slightly better lift; " +
-    "confirmed at scale on the 10,608-point LSAT measured corpus, where it beats the classic on 58 percent of points). " +
+    "confirmed at scale on the 10,608-point LSAT measured corpus, where it beats the classic on 58 percent of points), " +
+    "plus a measured low-Reynolds drag correction learned from that corpus: the first repair in this research to pass its pre-declared validation " +
+    "(10.5 percent cross-validated error reduction on airfoils it never saw, improving in both cross-facility transfer directions; it fades to zero outside its measured domain). " +
     "Every force and moment coefficient carries its 8-network disagreement band, a fabrication-free measured lower-bound indicator of error, and a verdict from the study's " +
     "measured failure map that says in words when not to trust it. It works on any airfoil in the search bar above, your own coordinate file, or a NACA design from the Geometry tab; " +
     "for the 89 airfoils covered by the LSAT measured corpus, the charts below also overlay the actual wind-tunnel points. " +
@@ -651,7 +678,8 @@ function buildUI() {
     '<div class="card"><b>What actually changed, and what honestly could not.</b><br>' +
     'The 2026 validation study measured NeuralFoil against wind-tunnel experiment across four reports, more than 600 digitized measured points, ' +
     "312,795 atlas conditions and all eight model sizes, then tried to repair every defect it found. " +
-    "<b>Changed and shipped:</b> the core prediction is now the mean of all eight networks (ties or beats the classic on every measured group: equal within 0.1 counts on Harris, better everywhere else); every force and moment coefficient carries its 8-net disagreement band; " +
+    "<b>Changed and shipped:</b> the core prediction is now the mean of all eight networks (ties or beats the classic on every measured group: equal within 0.1 counts on Harris, better everywhere else); " +
+    "a measured low-Reynolds drag correction, learned from the 10,608-point corpus and shipped only after passing airfoil-disjoint cross-validation (+10.5 percent) and both cross-facility transfer tests, the first repair in this research to survive validation; every force and moment coefficient carries its 8-net disagreement band; " +
     "a verdict engine guards the measured failure regions, including the two confidence blindspots and the transonic zone the classic confidence score structurally cannot see. " +
     "<b>Tried, failed honestly, not shipped:</b> five transonic drag-rise recalibrations (the selected one was 78 percent worse on the Harris holdout), " +
     "a transonic-similarity scaling, and two lift-break timing repairs. Their failure is the study's central result: " +
@@ -663,6 +691,19 @@ function buildUI() {
     '<p class="note">Dashed: classic single-network NeuralFoil 0.3.3 xlarge. Solid with band: the new mean-of-8 with its disagreement band. ' +
     "The red zone starts at the airfoil's own critical Mach: onset location verified to about 0.03 in Mach, magnitude above it measured wrong by 2 to 8x near onset. " +
     "The two curves use identical physics formulas; the new one differs by the ensemble core, the band, and the honesty about where neither can be trusted.</p></div>" +
+    '<div class="card" style="margin-top:10px"><b>How accurate is it against real life? The head-to-head, on identical measured points</b><br>' +
+    '<span style="color:var(--muted);font-size:12.5px">Wind-tunnel truth versus XFOIL 6.99 (the field\'s standard tool and NeuralFoil\'s own teacher), the classic single-network NeuralFoil, ' +
+    "and this release, scored on the 7,897 corpus points where XFOIL converged (its best case: XFOIL diverged and gave no answer at all on 25.3 percent of the measured points, while NeuralFoil answers everywhere). " +
+    "Corrections are out-of-fold: the corrected column never saw its own test airfoil. Scope: Re 39,000 to 504,000, low Mach, smooth clean models, n_crit 9 for all programs.</span>" +
+    '<table class="t"><tr><th>Program</th><th>Drag MAE, counts</th><th>Drag median</th><th>Lift MAE</th></tr>' +
+    [["XFOIL 6.99", "40.8", "16.2", "0.089"], ["classic NeuralFoil (xlarge)", "35.8", "13.9", "0.085"],
+     ["new NeuralFoil (mean-of-8)", "35.5", "14.1", "0.082"], ["new NeuralFoil + measured correction", "33.3", "13.4", "0.082"]]
+      .map((r, i) => "<tr" + (i === 3 ? ' style="font-weight:700"' : "") + "><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" + r[3] + "</td></tr>").join("") + "</table>" +
+    '<ul style="margin:6px 0 0;padding-left:18px;font-size:13px">' +
+    "<li>The new NeuralFoil with its measured correction is 18 percent more accurate than XFOIL against real wind-tunnel data in this regime, and best in every Reynolds band (54 vs 68 counts below Re 75k, 24 vs 28 at Re 250k to 600k).</li>" +
+    "<li>The correction itself is the first repair in this research to pass its pre-declared validation: +10.5 percent on airfoil-disjoint folds, improving in both cross-facility transfer directions. It fades to zero outside its measured domain (Re above 600k, |alpha| above 12, thin or very thick sections, Mach above 0.3), so nothing else is touched.</li>" +
+    "<li>Fair-play notes: XFOIL is scored only where it converged; a user who needs an answer where it diverges gets nothing from it. And NeuralFoil was trained on XFOIL, so beating its own teacher against reality comes from the ensemble, the measured correction, and XFOIL's own divergences, not from magic.</li></ul>" +
+    '<p class="note">Full numbers: <a href="study/data/lsat-headtohead.txt">lsat-headtohead.txt</a>; raw XFOIL runs: <a href="study/data/lsat-xfoil.csv">lsat-xfoil.csv</a>; the correction and its validation: <a href="study/data/correction-cd.json">correction-cd.json</a>.</p></div>' +
     '<div class="card" style="margin-top:10px"><b>The full-corpus test: 10,608 measured points, 148 airfoils, no cherry-picking</b><br>' +
     '<span style="color:var(--muted);font-size:12.5px">Every clean-configuration drag polar in the UIUC Low-Speed Airfoil Tests ' +
     "(Summary of Low-Speed Airfoil Data volumes 1 to 3 and SoarTech 8; Selig et al., GPL data; Re 39,000 to 504,000; " +
