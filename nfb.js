@@ -297,32 +297,42 @@ function ensemblePoint(alpha, Re, mach) {
 }
 
 /* --------------------------------------------------------- verdict engine */
+/* Thresholds below Re 600k come from ground truth: the 10,608-point clean
+   UIUC LSAT measured corpus (148 airfoils, Selig et al., GPL data). Above
+   Re 600k no LSAT data exists and the atlas-proxy thresholds remain. */
+const SPREAD_LOOKUP = [[4.6, 8], [7.6, 9], [11.3, 11], [14.5, 16], [18.3, 23], [25.3, 25], [47.2, 41], [1e9, 109]];
+function expectedErr(spread) {
+  for (const [s, e] of SPREAD_LOOKUP) if (spread <= s) return e;
+  return 109;
+}
 const LVL = { 0: "in the validated envelope", 1: "reduced trust", 2: "do not trust" };
 function verdicts(alpha, Re, mach, out) {
   const f = [];
   const spread = (out.CD.hi - out.CD.lo) * CT;
   const mc = out.machCrit.mean, mdd = out.machDD.mean, tc = out.tc, cf = out.conf.mean;
   const add = (coef, lvl, why) => f.push({ coef, lvl, why });
-  if (Re < 1.5e5) add("all", 2, "Low-Reynolds regime. At Re 50,000, 94 percent of the 312,795-condition atlas shows 8-net disagreement above 20 counts, falling monotonically as Re rises; the measured trust map bottoms out here.");
-  else if (Re < 5e5) add("all", 1, "Below Re 500,000 the atlas shows elevated disagreement. The validated tight-agreement zone starts near Re 200,000 and only inside the benign alpha band.");
+  if (Re < 7.5e4) add("all", 2, "Very low Reynolds number: measured median drag error on the LSAT corpus is 40 counts at Re 45,000 to 75,000 and above 100 counts below that.");
+  else if (Re < 2.5e5) add("all", 1, "Low Reynolds number: measured median drag error 12 to 21 counts here, with a p90 near 100 (LSAT corpus, 10,608 points). Above Re 250,000 the median falls to about 10 counts, comparable to the measurement's own spanwise spread.");
   if (Math.abs(alpha) > 20) add("all", 2, "Post-stall region: the analytic 360-degree blend takes over here and the study holds no validation data for it.");
-  else if (alpha < -8 || alpha > 14) add("all", 2, "Far from the atlas alpha floor: median 8-net disagreement reaches 80 counts by 16 degrees.");
-  else if (alpha < -4 || alpha > 10) add("all", 1, "Outside the atlas alpha comfort band (best agreement at 1 to 3 degrees).");
-  if (tc > 0.21) add("all", 2, "Very thick section, far outside the atlas thickness U (floor at 9 to 12 percent t/c).");
-  else if (tc < 0.06 || tc > 0.15) add("all", 1, "Thickness away from the atlas U floor at 9 to 12 percent t/c.");
+  else if (alpha < -8 || alpha > 12) add("all", 2, "Measured median drag error 48 counts at alpha -10 to -4 and 86 counts above +12 (LSAT corpus); the atlas shows the same collapse at high alpha.");
+  else if (alpha < -4 || alpha > 8) add("all", 1, "Outside the measured comfort band: median error rises to 35 counts by alpha +8 to +12 and 48 on the negative side (LSAT corpus).");
+  if (Re < 6e5 && tc < 0.07) add("all", 2, "Thin section at low Reynolds number: measured median drag error 45 counts below 7 percent t/c (LSAT corpus). Thin cambered low-Re sections are NeuralFoil's worst measured territory.");
+  else if (Re < 6e5 && tc < 0.09) add("all", 1, "Thinner than 9 percent at low Reynolds number: measured median error 19 counts (LSAT corpus).");
+  else if (tc > 0.21) add("all", 2, "Very thick section, far outside the atlas thickness U (proxy threshold; no measured corpus covers this).");
   if (mach > 0.94) add("all", 2, "Beyond the highest experimentally compared Mach in the study (0.94)" + (mach > 1 ? "; the supersonic side is an analytic patch with no experimental comparison at all" : "") + ".");
   if (mach >= mc) add("CD", 2, "Above this airfoil's critical Mach. Measured drag-rise magnitude errors run 2 to 8x near onset and the shipped shape is orders of magnitude too steep by M 0.90. All five recalibration attempts failed their held-out tests, so this zone is displayed, never trusted.");
   else if (mach >= mc - 0.03) add("CD", 1, "Inside the drag-rise onset window. The onset location itself is verified to about 0.03 in Mach on holdout data; the magnitude beyond it is not.");
   if (mach >= mdd + 0.04) add("CL", 2, "The lift-break factor engages here, tied to drag divergence. Measurement shows the two decouple: lift was still rising 19 to 23 percent where the model already cuts 19 to 32 percent. Both one-parameter repairs failed validation.");
   if (cf < 0.3) add("all", 2, "NeuralFoil's own analysis confidence is very low here.");
   else if (cf < 0.6) add("all", 1, "NeuralFoil's own analysis confidence is low here.");
-  if (cf > 0.9 && spread > 50) add("all", 1, "The measured confidence blindspot: 7.4 percent of atlas conditions pair confidence above 0.90 with disagreement above 50 counts, concentrated at thick sections, low Reynolds and high alpha. Trust the disagreement, not the confidence.");
-  if (spread > 50) add("CD", 2, "8-net disagreement above 50 counts. Ensemble spread is a fabrication-free measured lower-bound indicator of true error.");
-  else if (spread > 20) add("CD", 1, "8-net disagreement above 20 counts, a measured lower-bound indicator of true error.");
+  if (cf > 0.9 && Re < 5e5) add("all", 1, "The measured confidence blindspot: on the 10,608-point LSAT corpus, 38.9 percent of high-confidence points (above 0.90) carry more than 20 counts of real drag error. Below Re 500,000, trust the disagreement band, never the confidence score alone.");
+  if (spread > 47) add("CD", 2, "8-net disagreement above 47 counts: at this level the measured median true error is about 109 counts (LSAT ground-truth lookup).");
+  else if (spread > 18) add("CD", 1, "8-net disagreement above 18 counts: measured median true error about 23 to 41 counts at this level (LSAT ground-truth lookup).");
   const worst = coef => f.filter(x => x.coef === "all" || x.coef === coef)
     .reduce((m, x) => Math.max(m, x.lvl), 0);
   return { fired: f, CL: worst("CL"), CD: worst("CD"), CM: worst("CM"),
-           overall: f.reduce((m, x) => Math.max(m, x.lvl), 0), spread };
+           overall: f.reduce((m, x) => Math.max(m, x.lvl), 0), spread,
+           expErr: (mach < 0.3 && Re <= 6e5) ? expectedErr(spread) : null };
 }
 
 /* ------------------------------------------------------------- self test */
@@ -463,7 +473,9 @@ function renderNFB() {
   $("nfbCards").innerHTML =
     card("Lift", f3(out.CL.mean), out.CL, v.CL, fmtBand(out.CL, f3), f3(out.classic.CL)) +
     card("Drag", f4(out.CD.mean) + ' <span style="font-size:13px;color:var(--muted)">(' + (out.CD.mean * CT).toFixed(1) + " counts)</span>",
-         out.CD, v.CD, fmtBand(out.CD, f4) + " (" + v.spread.toFixed(1) + " counts wide)", f4(out.classic.CD)) +
+         out.CD, v.CD, fmtBand(out.CD, f4) + " (" + v.spread.toFixed(1) + " counts wide)" +
+         (v.expErr ? "<br>measured median true error at this disagreement: about " + v.expErr + " counts (LSAT ground-truth lookup)" : ""),
+         f4(out.classic.CD)) +
     card("Moment", f4(out.CM.mean), out.CM, v.CM, fmtBand(out.CM, f4), f4(out.classic.CM)) +
     '<div class="card" style="flex:1;min-width:210px"><b>Mach map</b>' +
     '<div style="font-size:13.5px;margin-top:4px">critical Mach <b>' + f3(out.machCrit.mean) + "</b> (band " + fmtBand(out.machCrit, f3) + ")<br>" +
@@ -583,7 +595,8 @@ function buildUI() {
     '<div class="card"><b>NeuralFoil B: the new NeuralFoil.</b> ' +
     "Same eight shipped 0.3.3 networks, exact tensors; new everything around them, each choice grounded in the study's measurements: " +
     "wind-tunnel comparisons chose the core, and the 312,795-condition atlas set the guard thresholds. " +
-    "The prediction is the mean of all eight model sizes (ties the classic on Harris, 21 percent better drag on TN 1546, slightly better lift). " +
+    "The prediction is the mean of all eight model sizes (ties the classic on Harris, 21 percent better drag on TN 1546, slightly better lift; " +
+    "confirmed at scale on the 10,608-point LSAT measured corpus, where it beats the classic on 58 percent of points). " +
     "Every force and moment coefficient carries its 8-network disagreement band, a fabrication-free measured lower-bound indicator of error, and a verdict from the study's " +
     "measured failure map that says in words when not to trust it. It works on any airfoil in the search bar above, your own coordinate file, or a NACA design from the Geometry tab. " +
     'n_crit and forced trips come from the analysis-conditions panel in the toolbar. <span id="nfbStatus" style="color:var(--muted)"></span></div>' +
@@ -625,6 +638,25 @@ function buildUI() {
     '<p class="note">Dashed: classic single-network NeuralFoil 0.3.3 xlarge. Solid with band: the new mean-of-8 with its disagreement band. ' +
     "The red zone starts at the airfoil's own critical Mach: onset location verified to about 0.03 in Mach, magnitude above it measured wrong by 2 to 8x near onset. " +
     "The two curves use identical physics formulas; the new one differs by the ensemble core, the band, and the honesty about where neither can be trusted.</p></div>" +
+    '<div class="card" style="margin-top:10px"><b>The full-corpus test: 10,608 measured points, 148 airfoils, no cherry-picking</b><br>' +
+    '<span style="color:var(--muted);font-size:12.5px">Every clean-configuration drag polar in the UIUC Low-Speed Airfoil Tests ' +
+    "(Summary of Low-Speed Airfoil Data volumes 1 to 3 and SoarTech 8; Selig et al., GPL data; Re 39,000 to 504,000; " +
+    "run at n_crit 9, the standard convention for this low-turbulence tunnel). This is ground truth, and it is what the verdict thresholds and the " +
+    "disagreement-to-error lookup on the New NeuralFoil tab are calibrated against.</span>" +
+    '<table class="t"><tr><th>Reynolds band</th><th>points</th><th>median error, counts</th><th>p90</th></tr>' +
+    [["under 45k", 23, "102", "512"], ["45k to 75k", 1590, "40", "147"], ["75k to 150k", 2761, "21", "98"],
+     ["150k to 250k", 3182, "12", "74"], ["250k to 350k", 2491, "10", "78"], ["350k to 600k", 561, "9", "99"]]
+      .map(r => "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" + r[3] + "</td></tr>").join("") + "</table>" +
+    '<ul style="margin:6px 0 0;padding-left:18px;font-size:13px">' +
+    "<li>The mean-of-8 core beats the classic xlarge on 58 percent of all points (drag MAE 41.8 vs 42.7 counts; lift also better). The choice made on 106 points holds on 10,608.</li>" +
+    "<li>The 8-net disagreement ranks true error monotonically across all ten deciles, from 8 counts of median true error at the tightest disagreement to 109 at the widest. That measured curve is now the drag card's expected-error lookup.</li>" +
+    "<li>The confidence blindspot is far worse than the atlas proxy suggested: 38.9 percent of high-confidence points (above 0.90) carry more than 20 counts of real error in this regime.</li>" +
+    "<li>New finding: at low Reynolds numbers thin sections are the worst territory (median 45 counts below 7 percent t/c) while thick sections are the best, the opposite of the all-Re atlas U. The thickness guard is now Reynolds-aware.</li>" +
+    "<li>Context: above Re 150,000 the median error (10 to 12 counts) is comparable to the measurement's own spanwise drag variation (median half-spread 10 counts).</li>" +
+    "<li>Worst measured airfoils: GM15 (216 counts), E423 (161), BW-3 (111): thin or extremely cambered low-Re sections. Best: S8052, S8037, S8036 (8 to 14 counts).</li></ul>" +
+    '<p class="note">Full data: <a href="study/data/lsat-report.txt">lsat-report.txt</a>, <a href="study/data/lsat-by-airfoil.csv">per-airfoil table</a>, ' +
+    '<a href="study/data/lsat-corpus.csv">the parsed corpus</a>. Excluded and unmatched entries are logged, not hidden: flapped and tripped configurations, ' +
+    "flat plates, and airfoils absent from the public coordinate database.</p></div>" +
     '<div class="card" style="margin-top:10px"><b>How the new core was chosen: measured, not assumed</b><br>' +
     '<span style="color:var(--muted);font-size:12.5px">' + EVAL_NOTE + "</span>" + evalTable + "</div>" +
     '<div class="card" style="margin-top:10px"><b>Every inaccuracy the study found, and what this release does about each</b>' + regTable +

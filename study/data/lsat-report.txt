@@ -1,0 +1,63 @@
+============================================================================
+FULL-CORPUS VALIDATION: 10608 clean measured points, 148 airfoil entries, Re 38600 to 504000
+============================================================================
+
+CORE RETEST AT SCALE (drag counts; measurement's own spanwise half-spread median 10.0):
+  CD MAE: mean-of-8 41.8  vs xlarge 42.7   (+2.2% for mean-of-8)
+  CD median |err|: mean-of-8 16.2  vs xlarge 16.4
+  CL MAE: mean-of-8 0.0920  vs xlarge 0.0946
+  mean-of-8 better on 58% of points (CD)
+
+MEASURED ERROR MAP BY REYNOLDS (clean, drag counts, mean-of-8):
+         Re band      n   median      p90      MAE
+      0k-45    k     23    101.6    512.0    194.2
+     45k-75    k   1590     39.6    147.1     70.3
+     75k-150   k   2761     20.9     98.0     46.7
+    150k-250   k   3182     12.1     74.3     32.3
+    250k-350   k   2491      9.8     78.1     31.1
+    350k-600   k    561      9.4     99.1     31.7
+
+BY ANGLE OF ATTACK (drag counts, mean-of-8):
+  alpha -10.. -4: n   850  median   48.0  p90   215.8
+  alpha  -4.. +0: n  2383  median   14.3  p90    58.3
+  alpha  +0.. +4: n  2532  median    9.6  p90    50.6
+  alpha  +4.. +8: n  2568  median   12.2  p90    65.2
+  alpha  +8..+12: n  2026  median   34.7  p90   168.4
+  alpha +12..+18: n   249  median   86.0  p90   515.3
+
+BY THICKNESS (drag counts, mean-of-8):
+  t/c 0.00-0.07: n   371  median   45.0  p90   271.2
+  t/c 0.07-0.09: n  1787  median   19.4  p90   106.6
+  t/c 0.09-0.12: n  6514  median   15.5  p90    86.6
+  t/c 0.12-0.15: n  1433  median   15.9  p90   105.7
+  t/c 0.15-0.30: n   503  median   10.6  p90    48.5
+
+DOES 8-NET SPREAD RANK TRUE ERROR? (spread decile -> median true error, counts)
+  spread     1.0-    4.6: median true err    8.1  (n 1061)
+  spread     4.6-    6.0: median true err    9.0  (n 1061)
+  spread     6.0-    7.6: median true err    8.6  (n 1061)
+  spread     7.6-    9.3: median true err    9.4  (n 1061)
+  spread     9.3-   11.3: median true err   11.4  (n 1062)
+  spread    11.3-   14.5: median true err   15.5  (n 1061)
+  spread    14.5-   18.3: median true err   22.9  (n 1060)
+  spread    18.3-   25.3: median true err   24.7  (n 1061)
+  spread    25.3-   47.2: median true err   40.5  (n 1062)
+  spread    47.2-  608.4: median true err  108.5  (n 1062)
+
+CONFIDENCE vs TRUTH: conf>0.90 on 9498 points; of those, 3699 (38.9%) have measured error > 20 counts
+
+WORST AIRFOILS (CD MAE, counts):
+  vol1|GM15                            216.0  (n 85)
+  vol2|E423                            160.7  (n 46)
+  vol3|BW-3                            110.9  (n 88)
+  stec8|NACA 6409                       98.2  (n 74)
+  vol1|A18                              96.6  (n 47)
+  vol3|LRN1007 (B)                      89.3  (n 66)
+  vol3|A18                              86.5  (n 40)
+  vol1|MA409                            85.3  (n 47)
+BEST AIRFOILS:
+  vol3|S8052                             8.3  (n 86)
+  vol3|S8037                            10.1  (n 85)
+  vol3|S8036                            13.7  (n 92)
+  stec8|S3021B                          15.8  (n 43)
+  vol3|Trainer 60                       16.1  (n 83)

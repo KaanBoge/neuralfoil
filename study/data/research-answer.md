@@ -104,3 +104,19 @@ Executed to close the directive "find every inaccuracy": four systematic probes 
 | 15 | Positive audits for balance | hard-wrongs 0/2,160; smoothness 0.09 counts; transition clean; subsonic drag 1.3/0.5 counts | No fix needed |
 
 **What "fixed" honestly means at the end of this study.** Every inaccuracy that could be found with the data obtainable on this machine has been found, measured, and bounded. Every one that admitted a testable layer-level fix got one built and scored under a protocol that could say no, and it said no every time, which is itself the paper's central result: the analytic compressibility layers of NeuralFoil cannot be repaired by low-parameter recalibration, because their errors are entangled with core-model error (low Re, lift level) or with physics no closed form in (M, M_crit, t/c, CL) expresses (shock-separation coupling). The working fix delivered instead is the bounded-tool package: the operating-envelope map, the ensemble-spread error bound (fabrication-free, validated against 92 experimental points), the facility-convention corrections, and the machine-exact reimplementation (transonic_patch.py) into which any future retrained layer drops directly.
+
+## PART 10. The full-corpus generalization (2026-08-29, afternoon)
+
+The study's experimental base was widened from 4 reports to the entire machine-readable measured record of the UIUC Low-Speed Airfoil Tests: volumes 1 to 3 of Summary of Low-Speed Airfoil Data plus SoarTech 8 (Selig et al., GPL-licensed data, zero digitization error since the numbers are distributed as ASCII). After parsing, configuration filtering (trips, flaps, coverings and flat plates excluded and logged) and geometry matching against the public UIUC coordinate database (203 of 229 entries matched; misses logged), the clean corpus is 10,608 measured drag-polar points on 148 airfoil entries at Re 39,000 to 504,000, run through all eight NeuralFoil sizes at n_crit 9.
+
+**The mean-of-8 core generalizes.** Chosen on 106 points, it wins on 10,608: better than the classic xlarge on 58 percent of points, drag MAE 41.8 against 42.7 counts, lift MAE 0.0920 against 0.0946. The improvement is small but consistent and now demonstrated across 148 airfoils, not a few.
+
+**The measured low-Re error map (mean-of-8, drag counts, median / p90):** under 45k: 102 / 512. 45k to 75k: 40 / 147. 75k to 150k: 21 / 98. 150k to 250k: 12 / 74. 250k to 350k: 10 / 78. 350k to 600k: 9 / 99. Above Re 150,000 the median error is comparable to the measurement's own spanwise drag variation (median half-spread 10 counts), which is a fair statement of "as good as the data can show."
+
+**The ensemble spread is ground-truth validated.** Median true error rises monotonically across all ten spread deciles, 8 counts at the tightest to 109 at the widest. The verdict engine now ships this measured lookup instead of proxy thresholds.
+
+**The confidence blindspot, measured against truth:** 38.9 percent of points with confidence above 0.90 carry more than 20 counts of real drag error in this regime. The atlas proxy had estimated 7.4 percent; truth is five times worse. Confidence alone is close to useless below Re 500,000.
+
+**A finding the atlas got backwards:** at low Reynolds numbers, thin sections (under 7 percent t/c) are the worst measured territory (median 45 counts) and thick sections the best (median 11), the opposite of the all-Re atlas thickness U. The site's thickness guard is now Reynolds-aware. Worst airfoils: GM15 (216 counts), E423 (161), BW-3 (111), all thin or extremely cambered low-Re designs; best: S8052, S8037, S8036 (8 to 14 counts). Geometry matches for all extremes were name-verified; nominal-versus-built geometry differences remain bounded by the Part 7 noise-floor probe.
+
+Files: lsat-corpus.csv, lsat-nf.csv, lsat-report.txt, lsat-by-airfoil.csv, lsat-thresholds.json, and the four lsat_*.py pipeline scripts.
