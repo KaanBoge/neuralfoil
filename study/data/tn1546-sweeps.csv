@@ -1,0 +1,134 @@
+section,page,alpha_test,M,cd,u_cd,note
+16-009,21,-0.23,0.3,0.0046,0.0006,"band trio (-.23, 1.77, .005 gridline) merged within ~.0008 at this M; value anchored by continuity from M .4-.5 where members separate"
+16-009,21,-0.23,0.4,0.0044,0.0004,
+16-009,21,-0.23,0.5,0.0045,0.0004,
+16-009,21,-0.23,0.6,0.0045,0.0004,
+16-009,21,-0.23,0.65,0.0045,0.0004,
+16-009,21,-0.23,0.7,0.0045,0.0004,
+16-009,21,-0.23,0.725,0.0045,0.0004,
+16-009,21,-0.23,0.75,0.0045,0.0004,
+16-009,21,-0.23,0.775,0.0046,0.0005,
+16-009,21,-0.23,0.8,0.0049,0.0006,"onset of steep drag rise; curve reaches cd ~.0121 at its endpoint M~.84, near the choking arrow at M~.85 - near-choking"
+16-009,21,1.77,0.3,0.0052,0.0008,merged with .005 gridline and near -.23 in a ~.0008-wide band
+16-009,21,1.77,0.4,0.0052,0.0006,
+16-009,21,1.77,0.5,0.0052,0.0006,
+16-009,21,1.77,0.6,0.0052,0.0006,
+16-009,21,1.77,0.65,0.0051,0.0006,
+16-009,21,1.77,0.7,0.0051,0.0006,
+16-009,21,1.77,0.725,0.0051,0.0007,
+16-009,21,1.77,0.75,0.0051,0.0007,
+16-009,21,1.77,0.775,0.0052,0.001,last M at which the 1.77 trace is distinctly attributable; gridline zone thickens here
+16-109,23,-0.23,0.3,0.0051,0.0007,curve merged with the .005 gridline at this station; value from continuous-ink flank plus M 0.35-0.45 trend
+16-109,23,-0.23,0.4,0.0044,0.0004,
+16-109,23,-0.23,0.5,0.0041,0.0004,
+16-109,23,-0.23,0.6,0.004,0.0004,
+16-109,23,-0.23,0.65,0.0038,0.0004,
+16-109,23,-0.23,0.7,0.0037,0.0004,
+16-109,23,-0.23,0.725,0.0036,0.0004,
+16-109,23,-0.23,0.75,0.0038,0.0004,
+16-109,23,-0.23,0.775,0.0044,0.0005,
+16-109,23,-0.23,0.8,0.0066,0.0007,"on steep divergence; curve ends at M 0.823, cd ~0.0103 (near-choking)"
+16-109,23,1.77,0.3,0.0065,0.0008,1.77 dash merged with -2.23 dash in one wide ink run at this station; split via M 0.32-0.40 trend (dash-ambiguity flag)
+16-109,23,1.77,0.4,0.0059,0.0005,
+16-109,23,1.77,0.5,0.0054,0.0005,
+16-109,23,1.77,0.6,0.005,0.0005,"riding on the .005 gridline, partially obscured through M 0.60-0.72"
+16-109,23,1.77,0.65,0.0049,0.0005,
+16-109,23,1.77,0.7,0.0049,0.0005,
+16-109,23,1.77,0.725,0.0052,0.0005,
+16-109,23,1.77,0.75,0.0062,0.0007,interpolated across a dash gap at the knee (bracketing dashes at M 0.749 and 0.768)
+16-109,23,1.77,0.775,0.0091,0.0008,direct dash hit on the divergence
+16-109,23,1.77,0.8,0.0143,0.001,"steep divergence, interpolated between dashes at M 0.798 and 0.806; curve ends at M 0.827, cd ~0.0215 (near-choking)"
+16-209,26,-0.23,0.3,0.0056,0.0004,
+16-209,26,-0.23,0.4,0.0055,0.0005,strip-local skew; reads 0.0053-0.0058
+16-209,26,-0.23,0.5,0.0052,0.0004,
+16-209,26,-0.23,0.6,0.005,0.0004,
+16-209,26,-0.23,0.65,0.0049,0.0004,
+16-209,26,-0.23,0.7,0.0046,0.0006,two zoom reads gave .0042/.0047; 1.77 crosses nearby
+16-209,26,-0.23,0.725,0.0051,0.0008,on rising limb; 1.77 may overlap from here up - flagged
+16-209,26,-0.23,0.75,0.0065,0.0008,merged-tail region shared with 1.77 - flagged
+16-209,26,1.77,0.3,0.0061,0.0005,-2.23 lurks ~.0005 higher in the same bundle; even-dash cadence and continuity support this assignment
+16-209,26,1.77,0.4,0.0059,0.0005,
+16-209,26,1.77,0.5,0.0056,0.0004,
+16-209,26,1.77,0.6,0.0055,0.0004,
+16-209,26,1.77,0.65,0.0054,0.0004,
+16-209,26,1.77,0.7,0.004,0.001,"FLAG dash-ambiguity: dip trace crossing under the solid reads .0037-.0042; if the dip instead belongs to -.23, this value is ~.0050 and the two columns swap here"
+16-209,26,1.77,0.725,0.004,0.0015,FLAG: bottom of dip near upturn; alternative reading .0052 on the merged rising limb
+16-209,26,1.77,0.75,0.0065,0.0012,FLAG: indistinguishable from -.23 in the merged thick tail
+16-306,28,-0.23,0.3,0.0049,0.0004,curve merged with 0.005 gridline here; center separated from grid ink
+16-306,28,-0.23,0.4,0.0046,0.0003,
+16-306,28,-0.23,0.5,0.0043,0.0003,
+16-306,28,-0.23,0.6,0.0041,0.0003,
+16-306,28,-0.23,0.65,0.0041,0.0003,
+16-306,28,-0.23,0.7,0.0042,0.0003,
+16-306,28,-0.23,0.725,0.0044,0.0004,
+16-306,28,-0.23,0.75,0.0049,0.0004,riding the 0.005 gridline
+16-306,28,-0.23,0.775,0.006,0.0005,drag rise underway; crosses -2.23's still-flat track near here
+16-306,28,-0.23,0.8,0.0097,0.0015,"steep wall (0.0082@0.797, 0.0124@0.81 measured); near-choking region begins"
+16-306,28,1.77,0.3,0.0065,0.0006,1.77 and -2.23 superposed within one line width at this and all stations through M 0.65
+16-306,28,1.77,0.4,0.007,0.0006,
+16-306,28,1.77,0.5,0.0072,0.0006,
+16-306,28,1.77,0.6,0.0071,0.0006,
+16-306,28,1.77,0.65,0.0068,0.0007,
+16-306,28,1.77,0.7,0.0063,0.0008,pair just splitting; upper sub-line taken as 1.77 (-2.23 at 0.0060)
+16-306,28,1.77,0.725,0.0056,0.0009,entangled with -2.23 and the 0.005 gridline
+16-306,28,1.77,0.75,0.006,0.0012,knee of drag rise; -2.23's still-flat line at 0.0055 nearby - identity flag
+16-309,29,-0.23,0.3,0.0053,0.0003,
+16-309,29,-0.23,0.4,0.0052,0.0003,
+16-309,29,-0.23,0.5,0.0053,0.0003,
+16-309,29,-0.23,0.6,0.0049,0.0004,curve overlaps cd=0.005 gridline; u widened
+16-309,29,-0.23,0.65,0.0048,0.0004,curve overlaps cd=0.005 gridline; u widened
+16-309,29,-0.23,0.7,0.0046,0.0004,
+16-309,29,-0.23,0.725,0.0047,0.0005,drag-rise onset ~M 0.72
+16-309,29,-0.23,0.75,0.0056,0.0006,
+16-309,29,-0.23,0.775,0.0081,0.0008,steep drag rise
+16-309,29,-0.23,0.8,0.0127,0.001,near-choking: choking arrow at M~0.84 on zero-lift axis; this curve's cl has collapsed to near zero here; curve ends M~0.835 at cd~0.028
+16-309,29,1.77,0.3,0.0056,0.0003,
+16-309,29,1.77,0.4,0.0059,0.0004,faired line wobbles ~0.0002 through the low-M range
+16-309,29,1.77,0.5,0.0057,0.0004,
+16-309,29,1.77,0.6,0.0053,0.0004,curve near cd=0.005 gridline; u widened
+16-309,29,1.77,0.65,0.0052,0.0004,
+16-309,29,1.77,0.7,0.0048,0.0004,
+16-309,29,1.77,0.725,0.0058,0.0006,"drag-rise onset ~M 0.71, earlier than -0.23"
+16-309,29,1.77,0.75,0.009,0.0008,
+16-309,29,1.77,0.775,0.0119,0.0012,"on steep final rise; curve ends at M~0.79 (cd~0.020), ~0.05 below the marked zero-lift choking arrow"
+16-312,30,-0.23,0.3,0.0071,0.0004,
+16-312,30,-0.23,0.4,0.0065,0.0004,
+16-312,30,-0.23,0.5,0.0061,0.0004,
+16-312,30,-0.23,0.6,0.0058,0.0004,
+16-312,30,-0.23,0.65,0.0059,0.0004,
+16-312,30,-0.23,0.7,0.0065,0.0005,drag rise just beginning
+16-312,30,-0.23,0.725,0.0095,0.0008,steep rise; -2.23 runs within ~0.001-0.002 here (solid vs dash still separable)
+16-312,30,1.77,0.3,0.0078,0.0006,bundle: -2.23 only ~0.0005 left with similar-looking dashes; u widened
+16-312,30,1.77,0.4,0.0078,0.0006,same bundle ambiguity as M 0.30
+16-312,30,1.77,0.5,0.0079,0.0006,same bundle ambiguity; -2.23 at 0.0083
+16-312,30,1.77,0.6,0.0072,0.0005,shallow dip below low-M level; -2.23 now clearly separated at 0.0089
+16-312,30,1.77,0.65,0.0076,0.0006,
+16-312,30,1.77,0.7,0.0152,0.0015,steep drag divergence; M-register error dominates u
+16-315,31,-0.23,0.3,0.0081,0.0006,right member of merged low-M cluster; 1.77/3.77 band immediately left
+16-315,31,-0.23,0.4,0.0078,0.0003,
+16-315,31,-0.23,0.5,0.0073,0.0003,
+16-315,31,-0.23,0.6,0.0074,0.0003,
+16-315,31,-0.23,0.65,0.0077,0.0003,
+16-315,31,-0.23,0.7,0.0082,0.0004,drag rise begun (~0.0086 at M=0.71)
+16-315,31,-0.23,0.725,0.0131,0.0012,steep drag-rise limb; interpolated between M=0.724 and 0.726 crossings
+16-315,31,1.77,0.3,0.0084,0.0007,"merged pair with 3.77 at the axis; value is band center, flagged overlap"
+16-315,31,1.77,0.4,0.0082,0.0004,
+16-315,31,1.77,0.5,0.0081,0.0004,
+16-315,31,1.77,0.6,0.0085,0.0004,
+16-315,31,1.77,0.65,0.0089,0.0004,
+16-315,31,1.77,0.7,0.0109,0.0006,drag rise well begun
+16-509,35,-0.23,0.3,0.0058,0.0005,
+16-509,35,-0.23,0.4,0.0056,0.0005,
+16-509,35,-0.23,0.5,0.0055,0.0005,
+16-509,35,-0.23,0.6,0.0055,0.0005,
+16-509,35,-0.23,0.65,0.0057,0.0005,
+16-509,35,-0.23,0.7,0.0058,0.0006,
+16-509,35,-0.23,0.725,0.0072,0.0008,"drag-rise knee onset; slight (~.0004) tension between two crops, midpoint used"
+16-509,35,-0.23,0.75,0.0124,0.0012,very steep (knee); slope ~0.35 cd per unit M
+16-509,35,-0.23,0.775,0.0214,0.0014,"near-choking; steep rise, ~.015 M below endpoint"
+16-509,35,1.77,0.3,0.0067,0.0005,
+16-509,35,1.77,0.4,0.0062,0.0005,
+16-509,35,1.77,0.5,0.0061,0.0005,
+16-509,35,1.77,0.6,0.0058,0.0005,
+16-509,35,1.77,0.65,0.005,0.0007,curve rides exactly on the cd=.005 gridline over M .625-.66; partially obscured
+16-509,35,1.77,0.7,0.0093,0.001,steep; interpolated between dashes at .697 (.0084) and .704 (.0101)

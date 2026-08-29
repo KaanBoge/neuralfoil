@@ -1,6 +1,6 @@
 # CL(M) read from WR L-143 Fig 33 first sheet (scan p.80), NACA 2309, Guidonia, Re ~0.38e6.
 # Read 2026-08-23 against printed axis labels (CL 0.1 per label / 0.05 per gridline; M 0.1 per label / 0.05 per gridline).
-# u_CL: 0.010 for M <= 0.85 (plateau and peak), 0.02-0.03 in the lift-break dive (M > 0.85).
+# u_CL: 0.010 for M <= 0.80, 0.012-0.015 at M 0.82, 0.020-0.030 from M 0.85 through the lift-break dive.
 # Curve identities from the alpha label column on the figure: -1 = diamond, 0 = up-triangle, 1 = down-triangle, 2 = right-flag.
 alpha,M,CL,u_CL
 -1,0.40,0.095,0.010

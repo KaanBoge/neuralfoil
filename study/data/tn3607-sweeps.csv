@@ -1,0 +1,243 @@
+section,page,alpha_test,M,cd,u_cd,note
+64A004,37,0,0.3,0.005,0.0002,
+64A004,37,0,0.4,0.0047,0.0002,
+64A004,37,0,0.5,0.0047,0.0002,
+64A004,37,0,0.6,0.0044,0.0002,
+64A004,37,0,0.65,0.0043,0.0002,
+64A004,37,0,0.7,0.0042,0.0002,
+64A004,37,0,0.725,0.0041,0.0002,
+64A004,37,0,0.75,0.0041,0.0002,
+64A004,37,0,0.775,0.0041,0.0002,
+64A004,37,0,0.8,0.0041,0.0002,
+64A004,37,0,0.825,0.0041,0.0002,
+64A004,37,0,0.85,0.004,0.0002,
+64A004,37,0,0.875,0.004,0.0002,broad minimum ~M 0.85-0.88; rise begins ~M 0.89
+64A004,37,0,0.9,0.0049,0.0004,knee of drag rise; line read as slash through two overlapping circle symbols
+64A004,37,0,0.925,0.0079,0.0006,steep; u_M 0.005 folded into u_cd
+64A004,37,0,0.95,0.012,0.0008,line crosses the 0.01 gridline inside a large circle symbol near M 0.94; extra uncertainty
+64A004,37,0,0.975,0.0167,0.0008,steep; u_M 0.005 folded into u_cd
+64A004,37,0,1,0.0212,0.0009,"line merges with right frame; drawn curve continues beyond frame to last circle at M~1.03, cd~0.0256"
+64A004,37,2,0.3,0.0073,0.0002,
+64A004,37,2,0.4,0.0072,0.0002,
+64A004,37,2,0.5,0.0071,0.0002,
+64A004,37,2,0.6,0.007,0.0002,
+64A004,37,2,0.65,0.0069,0.0002,
+64A004,37,2,0.7,0.0068,0.0002,
+64A004,37,2,0.725,0.0068,0.0002,
+64A004,37,2,0.75,0.0068,0.0002,square symbols crowd the dashed line M 0.70-0.78
+64A004,37,2,0.775,0.0068,0.0002,
+64A004,37,2,0.8,0.0068,0.0002,
+64A004,37,2,0.825,0.0068,0.0003,heavy circle/square overlap M 0.80-0.88
+64A004,37,2,0.85,0.0069,0.0003,
+64A004,37,2,0.875,0.0069,0.0003,rise begins just above this station (~M 0.88)
+64A004,37,2,0.9,0.0098,0.001,steep knee read between dashes bracketing the station; u_M 0.005 dominates
+64A004,37,2,0.925,0.0174,0.0012,near-vertical segment (~0.003 cd per 0.005 M); u_M 0.005 dominates
+64A004,37,2,0.95,0.024,0.001,"interpolated between dash end and square at (0.959, 0.0264); u_M 0.005 folded in"
+64A004,37,2,0.975,0.03,0.0009,"last full station; drawn dashed curve ends at last square M~0.986, cd~0.0327 - no value at M 1.00"
+64A006,40,0,0.3,0.0053,0.0003,"anchor point; solid line just below dashed alpha-2, separated by style"
+64A006,40,0,0.4,0.005,0.0003,
+64A006,40,0,0.5,0.0048,0.0003,
+64A006,40,0,0.6,0.0046,0.0003,anchor point
+64A006,40,0,0.65,0.0044,0.0003,
+64A006,40,0,0.7,0.0043,0.0003,
+64A006,40,0,0.725,0.0043,0.0003,
+64A006,40,0,0.75,0.0043,0.0003,
+64A006,40,0,0.775,0.0043,0.0003,
+64A006,40,0,0.8,0.0043,0.0003,
+64A006,40,0,0.825,0.0042,0.0003,shallow minimum of the faired curve
+64A006,40,0,0.85,0.0044,0.0004,circle/square symbols crowd the line
+64A006,40,0,0.875,0.0049,0.0004,knee of the drag rise
+64A006,40,0,0.9,0.0075,0.0006,circle test point centered on this station; u_M 0.005
+64A006,40,0,0.925,0.013,0.0008,steep rise; u_M 0.005
+64A006,40,0,0.95,0.025,0.0012,steep rise; u_M 0.005
+64A006,40,0,0.975,0.0355,0.0008,slope easing toward curve end; u_M 0.005
+64A006,40,2,0.3,0.0065,0.0004,dashed line only ~12 counts above alpha 0; separated by line style
+64A006,40,2,0.4,0.0064,0.0004,
+64A006,40,2,0.5,0.0062,0.0004,dash weak in probe; square/circle symbols overlap nearby
+64A006,40,2,0.6,0.0061,0.0004,
+64A006,40,2,0.65,0.0061,0.0004,"dash gap at station; read from dash 0.005 M to the left, curve flat"
+64A006,40,2,0.7,0.006,0.0004,
+64A006,40,2,0.725,0.0059,0.0004,
+64A006,40,2,0.75,0.0059,0.0004,shallow minimum of the faired dashed curve
+64A006,40,2,0.775,0.006,0.0004,
+64A006,40,2,0.8,0.0062,0.0004,
+64A006,40,2,0.825,0.0065,0.0005,overlapping square pair at station
+64A006,40,2,0.85,0.0074,0.0006,knee; read from clean dash left of flagged square symbol
+64A006,40,2,0.875,0.01,0.0008,faired dashed line merges with the 0.01 gridline here; value from symbol-to-symbol fairing
+64A006,40,2,0.9,0.0156,0.0008,through overlapping square pair centered M~0.906; flag tick on symbols excluded; u_M 0.005
+64A006,40,2,0.925,0.0232,0.0012,sparse dashes between symbols; u_M 0.005
+64A006,40,2,0.95,0.0348,0.001,clean dash segments; u_M 0.005
+64A006,40,2,0.975,0.0492,0.0015,steepest read on this curve; u_M 0.005
+64A009,38,0,0.3,0.0066,0.0003,solid line at left frame; anchor 0.0067 matched within 0.0001
+64A009,38,0,0.4,0.0063,0.0003,
+64A009,38,0,0.5,0.0059,0.0003,
+64A009,38,0,0.6,0.0056,0.0003,anchor 0.0056 matched exactly
+64A009,38,0,0.65,0.0055,0.0003,
+64A009,38,0,0.7,0.0054,0.0003,shallow minimum ~0.0054 over M 0.70-0.75
+64A009,38,0,0.725,0.0055,0.0003,
+64A009,38,0,0.75,0.0055,0.0003,
+64A009,38,0,0.775,0.0055,0.0003,
+64A009,38,0,0.8,0.0055,0.0003,
+64A009,38,0,0.825,0.0054,0.0004,still flat; drag-divergence break at M~0.84
+64A009,38,0,0.85,0.0078,0.0006,steep rise begun (near-vertical segment at M~0.842); u_M 0.005
+64A009,38,0,0.875,0.0146,0.0015,steep; square/circle symbols crowd the pair here; u_M 0.005
+64A009,38,0,0.9,0.0252,0.0025,steep; read where solid line crosses M 0.90 gridline; u_M 0.005
+64A009,38,0,0.925,0.0367,0.0025,steep; u_M 0.005
+64A009,38,0,0.95,0.0486,0.0025,steep; crosses cd 0.05 at M~0.952; u_M 0.005
+64A009,38,0,0.975,0.0605,0.0025,steep; u_M 0.005
+64A009,38,0,1,0.0728,0.0015,curve ends at right frame; final circle test point (M~0.998) overlaps the final square; alpha 0/alpha 2 nearly merged
+64A009,38,2,0.3,0.0076,0.0004,dashed line just above alpha 0
+64A009,38,2,0.4,0.0073,0.0004,
+64A009,38,2,0.5,0.0069,0.0004,
+64A009,38,2,0.6,0.0065,0.0004,
+64A009,38,2,0.65,0.0064,0.0004,
+64A009,38,2,0.7,0.0063,0.0004,shallow minimum ~0.0063 near M 0.70
+64A009,38,2,0.725,0.0064,0.0004,
+64A009,38,2,0.75,0.0064,0.0004,
+64A009,38,2,0.775,0.0064,0.0004,
+64A009,38,2,0.8,0.0065,0.0004,rise beginning; breaks ~0.02 M earlier than alpha 0
+64A009,38,2,0.825,0.0071,0.0005,
+64A009,38,2,0.85,0.0104,0.0008,steep rise; u_M 0.005
+64A009,38,2,0.875,0.0192,0.0015,steep; symbols crowd; alpha 4 dash-dot line and diamonds pass nearby; u_M 0.005
+64A009,38,2,0.9,0.029,0.0025,steep; dashed line crosses M 0.90 gridline near cd 0.029; u_M 0.005
+64A009,38,2,0.925,0.0415,0.0025,"steep; square test point at (0.932, 0.0444); u_M 0.005"
+64A009,38,2,0.95,0.0528,0.0025,steep; crosses cd 0.05 at M~0.943; u_M 0.005
+64A009,38,2,0.975,0.0632,0.003,steep; dashed runs ~0.004 above alpha 0; u_M 0.005
+64A009,38,2,1,0.0736,0.0015,curve ends at right frame; final square (M~0.998) overlaps final circle; alpha 2/alpha 0 nearly merged
+64A012,39,0,0.3,0.0046,0.0003,"anchor; leftmost test points sit at M~0.28, left of frame"
+64A012,39,0,0.4,0.0047,0.0003,
+64A012,39,0,0.5,0.0044,0.0003,shallow minimum of the flat region
+64A012,39,0,0.6,0.0049,0.0003,anchor
+64A012,39,0,0.65,0.0053,0.0003,"slight local maximum, printed in the fairing"
+64A012,39,0,0.7,0.0051,0.0003,
+64A012,39,0,0.725,0.0051,0.0003,
+64A012,39,0,0.75,0.0054,0.0003,
+64A012,39,0,0.775,0.0066,0.0004,knee beginning
+64A012,39,0,0.8,0.0087,0.0006,
+64A012,39,0,0.825,0.0128,0.0015,steep rise; u_M 0.005 applies from here up
+64A012,39,0,0.85,0.0278,0.0025,slope ~0.6 cd/M; u_M 0.005 dominates u_cd
+64A012,39,0,0.875,0.0425,0.003,
+64A012,39,0,0.9,0.0562,0.003,crosses the scanned M=0.90 gridline near cd 0.0575; read with gridline masked
+64A012,39,0,0.925,0.0712,0.003,bundle crowding with alpha2/alpha4 begins in earnest
+64A012,39,0,0.95,0.0852,0.003,crowded bundle; alpha2 only ~0.0026 above
+64A012,39,0,0.975,0.0997,0.003,curve flattening; crowded
+64A012,39,0,1,0.1098,0.0035,at right frame; overlaps 0.11 gridline and final symbol knot
+64A012,39,2,0.3,0.0085,0.0005,"leftmost test points at M~0.28, left of frame"
+64A012,39,2,0.4,0.0077,0.0005,
+64A012,39,2,0.5,0.0064,0.0004,
+64A012,39,2,0.6,0.0063,0.0005,
+64A012,39,2,0.65,0.0062,0.0004,flat minimum
+64A012,39,2,0.7,0.0065,0.0004,
+64A012,39,2,0.725,0.0066,0.0005,alpha2/alpha4/alpha0 within 0.003 cd here; dashed line read between symbol knots
+64A012,39,2,0.75,0.0068,0.0004,
+64A012,39,2,0.775,0.0085,0.0006,
+64A012,39,2,0.8,0.0118,0.0015,sharpest knee curvature 0.795-0.815; u widened
+64A012,39,2,0.825,0.0215,0.0022,steep rise; u_M 0.005 applies from here up
+64A012,39,2,0.85,0.0345,0.0028,
+64A012,39,2,0.875,0.048,0.0032,dash gaps plus symbol knots; value partly from parallel-offset to tracked alpha0
+64A012,39,2,0.9,0.0612,0.0033,
+64A012,39,2,0.925,0.0739,0.0028,direct dash cluster at 0.0737 confirms
+64A012,39,2,0.95,0.0878,0.0033,dash gap at station; interpolated between confirmed dashes
+64A012,39,2,0.975,0.1018,0.0033,"squares at (0.964,0.0974) anchor the line"
+64A012,39,2,1,0.1115,0.0038,"at right frame, ~0.0017 above alpha0; final square/diamond knot overlaps"
+64A206,41,-2,0.3,0.0084,0.0005,
+64A206,41,-2,0.4,0.008,0.0005,
+64A206,41,-2,0.5,0.0078,0.0005,
+64A206,41,-2,0.6,0.0076,0.0005,
+64A206,41,-2,0.65,0.0076,0.0005,
+64A206,41,-2,0.7,0.0078,0.0006,
+64A206,41,-2,0.725,0.008,0.0006,
+64A206,41,-2,0.75,0.0084,0.0006,
+64A206,41,-2,0.775,0.0086,0.0006,
+64A206,41,-2,0.8,0.009,0.0007,rise onset; earliest of the three curves
+64A206,41,-2,0.825,0.0104,0.001,crowded with 4-deg diamond fair
+64A206,41,-2,0.85,0.014,0.0015,entangled with diamond fair; dash-gap sampling
+64A206,41,-2,0.875,0.0175,0.0015,
+64A206,41,-2,0.9,0.0215,0.0012,
+64A206,41,-2,0.925,0.028,0.0025,interpolated across dash gaps between 0.0225 at M 0.907 and 0.0419 at M 0.969
+64A206,41,-2,0.95,0.037,0.0025,crosses 2-deg curve near here; features unseparable at 0.036-0.038
+64A206,41,-2,0.975,0.0476,0.0012,
+64A206,41,-2,1,0.0563,0.0015,"fair continues slightly past frame; last test point at M~1.005, cd~0.0573"
+64A206,41,0,0.3,0.006,0.0005,
+64A206,41,0,0.4,0.0056,0.0005,
+64A206,41,0,0.5,0.0051,0.0006,crosses the 2-deg dashed fair near M 0.45-0.50; curves within 0.0005
+64A206,41,0,0.6,0.0049,0.0005,
+64A206,41,0,0.65,0.0049,0.0005,
+64A206,41,0,0.7,0.005,0.0005,
+64A206,41,0,0.725,0.005,0.0005,
+64A206,41,0,0.75,0.005,0.0005,
+64A206,41,0,0.775,0.0051,0.0005,
+64A206,41,0,0.8,0.0052,0.0006,
+64A206,41,0,0.825,0.005,0.0006,
+64A206,41,0,0.85,0.006,0.0008,latest rise onset of the three (Mdd ~0.86)
+64A206,41,0,0.875,0.0095,0.001,
+64A206,41,0,0.9,0.0143,0.0008,
+64A206,41,0,0.925,0.02,0.0012,
+64A206,41,0,0.95,0.032,0.0015,very steep; circles at 0.0235/M0.933 and 0.0330/M0.951 bracket
+64A206,41,0,0.975,0.0398,0.0012,"curve terminates just beyond, at M~0.98, cd~0.0415 (last point a flagged circle); no data to M 1.00"
+64A206,41,2,0.3,0.0052,0.0005,
+64A206,41,2,0.4,0.0054,0.0005,
+64A206,41,2,0.5,0.0052,0.0006,merged with 0-deg solid fair near crossing
+64A206,41,2,0.6,0.0056,0.0005,
+64A206,41,2,0.65,0.0058,0.0006,
+64A206,41,2,0.7,0.0057,0.0006,
+64A206,41,2,0.725,0.0057,0.0006,
+64A206,41,2,0.75,0.0058,0.0006,
+64A206,41,2,0.775,0.0061,0.0007,
+64A206,41,2,0.8,0.0063,0.0007,
+64A206,41,2,0.825,0.0068,0.0008,rise onset ~0.835
+64A206,41,2,0.85,0.0128,0.0015,very steep onset; square at 0.0125/M0.848
+64A206,41,2,0.875,0.02,0.002,crowded with -2 and 4-deg fairs in 0.86-0.89
+64A206,41,2,0.9,0.0262,0.0015,
+64A206,41,2,0.925,0.0318,0.0018,
+64A206,41,2,0.95,0.0375,0.0012,
+64A206,41,2,0.975,0.0452,0.0012,"curve terminates here: double-square last points at M 0.969-0.975, fair ends ~M 0.976, cd ~0.0455; no data to M 1.00"
+64A506,42,0,0.3,0.0092,0.0008,cluster: 0-deg and 4-deg within 0.0005; lowest-M symbols sit at M~0.28 left of frame
+64A506,42,0,0.4,0.0077,0.0008,
+64A506,42,0,0.5,0.0074,0.0008,
+64A506,42,0,0.6,0.008,0.0008,
+64A506,42,0,0.65,0.0084,0.0008,
+64A506,42,0,0.7,0.0089,0.0008,
+64A506,42,0,0.725,0.0091,0.0008,
+64A506,42,0,0.75,0.0093,0.0008,
+64A506,42,0,0.775,0.0093,0.001,
+64A506,42,0,0.8,0.0125,0.0015,knee begins ~M 0.79; u_M 0.005
+64A506,42,0,0.825,0.0155,0.0018,u_M 0.005
+64A506,42,0,0.85,0.0285,0.003,steepest segment M 0.84-0.855 (0.017 to 0.040); u_M 0.005
+64A506,42,0,0.875,0.047,0.003,u_M 0.005
+64A506,42,0,0.9,0.0555,0.0025,0 and 2 deg within ~0.002 from M 0.875-0.95
+64A506,42,0,0.925,0.0685,0.003,
+64A506,42,0,0.95,0.0855,0.0035,last test point M~0.956 (cd~0.088); faired curve ends there - no drawn curve at 0.975 or 1.00
+64A506,42,2,0.3,0.0063,0.0008,lowest of the three curves; 0/2/4 cluster crowding below M 0.725
+64A506,42,2,0.4,0.006,0.0008,
+64A506,42,2,0.5,0.0063,0.0008,
+64A506,42,2,0.6,0.0066,0.0008,
+64A506,42,2,0.65,0.0071,0.0008,
+64A506,42,2,0.7,0.0077,0.0008,
+64A506,42,2,0.725,0.008,0.001,
+64A506,42,2,0.75,0.0093,0.0012,rise begins ~M 0.745
+64A506,42,2,0.775,0.0172,0.0018,steep; u_M 0.005
+64A506,42,2,0.8,0.025,0.0025,steep S-segment approaching 4-deg plateau; u_M 0.005
+64A506,42,2,0.825,0.0293,0.0018,CROSSING: 2-deg and 4-deg essentially coincident (~0.029) at M 0.81-0.83
+64A506,42,2,0.85,0.044,0.003,second steep segment; u_M 0.005
+64A506,42,2,0.875,0.051,0.0025,
+64A506,42,2,0.9,0.056,0.0025,0 and 2 deg within ~0.002 from M 0.875-0.95
+64A506,42,2,0.925,0.066,0.0035,
+64A506,42,2,0.95,0.083,0.0035,
+64A506,42,2,0.975,0.099,0.005,value at drawn end: faired curve terminates ~M 0.97 (last test point cd~0.098); u_M 0.005; no drawn curve at M 1.00
+64A506,42,4,0.3,0.0089,0.0008,cluster: overlaps 0-deg circle at the frame; lowest-M symbols at M~0.28
+64A506,42,4,0.4,0.0069,0.0008,
+64A506,42,4,0.5,0.0069,0.0008,
+64A506,42,4,0.6,0.0074,0.0008,
+64A506,42,4,0.65,0.008,0.0008,
+64A506,42,4,0.7,0.0088,0.0008,
+64A506,42,4,0.725,0.0094,0.001,
+64A506,42,4,0.75,0.0122,0.002,first steep rise M 0.745-0.77 (0.009 to 0.028); u_M 0.005
+64A506,42,4,0.775,0.0278,0.0015,top of first rise; plateau begins
+64A506,42,4,0.8,0.0279,0.0012,"plateau ~0.028 spanning M 0.77-0.82, anchored by three diamond test points (confirmed in three independent renders)"
+64A506,42,4,0.825,0.029,0.0015,"plateau end; CROSSING: 2-deg curve crosses here, curves coincident"
+64A506,42,4,0.85,0.0575,0.0035,second steep rise M 0.825-0.85 (0.029 to 0.057); u_M 0.005
+64A506,42,4,0.875,0.0645,0.0025,
+64A506,42,4,0.9,0.07,0.0025,
+64A506,42,4,0.925,0.08,0.003,
+64A506,42,4,0.95,0.097,0.0035,"last clearly attributable test point M~0.956 (cd~0.100); beyond, the dash-dot line tangles with the -4/-2 curve ends - no drawn curve at 0.975 or 1.00"

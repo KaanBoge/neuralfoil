@@ -1,0 +1,22 @@
+# TN 3607 sanity-gate anchors: measured cd at alpha_test = 0, read from the Figure 10 drag panels.
+# Faired-curve reads: no test point falls on a round Mach number, so each value is the faired curve
+# at that Mach, with the bracketing test points recorded in tn3607-convention-table.md.
+# Re is the derived isentropic tunnel curve (see convention table), not read from the report.
+# Extracted 2026-08-25. NOT YET double-read: these are single-reader values pending QC.
+report,figure,airfoil,page,tc_percent,mach,Re,alpha_test,cd,u_cd,NF_ncrit6,gap_counts,extraction_tier,notes
+TN-3607,10a,64A004,37,4,0.30,0.68e6,0,0.0050,0.0003,0.00410,+9.0,B,faired-curve read at left frame; lowest plotted symbol sits outside frame at M~0.28
+TN-3607,10a,64A004,37,4,0.40,0.88e6,0,0.0047,0.0003,0.00370,+10.0,A,clean no overlap
+TN-3607,10a,64A004,37,4,0.50,1.06e6,0,0.0046,0.0003,0.00349,+11.1,B,alpha=2 squares dip toward the alpha=0 line here
+TN-3607,10a,64A004,37,4,0.60,1.22e6,0,0.0044,0.0003,0.00340,+10.0,B,squares and circles crowd
+TN-3607,10d,64A006,40,6,0.30,0.68e6,0,0.0053,0.0004,0.00439,+9.1,B,alpha=2 line only ~13 counts above
+TN-3607,10d,64A006,40,6,0.40,0.88e6,0,0.0050,0.0004,0.00416,+8.4,B,symbol cluster just left of the gridline
+TN-3607,10d,64A006,40,6,0.50,1.06e6,0,0.0048,0.0004,0.00406,+7.4,B,circles and squares overlap at most points on this panel
+TN-3607,10d,64A006,40,6,0.60,1.22e6,0,0.0046,0.0004,0.00401,+5.9,B,
+TN-3607,10b,64A009,38,9,0.30,0.68e6,0,0.0067,0.0004,0.00557,+11.3,A,well separated from alpha=2 and alpha=4 here
+TN-3607,10b,64A009,38,9,0.40,0.88e6,0,0.0063,0.0004,0.00521,+10.9,B,dense symbol cluster nearby
+TN-3607,10b,64A009,38,9,0.50,1.06e6,0,0.0059,0.0004,0.00499,+9.1,B,circle/square overlap immediately left of the gridline
+TN-3607,10b,64A009,38,9,0.60,1.22e6,0,0.0056,0.0005,0.00483,+7.7,B,clean columns sparse either side of the gridline
+TN-3607,10c,64A012,39,12,0.30,0.68e6,0,0.0046,0.0005,0.00627,-16.7,C,ANOMALOUS SECTION: reads below the 9 and 6 percent sections; frame and numerals crowd this column band
+TN-3607,10c,64A012,39,12,0.40,0.88e6,0,0.0045,0.0004,0.00583,-13.3,C,ANOMALOUS SECTION
+TN-3607,10c,64A012,39,12,0.50,1.06e6,0,0.0044,0.0005,0.00557,-11.7,C,ANOMALOUS SECTION; square/circle cluster left of gridline
+TN-3607,10c,64A012,39,12,0.60,1.22e6,0,0.0049,0.0006,0.00540,-5.0,C,ANOMALOUS SECTION; drag RISES against the Reynolds trend; four-symbol cluster astride the gridline

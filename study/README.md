@@ -18,3 +18,14 @@ Harris NASA TM-81927 (19810014503), Ferri NACA WR L-143 / ACR L5E21 (19930092764
 ## License
 
 Data (`data/*.csv`): CC-BY 4.0. Code (`tools/`): MIT. Documents: all rights reserved by the author (Kaan Boge) pending journal submission.
+
+## Final status (2026-08-29)
+
+The study is complete. The definitive answer document, including the honest negative
+Phase B result, the Phase C conformal verdict, the final probe sweep and the complete
+15-entry inaccuracy registry, is `data/research-answer.md`. The one-shot holdout was
+spent on 2026-08-28 and its outputs (`data/holdout-scores.json`) are frozen. The site
+now ships the study's product as the New NeuralFoil tab: the same eight networks with
+the measured trust map, disagreement bands, and verdicts around them. `data/ensemble-eval.json`
+and `data/ensemble-eval-tight.json` record how the new mean-of-8 core was selected on
+measured data. Nothing from the earlier study materials was removed.

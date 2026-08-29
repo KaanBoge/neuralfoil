@@ -124,9 +124,13 @@
   <div id="afPrevTxt" style="font-size:11.5px;color:var(--muted);max-width:220px;margin-top:4px"></div>
 </div>
 <div class="wrap">
-  <p class="eyebrow">Research companion for the NeuralFoil validation study</p>
+  <p class="eyebrow">Home of the new NeuralFoil, built from the completed validation study</p>
   <h1>NeuralFoil Studio</h1>
-  <p class="sub">A simulation workbench with NeuralFoil itself inside: the actual 0.3.3 network runs live in this page,
+  <p class="sub">This site now ships <b>NeuralFoil B, the new NeuralFoil</b>: the same eight shipped networks wrapped in the
+    study's measured trust map, so every force and moment coefficient arrives with its 8-network disagreement band and a plain-language verdict
+    on whether to trust it. The New NeuralFoil tab is the tool; New vs Classic shows exactly what changed, what honestly
+    could not be fixed, and the measurements behind both. Everything below it is the full Studio, unchanged:
+    a simulation workbench with NeuralFoil itself inside: the actual 0.3.3 network runs live in this page,
     so every one of the 1,655 UIUC airfoils gets full polars, pressure distributions, transition, confidence, and a
     data-matched viscous flow field; recalibrate the transonic wave-drag layer with the study's three pre-registered
     parameters; verify everything on the Checks tab; and export publication-ready figures and movies.</p>
@@ -134,7 +138,10 @@
 
   <details style="margin:0 0 14px;color:var(--muted);font-size:13.5px;max-width:92ch">
     <summary style="cursor:pointer;font-weight:600;color:var(--ink)">Sixty-second tour</summary>
-    <p style="margin:8px 0 0"><b>Flow</b> shows air moving over the airfoil: in viscous mode a field matched to the run's surface velocities with a computed boundary layer, separation marks, and a wake carrying the run's drag; the search bar up top swaps in any of 1,655 real airfoils, and each one gets a full NeuralFoil run computed live by the actual network, ported into this page and verified on the Checks tab. <b>3D view</b> extrudes the same solution into an orbitable wing. <b>Polars</b> holds the six performance charts. <b>Pressure &amp; transition</b> shows the pressure distribution and where the boundary layer trips. <b>Transonic lab</b> is the study's recalibration playground with its three pre-registered parameters. <b>Model sizes</b> compares all eight NeuralFoil networks by speed and accuracy. <b>Geometry</b> is an exact NACA shape designer. <b>Compare</b> puts any two airfoils side by side: shapes, live lift curves, pressure distributions, and full geometry statistics. <b>Flight lab</b> puts the section in real air with the standard atmosphere: dimensional forces, stall speed, and a glider speed polar. <b>Checks</b> audits the data and the solver against classical theory, including an exact-solution verification. <b>Digitizer</b> turns a scanned wind-tunnel chart into data points you can fit. <b>Movie maker</b> records any of it as video. Every chart exports as a white, print-ready PNG with its caption attached, and the arrow keys nudge α.</p>
+    <p style="margin:8px 0 0"><b>New NeuralFoil</b> is the flagship: pick any airfoil and condition and get lift, drag and moment with their
+    8-network disagreement bands and a trust verdict from the study's measured failure map, including Mach effects the classic confidence
+    score cannot see. <b>New vs Classic</b> shows the live difference between the new release and classic NeuralFoil 0.3.3, the measured
+    evidence for every change, and the honest list of what could not be fixed. <b>Flow</b> shows air moving over the airfoil: in viscous mode a field matched to the run's surface velocities with a computed boundary layer, separation marks, and a wake carrying the run's drag; the search bar up top swaps in any of 1,655 real airfoils, and each one gets a full NeuralFoil run computed live by the actual network, ported into this page and verified on the Checks tab. <b>3D view</b> extrudes the same solution into an orbitable wing. <b>Polars</b> holds the six performance charts. <b>Pressure &amp; transition</b> shows the pressure distribution and where the boundary layer trips. <b>Transonic lab</b> is the study's recalibration playground with its three pre-registered parameters. <b>Model sizes</b> compares all eight NeuralFoil networks by speed and accuracy. <b>Geometry</b> is an exact NACA shape designer. <b>Compare</b> puts any two airfoils side by side: shapes, live lift curves, pressure distributions, and full geometry statistics. <b>Flight lab</b> puts the section in real air with the standard atmosphere: dimensional forces, stall speed, and a glider speed polar. <b>Checks</b> audits the data and the solver against classical theory, including an exact-solution verification. <b>Digitizer</b> turns a scanned wind-tunnel chart into data points you can fit. <b>Movie maker</b> records any of it as video. Every chart exports as a white, print-ready PNG with its caption attached, and the arrow keys nudge α.</p>
   </details>
 
   <nav class="tabs" id="tabs">
@@ -3913,5 +3920,6 @@ renderFlowNote();
 renderAll();
 kick();
 </script>
+<script src="nfb.js?v=20260829b"></script>
 </body>
 </html>
