@@ -1,0 +1,19 @@
+# From Black Box to Bounded Tool
+
+## An Experimental Audit, Recalibration, and Uncertainty Calibration of the NeuralFoil Aerodynamic Surrogate, and the Measured-Correction Release Built From It
+
+**Kaan Boge**, Lumiere Research Program, 2026. Complete research record, prepared 2026-08-30, for manuscript preparation. Everything in this document was executed and measured; nothing is projected or assumed. The living version of every number, dataset, and script cited here is published at kaanboge.github.io/neuralfoil (repository KaanBoge/neuralfoil).
+
+## Executive summary
+
+**The research question.** Where does NeuralFoil disagree with wind-tunnel experiment; can its weakest layer, the transonic drag rise, be recalibrated to reduce error on data it has never seen; and can its self-reported confidence be turned into calibrated error bounds?
+
+**The scale of the executed study.** About 3.4 million NeuralFoil network evaluations over more than 400,000 distinct simulated conditions: a 312,795-condition failure-map atlas across all eight shipped model sizes and all 1,655 UIUC airfoils; 13,394 drag-corpus conditions and 31,075 lift-corpus conditions, each through all eight sizes twice (base and extended captures); 47,571 fine-grid stall-detection conditions; and probe, sensitivity, and battery runs. Alongside them, about 11,000 XFOIL 6.99 viscous simulations for the teacher decomposition and the head-to-head, four historical wind-tunnel reports digitized by hand, and four machine-readable low-speed data publications parsed. Judged against 41,683 real wind-tunnel measurements: 10,608 clean drag points and 31,075 lift points (148 airfoils, UIUC Low-Speed Airfoil Tests, GPL data), plus the 92-point primary transonic set (Harris TM-81927, Ferri WR L-143) and the TN 3607 and TN 1546 extractions.
+
+**The final accuracy standing (out-of-fold, 7,897 common points where XFOIL converged).** Mean absolute drag error: XFOIL 6.99, 40.8 counts; classic NeuralFoil 0.3.3 xlarge, 35.8; the new NeuralFoil, 32.5 (20 percent better than XFOIL, 9 percent better than classic, best in every Reynolds band). Mean absolute lift error: XFOIL 0.089; classic 0.085; new 0.058 (35 percent better than XFOIL, 32 percent better than classic). The new NeuralFoil also answers on the 25.3 percent of measured conditions where XFOIL fails to converge, and it is the only tool of the three that reports a measured disagreement band and a plain-language trust verdict with every number.
+
+**How the accuracy was won, and how it was kept honest.** Three mechanisms: the mean of all eight model sizes as the core (validated on 106 points, confirmed on 10,608); two gradient-boosted measured-residual corrections (drag and lift) learned from the corpus and shipped only after passing airfoil-disjoint cross-validation AND both cross-facility transfer directions; and guards that fade every correction to zero outside its measured domain. The ship rule rejected one stronger-looking drag model that failed a facility transfer; that rejection is part of the record. Earlier in the study the same discipline produced honest negatives: five transonic recalibration forms, a similarity scaling, and two lift-break repairs all failed held-out testing and were documented, not shipped.
+
+**Scope statement for the paper.** The corrected accuracy claims hold for Re 39,000 to 504,000 at low Mach on smooth, clean airfoils, with XFOIL scored only where it converged and all programs at the same transition convention (proven not to drive conclusions: n_crit 7/9/11 gives 14.8/13.7/19.7 counts median). The transonic drag-rise magnitude remains a measured no-trust zone for every tool tested; onset location is verified to about 0.03 in Mach; no public measured data exists between Re 600,000 and the transonic reports.
+
+The thirteen parts that follow are the complete answer document as it was written during execution, in order, including every negative result and protocol deviation.
