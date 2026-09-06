@@ -1,0 +1,52 @@
+# NeuralFoil working-folder export, 2026-09-06
+
+Complete export of the working folder behind the NeuralFoil validation study and the new-NeuralFoil release, including untracked files, run logs, environment records, and the original raw measurements. Every file is included byte-for-byte as it exists at export time; nothing was regenerated. `CHECKSUMS.sha256` (inside the archive and beside it) lists the SHA-256 of every member. The three record documents were checked by an independent read-only audit (22 agents, 19 corrections applied; the audit's own journal is included under `logs/workflows/wf_8865b294-643/`). Read `MISSING-FILES.md` first, then the "Known issues" section at the end of this file.
+
+## Layout
+
+| Path in archive | What it is |
+|---|---|
+| `scratchpad/data/` | The study working directory: every script (69 .py, 22 .ps1, 4 .sh), every dataset CSV and JSON, the answer document and drafts, the nine source-report PDFs plus the study's own research-record PDF, the 1,655-file failure atlas (`atlas-out/`), the exported network weights (`nfweights/`), 626 extraction evidence crops and 31 renders, journals and error logs. |
+| `scratchpad/lsat/` | The low-speed corpus pipeline: the six original UIUC archives (`volume01.zip`, `volume02.zip`, `volume03.zip`, `volume06.zip`, `Stec8.zip`, `coord_seligFmt.zip`), the surviving extracted files, `lsat-corpus.csv`, `lsat-geometry.json`, `lsat-geofeat.json`, `lsat-nf.csv`, `lsat-nf2.csv`, `lsat-xfoil.csv`, all reports, out-of-fold predictions, the three correction models, and the pipeline scripts: thirteen `lsat_*.py`, `make_overlay.py`, `nc_sens.py`, and `lsat_doubleclean.py` (added at export time for the re-analysis described under "Known issues", with its `dc-` outputs if it had finished when the archive was built). |
+| `scratchpad/nfport/` | The browser-port development folder: `neuralfoil.zip` (46.8 MB, the NeuralFoil source archive) and its extracted `NeuralFoil-master/` tree with training checkpoints; the NeuralFoil 0.3.3 wheel `nf033.whl` with 16 extracted files under `nf033/`; complete AeroSandbox 4.2.8, 4.2.9 and 4.2.10 wheels, with selectively extracted modules beside them (one `kulfan_airfoil.py` each for 4.2.8 and 4.2.9, five files for 4.2.10); and the port scripts (`engine.js`, `asb_*.py`). |
+| `scratchpad/ghpages/` | Working copy of the pre-split site (August 21); its `.git` is incomplete. |
+| `scratchpad/*` (root) | Handoff documents (`LUMIERE-EVERYTHING.md`, `LUMIERE-MASTER-HANDOFF.md`), literature and methods drafts, figures, and helper scripts. |
+| `site-repo/neuralfoil/` | The published site repository (KaanBoge/neuralfoil) with its full git history; `study/` holds the public copies of data, docs, tools, evidence and the research-record PDF. The commit at export is recorded in `records/site/git-log.txt`; status was clean (no untracked files). |
+| `legacy-kaanboge.github.io-clone/` | The four NeuralFoil-related files from the stale clone of the retired kaanboge.github.io repository. |
+| `logs/tasks/` | Every background-run output log present when the archive was built: the study's 41 (atlas, probes, corpus runs, XFOIL, corrections, audits) plus the logs this export session itself produced. |
+| `logs/workflows/` | Journals of every multi-agent workflow present when the archive was built: the study's 20 (including the TN 3607 and TN 1546 extraction agents and the release-verification audit `wf_79aecf48-407`) plus this export's own record audit `wf_8865b294-643`. |
+| `logs/workflow-scripts/` | The release-verification workflow script. |
+| `logs/session-transcript/` | The complete session transcript (66 MB JSONL), the master log of every command and result. |
+| `records/env/` | Environment records: Python and package versions (`pip-freeze-nfenv.txt`), WSL kernel and toolchain, the XFOIL build record with the binary, its six headless stub sources, the three `bin/` Makefiles and the original 6.99 source tarball, the Storage Sense registry state. |
+| `records/site/` | Git log, status, remote and tracked-file list of the site repository at export. |
+| `MISSING-FILES.md` | What is absent, why, and where each original lives. |
+| `UNUSED-DATA.md` | Every experimental data item never used in model development, with counts. |
+
+## The specifically requested items
+
+- `lsat-nf2.csv`: `scratchpad/lsat/lsat-nf2.csv` (13,394 rows, all eight sizes plus transition and moment at every geometry-matched measured condition). A public copy was added to `site-repo/neuralfoil/study/data/` in the export-time commit recorded in `records/site/git-log.txt`.
+- `lsat-geometry.json`: `scratchpad/lsat/lsat-geometry.json` (203 matched entries with geometry path, kind and configuration).
+- Referenced geometry files: the originals are `scratchpad/lsat/coord_seligFmt.zip` (1,665 UIUC coordinate files) and `scratchpad/lsat/Stec8.zip` (53 profiler `.COR` files). Their extracted copies were deleted after the runs (see `MISSING-FILES.md`); the surviving extracted files are included as found. The transonic-phase geometries (`tn3607-ordinates*.csv`, `tn1546_geom.npy`, `tn1546_geom.py`) are in `scratchpad/data/`.
+- Raw measurements: the six UIUC archives above; the nine source PDFs in `scratchpad/data/`; the digitized datasets `master-dataset.csv`, `harris-fig8.csv`, `ferri-*.csv`, `tn3607-*.csv`, `tn1546-*.csv` with their extraction journals `tn3607-journal.jsonl` and `tn1546-journal.jsonl` and 626 evidence crops.
+- Environment records: `records/env/`.
+- Run logs: `logs/`.
+
+## Environment at export
+
+Python 3.14.4 in the pinned WSL environment with NeuralFoil 0.3.3, AeroSandbox 4.2.10, numpy 2.5.2, scipy 1.18.1, scikit-learn 1.9.0 (full list in `records/env/pip-freeze-nfenv.txt`); XFOIL 6.99 built from the original tarball with a stub plot library; WSL2 kernel 6.18.33.2; Node v22.22.1. Windows 11 Pro host with Storage Sense enabled.
+
+## How to verify integrity
+
+Unzip, then from the directory that contains the unpacked top folder run `sha256sum -c NeuralFoil-working-folder-export-2026-09-06/CHECKSUMS.sha256` (WSL or any Unix shell). The checksum paths begin with the top folder name, so the command must be run from its parent, not from inside it. Every line should report OK.
+
+## Known issues found by the export audit
+
+Two methodological problems in the published low-Reynolds work were discovered while verifying this export. They are stated here in full; the correction is a follow-up to this export, not a silent edit of it.
+
+1. **The published XFOIL convergence figure is wrong.** The site, the answer document (parts 12 and 13) and the research-record PDF say XFOIL diverged on 25.3 percent of measured conditions (74.7 percent convergence, 7,897 of 10,567). In fact `lsat_xfoil.py` submitted only conditions clean by both name and comment, 8,705 distinct conditions, and XFOIL converged on 7,897 of them (90.7 percent). The 10,567 denominator in `lsat_compare.py` counted 1,862 conditions that were never sent to XFOIL. The head-to-head error figures themselves are unaffected, because they were computed only on common converged points. Corrected on the site, in the answer document (part 14) and in the PDF in the export-time commit.
+
+2. **The "clean" corpus contains modified-configuration runs.** `lsat_parse.py` recorded each row's configuration from the Comment field, but `lsat_geom.py` classified entries from the airfoil name only, and every downstream script (`lsat_run.py`, `lsat_analyze.py`, `lsat_lift.py`, the three correction scripts, `lsat_compare*.py`) used the name-based label. Volumes 1 to 3 list trip and other modified runs under the plain airfoil name with the modification only in the Comment, so 1,974 of the 10,608 "clean" rows (18.6 percent; 1,934 distinct conditions; 27 entries, led by SD7037 (E) 217 rows, S7075 (A) 200, SG6042 178, RG15 (C) 176) are modified-configuration measurements compared against free-transition predictions. This affects the published measured error maps, the guard thresholds derived from them, the spread-decile lookup, the confidence-blindspot percentage, and the training sets of the shipped drag and lift corrections. It does not affect the XFOIL head-to-head common points, which were double-clean by construction. The double-clean corpus is 8,634 rows over 135 airfoils. A full re-analysis with identical declared protocols on the double-clean rows, `scratchpad/lsat/lsat_doubleclean.py`, reads geometry from the original archive streams (the extracted files having been deleted) and wrote `dc-report.txt`, `dc-oof.csv`, `dc-by-airfoil.csv` and `dc-correction-cl2.json` before this archive was built. **Outcome:** the mean-of-8 core still beats the classic (56 percent of points; drag MAE 37.4 vs 38.0 counts); every error median falls once the tripped runs are removed; the spread deciles still rank true error monotonically (7.3 to 96.9 counts); the confidence blindspot is 35.4 percent. **The drag correction released on 2026-08-30 fails the ship rule on the double-clean corpus** (+15.4 percent on airfoil-disjoint folds but the SoarTech-to-volumes transfer worsens, 34.8 to 35.9 counts) and was withdrawn from the site; no `dc-correction-cd3.json` exists because the script writes it only on a pass. **The lift correction passes** (+35.4 percent on unseen airfoils, both transfers improving) and ships retrained. Corrected head-to-head on the 7,880 XFOIL-converged double-clean points: drag MAE XFOIL 40.8, classic 35.8, new NeuralFoil 35.5 counts; lift MAE 0.089, 0.085, 0.054. The site (`nfb.js`, cache version `20260906a`), the answer document (part 14), the research-record PDF and this export were all updated in the export-time commit recorded in `records/site/git-log.txt`; the superseded name-clean files (`lsat-report.txt`, `lsat-headtohead2.txt`, `correction-cd3.json`, `correction-cl2.json`, `oof2.csv`, `oof3.csv`) remain in place, unmodified, for the record. The separate lift-curve corpus of part 11 had used a five-token comment filter; a rerun with the full sixteen-token list (`lsat_lift_dc.py`, outputs `dc-lift-report.txt`, `dc-clmax.csv`) is included if it had finished when the archive was built, and its outcome is reported in the part 14 addendum of the answer document.
+
+## Licenses of included third-party material
+
+UIUC low-speed airfoil data: GPL v2 (Selig et al.). NACA and NASA reports: US public domain. NeuralFoil: MIT (Sharpe). AeroSandbox: MIT. XFOIL: GPL (Drela and Youngren).

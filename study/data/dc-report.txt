@@ -1,0 +1,81 @@
+============================================================================
+DOUBLE-CLEAN CORPUS: 8634 rows, 135 airfoil entries (clean by name AND by comment; previous analyses used 10608 name-clean rows)
+============================================================================
+
+CORE RETEST: CD MAE mean-of-8 37.4 vs xlarge 38.0 (+1.5%); median 14.4 vs 14.3; better on 56% of points; CL MAE 0.0816 vs 0.0843; measurement spanwise half-spread median 10.5
+
+ERROR MAP BY RE (mean-of-8, counts): band n median p90 MAE
+    0k-45 k    23  101.6  512.0  194.2
+   45k-75 k  1323   39.5  143.4   67.8
+   75k-150k  2267   19.3   88.0   43.6
+  150k-250k  2697   10.9   62.1   28.7
+  250k-350k  1844    8.1   47.1   23.1
+  350k-600k   480    7.3   39.1   19.8
+BY ALPHA:
+  -10.. -4 n   616 median   37.1 p90  161.4
+   -4.. +0 n  1953 median   12.8 p90   56.2
+   +0.. +4 n  2088 median    8.7 p90   40.4
+   +4.. +8 n  2054 median   10.6 p90   47.6
+   +8..+12 n  1706 median   32.5 p90  150.7
+  +12..+18 n   217 median   84.9 p90  465.2
+BY THICKNESS:
+  0.00-0.07 n   244 median   33.9 p90  209.2
+  0.07-0.09 n  1323 median   15.9 p90   93.6
+  0.09-0.12 n  5221 median   14.0 p90   76.0
+  0.12-0.15 n  1379 median   15.2 p90   99.1
+  0.15-0.30 n   467 median    9.7 p90   35.3
+SPREAD DECILES -> median true error:
+     1.0-   4.5:    7.3 (n 864)
+     4.5-   6.1:    8.0 (n 863)
+     6.1-   7.7:    7.8 (n 863)
+     7.7-   9.4:    8.1 (n 864)
+     9.4-  11.5:   10.7 (n 863)
+    11.5-  14.6:   14.3 (n 863)
+    14.6-  18.5:   21.8 (n 864)
+    18.5-  25.3:   23.8 (n 863)
+    25.3-  47.2:   38.0 (n 864)
+    47.2- 608.4:   96.9 (n 865)
+CONFIDENCE BLINDSPOT: conf>0.90 on 7800; with true error >20 counts: 2765 (35.4%)
+
+geometry stats available for 202 entries (extracted geometry files were deleted after the runs; entries without on-disk geometry cannot be featured and are dropped from correction training here)
+in-domain training rows 8370, airfoils 123
+
+[CD] GROUPED 5-FOLD CV (airfoil-disjoint):
+  fold 0: 37.48 -> 31.01
+  fold 1: 32.45 -> 28.04
+  fold 2: 30.71 -> 24.83
+  fold 3: 31.64 -> 28.24
+  fold 4: 34.73 -> 29.16
+  MEAN: 33.4 -> 28.26 (+15.4%)
+[CD] CROSS-SOURCE:
+  test stec8: 32.09 -> 30.1
+  test vols : 34.78 -> 35.94
+[CD] SHIP: False
+
+[CL] GROUPED 5-FOLD CV (airfoil-disjoint):
+  fold 0: 0.08366 -> 0.0462
+  fold 1: 0.07019 -> 0.0492
+  fold 2: 0.07424 -> 0.04957
+  fold 3: 0.09003 -> 0.06465
+  fold 4: 0.08754 -> 0.05234
+  MEAN: 0.08113 -> 0.05239 (+35.4%)
+[CL] CROSS-SOURCE:
+  test stec8: 0.09027 -> 0.059
+  test vols : 0.0718 -> 0.06235
+[CL] SHIP: True
+  wrote dc-correction-cl2.json (export check 0.0e+00)
+
+XFOIL: double-clean conditions 8633; converged 7880 (91.3%)
+HEAD-TO-HEAD on XFOIL-converged double-clean points (corrections out of fold):
+  XFOIL 6.99             drag MAE   40.8 median   16.2
+  classic NF xlarge      drag MAE   35.8 median   14.0
+  new NF mean-of-8       drag MAE   35.5 median   14.2
+  new NF + corrections   drag MAE   31.0 median   11.5
+  XFOIL 6.99             lift MAE 0.0891 median 0.0778
+  classic NF xlarge      lift MAE 0.0851 median 0.0754
+  new NF mean-of-8       lift MAE 0.0825 median 0.0734
+  new NF + corrections   lift MAE 0.0536 median 0.0417
+  Re   0k-75 k: XFOIL   68.1 | new+corr   49.9 (n 1296)
+  Re  75k-150k: XFOIL   45.0 | new+corr   35.6 (n 2124)
+  Re 150k-250k: XFOIL   33.4 | new+corr   25.9 (n 2451)
+  Re 250k-600k: XFOIL   27.7 | new+corr   20.1 (n 2009)

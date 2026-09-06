@@ -151,50 +151,54 @@ inv = [["Element", "Conditions", "Network evaluations", "Purpose"],
        ["n_crit sensitivity resample (3 conventions)", "5,241", "41,928", "Convention robustness"],
        ["Probe batteries (hard-wrongs, smoothness, geometry, moment)", "about 6,000", "about 20,000", "Failure-mode sweep, noise floor"],
        ["Transonic phase batteries and fits", "about 4,000", "about 12,000", "Onset, magnitude, recalibration attempts"],
+       ["Double-clean re-analysis (2026-09-06; no new network runs, recomputed from stored predictions)", "8,634", "0", "Corrected error maps, correction retraining and head-to-head after the export audit"],
        ["Approximate totals", "over 400,000", "about 3.4 million", ""],
        ["XFOIL 6.99 viscous simulations", "about 11,000", "not applicable", "Teacher decomposition and head-to-head"]]
 story.append(mk_table(inv, [AV * 0.34, AV * 0.14, AV * 0.18, AV * 0.34]))
 story.append(Spacer(1, 8))
 story.append(Paragraph(
-    "Measurements used as truth: 41,683 wind-tunnel points in the low-speed corpus (10,608 clean drag, "
-    "31,075 lift; 148 airfoil entries; UIUC Low-Speed Airfoil Tests volumes 1 to 3 and SoarTech 8, "
+    "Measurements used as truth: the low-speed corpus (8,634 double-clean drag points over 135 airfoils after "
+    "the part 14 correction, superseding the 10,608 name-clean points of parts 10 to 13; 31,075 lift points over "
+    "108 airfoils; UIUC Low-Speed Airfoil Tests volumes 1 to 3 and SoarTech 8, "
     "GPL-licensed ASCII, therefore free of digitization error), plus the primary transonic set of 92 "
     "digitized points (Harris TM-81927, Ferri WR L-143) and the TN 3607 calibration and TN 1546 holdout "
     "extractions (242 and 133 drag points, 60 and 60 lift points).", S["body"]))
 
-story.append(Paragraph("Appendix B. Final head-to-head, verbatim run output", S["h1"]))
+story.append(Paragraph("Appendix B. Double-clean re-analysis, verbatim run output (part 14)", S["h1"]))
 try:
-    txt = open(os.path.join(SITE, "lsat-headtohead2.txt"), encoding="utf-8", errors="replace").read()
+    txt = open(os.path.join(SITE, "dc-report.txt"), encoding="utf-8", errors="replace").read()
 except OSError:
-    txt = open(os.path.join(BASE, "..", "lsat", "lsat-headtohead2.txt"), encoding="utf-8", errors="replace").read()
+    txt = open(os.path.join(BASE, "..", "lsat", "dc-report.txt"), encoding="utf-8", errors="replace").read()
 for line in txt.rstrip().split("\n"):
     story.append(Paragraph(line.replace(" ", "&nbsp;") if line.startswith(" ") else inline(line), S["mono"]))
 story.append(Spacer(1, 8))
 story.append(Paragraph(
-    "Corrections are out of fold: each airfoil is scored by a model trained without it. XFOIL is scored "
-    "only on the points where it converged, which is its best case.", S["caption"]))
+    "The drag correction shown as 'new NF + corrections' in this output FAILED its ship rule on the "
+    "double-clean corpus (the [CD] SHIP: False line) and is not shipped; the shipped drag prediction is the "
+    "mean-of-8 line. Corrections are out of fold: each airfoil is scored by a model trained without it. "
+    "XFOIL is scored only on the points where it converged, which is its best case.", S["caption"]))
 
-story.append(Paragraph("Appendix C. Measured error map by Reynolds number", S["h1"]))
+story.append(Paragraph("Appendix C. Measured error map by Reynolds number (double-clean corpus)", S["h1"]))
 emap = [["Reynolds band", "Points", "Median error, counts", "p90, counts", "Mean error, counts"],
         ["under 45,000", "23", "101.6", "512.0", "194.2"],
-        ["45,000 to 75,000", "1,590", "39.6", "147.1", "70.3"],
-        ["75,000 to 150,000", "2,761", "20.9", "98.0", "46.7"],
-        ["150,000 to 250,000", "3,182", "12.1", "74.3", "32.3"],
-        ["250,000 to 350,000", "2,491", "9.8", "78.1", "31.1"],
-        ["350,000 to 600,000", "561", "9.4", "99.1", "31.7"]]
+        ["45,000 to 75,000", "1,323", "39.5", "143.4", "67.8"],
+        ["75,000 to 150,000", "2,267", "19.3", "88.0", "43.6"],
+        ["150,000 to 250,000", "2,697", "10.9", "62.1", "28.7"],
+        ["250,000 to 350,000", "1,844", "8.1", "47.1", "23.1"],
+        ["350,000 to 600,000", "480", "7.3", "39.1", "19.8"]]
 story.append(mk_table(emap, [AV * 0.26, AV * 0.14, AV * 0.22, AV * 0.18, AV * 0.20]))
 story.append(Spacer(1, 6))
 story.append(Paragraph(
-    "Mean-of-8 core before corrections. Above Re 150,000 the median error is comparable to the "
-    "measurement's own spanwise drag variation (median half-spread 10 counts).", S["caption"]))
+    "Mean-of-8 core, no correction, on the 8,634 double-clean points. Above Re 150,000 the median error is "
+    "at or below the measurement's own spanwise drag variation (median half-spread 10.5 counts).", S["caption"]))
 
-story.append(Paragraph("Appendix D. Ensemble disagreement as an error predictor", S["h1"]))
+story.append(Paragraph("Appendix D. Ensemble disagreement as an error predictor (double-clean corpus)", S["h1"]))
 sp = [["Disagreement decile, counts", "Median true error, counts", "Points"],
-      ["1.0 to 4.6", "8.1", "1,061"], ["4.6 to 6.0", "9.0", "1,061"],
-      ["6.0 to 7.6", "8.6", "1,061"], ["7.6 to 9.3", "9.4", "1,061"],
-      ["9.3 to 11.3", "11.4", "1,062"], ["11.3 to 14.5", "15.5", "1,061"],
-      ["14.5 to 18.3", "22.9", "1,060"], ["18.3 to 25.3", "24.7", "1,061"],
-      ["25.3 to 47.2", "40.5", "1,062"], ["47.2 to 608.4", "108.5", "1,062"]]
+      ["1.0 to 4.5", "7.3", "864"], ["4.5 to 6.1", "8.0", "863"],
+      ["6.1 to 7.7", "7.8", "863"], ["7.7 to 9.4", "8.1", "864"],
+      ["9.4 to 11.5", "10.7", "863"], ["11.5 to 14.6", "14.3", "863"],
+      ["14.6 to 18.5", "21.8", "864"], ["18.5 to 25.3", "23.8", "863"],
+      ["25.3 to 47.2", "38.0", "864"], ["47.2 to 608.4", "96.9", "865"]]
 story.append(mk_table(sp, [AV * 0.36, AV * 0.34, AV * 0.30]))
 story.append(Spacer(1, 6))
 story.append(Paragraph(
@@ -209,13 +213,17 @@ att = [["Attempt", "Form", "Held-out result", "Decision"],
        ["Lift-break alpha-detached onset", "one parameter", "-2 percent", "Rejected"],
        ["Drag correction v1", "21-term ridge", "+10.5 percent, both transfers improve", "Shipped, later superseded"],
        ["Drag correction v2", "16-feature boosted trees", "+15.7 percent but one facility transfer worsens", "Rejected"],
-       ["Drag correction v3", "9-feature boosted trees, tighter regularization", "+12.4 percent, both transfers improve", "Shipped"],
-       ["Lift correction v2", "16-feature boosted trees", "+26.7 percent, both transfers improve", "Shipped"]]
+       ["Drag correction v3 (name-clean corpus)", "9-feature boosted trees, tighter regularization", "+12.4 percent, both transfers improve", "Shipped 2026-08-30"],
+       ["Lift correction v2 (name-clean corpus)", "16-feature boosted trees", "+26.7 percent, both transfers improve", "Shipped 2026-08-30"],
+       ["Drag correction v3 (double-clean corpus)", "same form, same rule", "+15.4 percent on folds, but volumes transfer worsens 34.8 to 35.9", "Rejected; the 2026-08-30 drag correction WITHDRAWN 2026-09-06"],
+       ["Lift correction v2 (double-clean corpus)", "same form, same rule", "+35.4 percent, both transfers improve", "Shipped 2026-09-06, replacing the name-clean version"]]
 story.append(mk_table(att, [AV * 0.24, AV * 0.24, AV * 0.32, AV * 0.20]))
 story.append(Spacer(1, 6))
 story.append(Paragraph(
     "The ship rule was declared before each fit: improvement on airfoil-disjoint folds AND in both "
-    "cross-facility transfer directions. Eight attempts, two survivors and one superseded predecessor. "
+    "cross-facility transfer directions. Ten attempts; the shipped state at the end is one lift correction. "
+    "The name-clean corpus of the 2026-08-30 attempts contained 1,974 tripped runs (18.6 percent) let through by "
+    "a name-only configuration filter; the double-clean rows repeat the attempts on honest data. "
     "The rejections are as much a result as the ships.", S["caption"]))
 
 story.append(Paragraph("Appendix F. Reproducibility", S["h1"]))
@@ -230,8 +238,11 @@ files = [["Artifact", "Contents"],
          ["lsat-xfoil.csv", "Every XFOIL run, 7,897 converged points"],
          ["lsat-report.txt, lsat-lift-report.txt", "Error maps for drag and lift, worst and best airfoils"],
          ["lsat-headtohead2.txt", "Final four-way comparison output"],
-         ["correction-cd3.json, correction-cl2.json", "Shipped correction models with reference vectors"],
-         ["oof2.csv, oof3.csv", "Out-of-fold correction predictions used for scoring"],
+         ["dc-correction-cl2.json", "The shipped lift correction (double-clean), with reference vectors"],
+         ["correction-cd3.json, correction-cl2.json", "The withdrawn 2026-08-30 corrections, kept for the record"],
+         ["dc-report.txt, dc-oof.csv, dc-by-airfoil.csv, lsat_doubleclean.py", "The part 14 re-analysis and its out-of-fold predictions"],
+         ["oof2.csv, oof3.csv", "Out-of-fold predictions of the withdrawn 2026-08-30 corrections"],
+         ["export-manifest, export-missing-files, export-unused-data (2026-09-06)", "The audited export records that found the contamination"],
          ["master-dataset.csv", "The 92-point primary transonic dataset with provenance and uncertainty"],
          ["research-answer.md", "This document's parts 1 to 13 in source form"],
          ["lsat_*.py, atlas*.py, fit_definitive.py, probes.py", "Every pipeline script, in execution order"]]
