@@ -1,0 +1,12 @@
+======================================================================
+MEASURED LIFT VALIDATION: 17470 points, 76 airfoils
+======================================================================
+  pre-stall (-5..+8)     n  8660  CL MAE mean8 0.0819 | xlarge 0.0860  median 0.0691
+  near-stall (+8..+12)   n  2700  CL MAE mean8 0.1102 | xlarge 0.1139  median 0.0846
+  stall/post (+12..+20)  n  4582  CL MAE mean8 0.1402 | xlarge 0.1429  median 0.1056
+  negative (-10..-5)     n  1322  CL MAE mean8 0.0666 | xlarge 0.0711  median 0.0610
+
+CLMAX (351 sweeps with a captured measured peak):
+  CLmax error mean8: mean +0.049, MAE 0.073 | xlarge MAE 0.081
+  stall-alpha error mean8: mean -0.92 deg, MAE 2.19 deg
+  CLmax overpredicted on 74% of sweeps (mean8)

@@ -19,8 +19,18 @@ def ffloat(s):
     return float(re.sub(r"[^0-9eE+.\-]", "", s))
 
 sweeps = {}  # (entrykey, Re) -> list of (alpha, cl)
+import zipfile as _zf
+_ZV = {v: _zf.ZipFile(os.path.join(BASE, v + ".zip")) for v in ("volume01", "volume02", "volume03")}
+_ZS8 = _zf.ZipFile(os.path.join(BASE, "Stec8.zip"))
+def _lift_text(path):
+    """Original extracted file if present, else the identical bytes from the original archive (never extracted)."""
+    if os.path.exists(path):
+        return open(path, errors="replace").read()
+    rel = os.path.relpath(path, BASE).replace("\\", "/")
+    vol, member = rel.split("/", 1)
+    return _ZV[vol].read(member).decode("latin-1")
 def parse_lift_txt(path, source):
-    txt = open(path, errors="replace").read().splitlines()
+    txt = _lift_text(path).splitlines()
     i, n = 0, len(txt)
     af, comment = None, ""
     while i < n:
