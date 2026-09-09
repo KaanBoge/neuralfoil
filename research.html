@@ -3,26 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Research &amp; Code | NeuralFoil Studio by Kaan Boge</title>
+  <title>Research &amp; Source Explorer | NeuralFoil Studio by Kaan Boge</title>
   <meta name="description" content="Measurement-informed drag correction around NeuralFoil: methods, historical error reductions, transfer limits and openly published research source by Kaan Boge.">
-  <link rel="stylesheet" href="research.css?v=20260909">
-  <script src="research.js?v=20260909" defer></script>
+  <link rel="stylesheet" href="research.css?v=20260909-explorer">
+  <script src="source-browser.js?v=20260909-explorer" defer></script>
+  <script src="research.js?v=20260909-explorer" defer></script>
 </head>
 <body class="research-page">
   <a class="skip-link" href="#main">Skip to research</a>
   <div class="research-shell">
     <nav class="project-nav" aria-label="Project navigation">
       <a class="project-brand" href="research.html" aria-current="page">NeuralFoil Studio <span>by Kaan Boge</span></a>
-      <div><a href="index.html">Open browser tool</a><a href="#source">Source code</a><a href="https://github.com/KaanBoge/neuralfoil">GitHub <span aria-hidden="true">↗</span></a></div>
+      <div><a href="index.html">Browser workbench</a><a href="#source">Source explorer</a><a href="#evidence">Evidence</a><a href="#method">Methods</a><a href="https://github.com/KaanBoge/neuralfoil">GitHub <span aria-hidden="true">↗</span></a></div>
     </nav>
     <main id="main">
-      <header class="research-hero">
+      <header class="research-hero explorer-hero">
         <p class="section-label">Experimental aerodynamics · Open research source</p>
-        <h1>Measured corrections.<br><span>Explicit limits.</span></h1>
-        <p class="hero-summary">Can experimental measurements help a fast neural airfoil model make better predictions? This project investigates a shared drag correction around NeuralFoil, and documents where it helps, where it harms, and what has not been established.</p>
-        <div class="hero-actions"><a class="action-primary" href="#evidence">Explore the evidence <span aria-hidden="true">↓</span></a><a class="action-secondary" href="#source">Read the code</a></div>
-        <p class="hero-credit">Research and application by <a href="https://github.com/KaanBoge">Kaan Boge</a>, using <a href="https://github.com/peterdsharpe/NeuralFoil">upstream NeuralFoil</a> and AeroSandbox. A separate project, not an official upstream release.</p>
+        <h1>Research you can <span>explore.</span></h1>
+        <p class="hero-summary">Find the implementation. Inspect the evidence. Understand the limits. A navigable source archive for measurement-informed airfoil research by <a href="https://github.com/KaanBoge">Kaan Boge</a>.</p>
+        <div class="hub-links" aria-label="Research shortcuts"><a href="#implementations">What is running?</a><a href="#evidence">Results &amp; limitations</a><a href="#method">How the correction works</a><a href="#publication">Publication scope</a></div>
       </header>
+
+      <section class="source-section explorer-section" id="source" aria-labelledby="source-title">
+        <div class="explorer-heading"><div><p class="section-label">Browse the published implementation</p><h2 id="source-title">Source explorer</h2></div><p class="catalog-stats"><strong id="catalog-total">—</strong> source files <span aria-hidden="true">/</span> <strong id="catalog-languages">—</strong> languages</p></div>
+        <div class="source-browser">
+          <div id="source-collections" class="collection-filters" role="group" aria-label="Filter by source collection"></div>
+          <div class="source-controls">
+            <div class="search-field"><label for="source-search">Search files &amp; methods</label><input id="source-search" type="search" placeholder="Try: portable, risk policy, tree bound…" autocomplete="off" maxlength="300" aria-describedby="search-help"></div>
+            <div><label for="source-language">Language</label><select id="source-language"><option value="">All languages</option></select></div>
+            <div><label for="source-sort">Sort by</label><select id="source-sort"><option value="path">Folder / path</option><option value="name">Filename</option><option value="largest">Largest first</option><option value="smallest">Smallest first</option></select></div>
+          </div>
+          <p id="search-help" class="filter-help">Search words combine. Collections reflect file locations, not scientific validation status.</p>
+          <div class="catalog-toolbar"><p id="source-summary" class="filter-summary">All published source, including historical experiments.</p><div><button id="source-reset" type="button" class="quiet-button">Reset filters</button><a id="source-permalink" href="#source">Link to this view</a><button id="source-download" type="button" class="quiet-button">Export matching metadata ↓</button></div></div>
+          <p id="source-status" class="source-status" role="status" aria-live="polite" aria-atomic="true">Loading the published source catalog…</p>
+          <div id="source-empty" class="source-empty" hidden><h3>No results for this combination.</h3><p>Try a broader search or return to the full catalog.</p><button id="source-empty-reset" class="action-secondary" type="button">Show all source</button></div>
+          <ul id="source-results" class="source-results" aria-label="Matching source files"></ul>
+          <button id="source-more" class="action-secondary" type="button" hidden>Show more files</button>
+          <p id="source-fallback" hidden><a href="https://github.com/KaanBoge/neuralfoil/tree/main/code/research">Research archive</a> · <a href="https://github.com/KaanBoge/neuralfoil/tree/main/code/supplement">Supplement</a> · <a href="https://github.com/KaanBoge/neuralfoil/tree/main/tests">Public tests</a></p>
+          <noscript><p>Enable JavaScript for interactive filtering, or use the <a href="https://github.com/KaanBoge/neuralfoil/tree/main/code">GitHub source folders</a>. The research explanation below works without JavaScript.</p></noscript>
+          <p class="section-source"><a href="code/source-catalog.json">Full catalog JSON</a> · <a href="https://github.com/KaanBoge/neuralfoil/archive/refs/heads/main.zip">Public repository ZIP</a> · <a href="#publication">Included source &amp; excluded inputs</a></p>
+        </div>
+        <div class="source-entrypoints">
+          <a href="https://github.com/KaanBoge/neuralfoil/blob/main/examples/synthetic_policy.py"><span>Start with the interface</span><strong>Artificial-input example ↗</strong><small>No trained artifacts needed; not an accuracy test.</small></a>
+          <a href="research.html?collection=research&amp;q=portable#source"><span>Explore inference</span><strong>Portable research procedures →</strong><small>Feature-level code with declared input contracts.</small></a>
+          <a href="research.html?collection=checks#source"><span>Inspect public checks</span><strong>Tests &amp; integrity utilities →</strong><small>Keep implementation checks separate from science.</small></a>
+        </div>
+      </section>
 
       <section class="release-split" id="implementations" aria-labelledby="implementation-title">
         <div class="section-heading"><p class="section-label">Know what is running</p><h2 id="implementation-title">One project. Two distinct implementations.</h2></div>
@@ -59,20 +85,12 @@
         <details class="technical-detail"><summary>Why numerical bounds are not another accuracy percentage</summary><div><p>Interval projection, added-loss calibration and tree enclosures answer different questions. A tighter enclosure bounds a specified numerical evaluator; it does not imply the same percentage improvement against measured drag, or that every enclosed extremum is attainable.</p><p>The later eight-tree work is a separate numerical-bound experiment, not a new eight-tree accuracy result. Hard gates and trees also do not preserve global differentiability.</p></div></details>
       </section>
 
-      <section class="research-section source-section" id="source" aria-labelledby="source-title">
-        <div class="section-heading"><p class="section-label">Inspect, reproduce, extend</p><h2 id="source-title">The code, with a visible publication boundary.</h2><p>Browse the existing browser code, research algorithms, historical experiments, tests and execution helpers. The catalog lists published source—not just successful experiments or a claim that every script runs without its original inputs.</p></div>
+      <section class="research-section" id="publication" aria-labelledby="publication-title">
+        <div class="section-heading"><p class="section-label">Inspect, reproduce, extend</p><h2 id="publication-title">An explicit publication boundary.</h2><p>The catalog lists published source—not just successful experiments or a claim that every script runs without its original inputs. This is a separate project using <a href="https://github.com/peterdsharpe/NeuralFoil">upstream NeuralFoil</a> and AeroSandbox, not an official upstream release.</p></div>
         <div class="source-entrypoints">
           <a href="https://github.com/KaanBoge/neuralfoil/blob/main/code/research/model_development_20260907_risk_policy/portable/predictor.py"><span>Inference</span><strong>Feature-level predictor <span aria-hidden="true">↗</span></strong></a>
           <a href="https://github.com/KaanBoge/neuralfoil/blob/main/code/research/model_development_20260907_risk_policy/risk_policy.py"><span>Learning</span><strong>Correction strength policy <span aria-hidden="true">↗</span></strong></a>
           <a href="https://github.com/KaanBoge/neuralfoil/tree/main/tests"><span>Public checks</span><strong>Synthetic tests and integrity <span aria-hidden="true">↗</span></strong></a>
-        </div>
-        <div class="source-browser">
-          <div class="source-controls"><div><label for="source-search">Find a source file</label><input id="source-search" type="search" placeholder="Search a filename, method or folder" autocomplete="off"></div><div><label for="source-language">Language</label><select id="source-language"><option value="">All languages</option></select></div></div>
-          <p id="source-status" class="source-status" role="status" aria-live="polite">Loading the published source catalog…</p>
-          <ul id="source-results" class="source-results" aria-label="Matching source files"></ul>
-          <button id="source-more" class="action-secondary" type="button" hidden>Show more files</button>
-          <noscript><p>JavaScript is only needed for catalog search. <a href="https://github.com/KaanBoge/neuralfoil">Browse all repository files on GitHub</a>.</p></noscript>
-          <p class="section-source"><a href="code/source-catalog.json">Download the source catalog</a> · <a href="https://github.com/KaanBoge/neuralfoil/blob/main/code/README.md">Source and completeness guide</a> · <a href="https://github.com/KaanBoge/neuralfoil/archive/refs/heads/main.zip">Download the public repository ZIP</a></p>
         </div>
         <details class="technical-detail"><summary>What the public release does—and does not—contain</summary><div><p>Source publication is not a complete private-workspace backup or a ready-to-use trained correction package. The current paper and its figures, new trained artifacts, recovered measurements and geometry, private replay packages, environments and dependency caches are excluded. Public historical assets retain their separate provenance.</p><p>Code can name a missing file without supplying it. Some archived scripts retain home-directory placeholders and local assumptions. The synthetic public example checks an interface, not aerodynamic accuracy. For publication completeness and explicit exclusions, consult the <a href="https://github.com/KaanBoge/neuralfoil/blob/main/code/README.md">source guide</a>.</p><p>Original code and new associated technical documentation use the <a href="https://github.com/KaanBoge/neuralfoil/blob/main/LICENSE">MIT License</a>. Third-party code, network assets and research data retain their applicable terms. MIT permission is not safety certification.</p></div></details>
       </section>
