@@ -2,6 +2,12 @@
 
 Working repository for the study "From Black Box to Bounded Tool: An Experimental Audit, Recalibration, and Uncertainty Calibration of the NeuralFoil Aerodynamic Surrogate" (Lumiere research program, 2026).
 
+This folder describes the earlier website study, not the newer correction-source archive. For the current release, see [project status](../docs/STATUS.md) and [data access](../docs/DATA.md).
+
+## Paper exclusions in the current release
+
+The following legacy paper records are omitted from the current public tree: `NeuralFoil-Study-Complete-Record.pdf`, `data/research-answer.md`, and `docs/paper-outline-FINAL.md`. Their original working copies and already-public Git history are preserved; omission from the current tree does not erase prior publication. Historical references to these filenames are provenance references, not available current-tree downloads. This navigation update does not change experimental data, source code, frozen methods or recorded results.
+
 This folder exists for two reasons: durable versioned storage of the study's data and tools, and a public, verifiable timestamp for the pre-registered study design. The commit history of this repository is the audit trail: the Methods and pre-registration in `docs/` predate the definitive calibration fit, and any change to them after this commit must appear as a dated protocol deviation, never as a silent edit.
 
 ## Contents
@@ -19,13 +25,14 @@ Harris NASA TM-81927 (19810014503), Ferri NACA WR L-143 / ACR L5E21 (19930092764
 
 Data (`data/*.csv`): CC-BY 4.0. Code (`tools/`): MIT. Documents: all rights reserved by the author (Kaan Boge) pending journal submission.
 
-## Final status (2026-08-29)
+## Historical status recorded on 2026-08-29
 
-The study is complete. The definitive answer document, including the honest negative
-Phase B result, the Phase C conformal verdict, the final probe sweep and the complete
-15-entry inaccuracy registry, is `data/research-answer.md`. The one-shot holdout was
+The earlier study recorded completion and summarized its negative Phase B result,
+Phase C conformal verdict and inaccuracy registry in a paper-oriented answer document,
+now excluded from the current tree as explained above. The one-shot holdout was
 spent on 2026-08-28 and its outputs (`data/holdout-scores.json`) are frozen. The site
-now ships the study's product as the New NeuralFoil tab: the same eight networks with
+shipped the study's product as the New NeuralFoil tab: the same eight networks with
 the measured trust map, disagreement bands, and verdicts around them. `data/ensemble-eval.json`
 and `data/ensemble-eval-tight.json` record how the new mean-of-8 core was selected on
-measured data. Nothing from the earlier study materials was removed.
+measured data. These statements describe that historical release, not new validation
+of the later correction procedures.

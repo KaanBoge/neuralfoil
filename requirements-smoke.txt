@@ -1,0 +1,2 @@
+# Public artificial example and targeted tests only; not a study environment.
+numpy==2.3.5

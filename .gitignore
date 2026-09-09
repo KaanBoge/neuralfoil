@@ -1,0 +1,24 @@
+# Local environments and generated interpreter files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+
+# Private/generated research inputs are not new public-source members.
+/code/research/**/*.npz
+/code/research/**/*.npy
+/code/research/**/*.pkl
+/code/research/**/*.pickle
+/code/research/**/*.csv
+/code/research/**/*.pdf
+/code/research/**/*.docx
+/code/research/**/*.zip
+/code/research/**/*.tar.gz
+
+# Omitted legacy paper copies may remain locally for recovery.
+/study/NeuralFoil-Study-Complete-Record.pdf
+/study/data/research-answer.md
+/study/docs/paper-outline-FINAL.md

@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite this software repository and the exact commit and procedure used. This metadata is not a published-paper record or DOI."
+type: software
+license: MIT
+title: "NeuralFoil Studio and Research Code"
+authors:
+  - family-names: Boge
+    given-names: Kaan
+repository-code: "https://github.com/KaanBoge/neuralfoil"
+url: "https://kaanboge.github.io/neuralfoil/"
+abstract: "Browser airfoil analysis and research source for measurement-informed drag correction, calibration and numerical verification. Separate from upstream NeuralFoil; required research inputs are not all supplied."
+keywords:
+  - airfoil
+  - drag correction
+  - numerical verification
