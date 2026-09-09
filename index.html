@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NeuralFoil Studio</title>
+<meta name="description" content="NeuralFoil Studio by Kaan Boge: the NeuralFoil B browser workbench, research source, measured drag-correction results and explicit validation limits.">
+<link rel="stylesheet" href="research.css?v=20260909">
 <style>
   :root {
     color-scheme: light dark;
@@ -124,24 +126,22 @@
   <div id="afPrevTxt" style="font-size:11.5px;color:var(--muted);max-width:220px;margin-top:4px"></div>
 </div>
 <div class="wrap">
-  <p class="eyebrow">Home of the new NeuralFoil, built from the completed validation study</p>
+  <nav class="project-nav" aria-label="Project navigation"><a class="project-brand" href="research.html">NeuralFoil Studio <span>by Kaan Boge</span></a><div><a href="research.html">Research overview</a><a href="research.html#source">Browse code</a><a href="https://github.com/KaanBoge/neuralfoil">GitHub</a></div></nav>
+  <p class="eyebrow">Browser workbench · NeuralFoil B implementation</p>
   <h1>NeuralFoil Studio</h1>
-  <p class="sub">This site now ships <b>NeuralFoil B, the new NeuralFoil</b>: the same eight shipped networks wrapped in the
-    study's measured trust map, so every force and moment coefficient arrives with its 8-network disagreement band and a plain-language verdict
-    on whether to trust it. The New NeuralFoil tab is the tool; New vs Classic shows exactly what changed, what honestly
-    could not be fixed, and the measurements behind both. Everything below it is the full Studio, unchanged:
-    a simulation workbench with NeuralFoil itself inside: the actual 0.3.3 network runs live in this page,
-    so every one of the 1,655 UIUC airfoils gets full polars, pressure distributions, transition, confidence, and a
-    data-matched viscous flow field; recalibrate the transonic wave-drag layer with the study's three pre-registered
-    parameters; verify everything on the Checks tab; and export publication-ready figures and movies.</p>
+  <p class="sub"><b>Explore airfoil predictions, model disagreement and the evidence behind them.</b>
+    NeuralFoil B is this project's existing browser wrapper around the eight upstream NeuralFoil 0.3.3 networks:
+    a mean-of-eight core, a legacy lift correction where its gate applies, and empirical warning rules.
+    It is not an official upstream version or a guarantee of improved accuracy. The other Studio tabs provide the existing analysis and visualization tools.</p>
+  <aside class="research-notice" aria-label="Research implementation status"><strong>Browser tool and research code are different releases.</strong>
+    The newer geometry- and condition-dependent drag correction is published as Python research source, not installed in this browser.
+    Its reported gains apply to evaluated datasets, not every airfoil or operating condition.
+    <a href="research.html">Read the methods, results and limits <span aria-hidden="true">↗</span></a></aside>
   <p class="prov" id="prov"></p>
 
   <details style="margin:0 0 14px;color:var(--muted);font-size:13.5px;max-width:92ch">
     <summary style="cursor:pointer;font-weight:600;color:var(--ink)">Sixty-second tour</summary>
-    <p style="margin:8px 0 0"><b>New NeuralFoil</b> is the flagship: pick any airfoil and condition and get lift, drag and moment with their
-    8-network disagreement bands and a trust verdict from the study's measured failure map, including Mach effects the classic confidence
-    score cannot see. <b>New vs Classic</b> shows the live difference between the new release and classic NeuralFoil 0.3.3, the measured
-    evidence for every change, and the honest list of what could not be fixed. <b>Flow</b> shows air moving over the airfoil: in viscous mode a field matched to the run's surface velocities with a computed boundary layer, separation marks, and a wake carrying the run's drag; the search bar up top swaps in any of 1,655 real airfoils, and each one gets a full NeuralFoil run computed live by the actual network, ported into this page and verified on the Checks tab. <b>3D view</b> extrudes the same solution into an orbitable wing. <b>Polars</b> holds the six performance charts. <b>Pressure &amp; transition</b> shows the pressure distribution and where the boundary layer trips. <b>Transonic lab</b> is the study's recalibration playground with its three pre-registered parameters. <b>Model sizes</b> compares all eight NeuralFoil networks by speed and accuracy. <b>Geometry</b> is an exact NACA shape designer. <b>Compare</b> puts any two airfoils side by side: shapes, live lift curves, pressure distributions, and full geometry statistics. <b>Flight lab</b> puts the section in real air with the standard atmosphere: dimensional forces, stall speed, and a glider speed polar. <b>Checks</b> audits the data and the solver against classical theory, including an exact-solution verification. <b>Digitizer</b> turns a scanned wind-tunnel chart into data points you can fit. <b>Movie maker</b> records any of it as video. Every chart exports as a white, print-ready PNG with its caption attached, and the arrow keys nudge α.</p>
+    <p style="margin:8px 0 0"><b>NeuralFoil B</b> shows the legacy mean-of-eight prediction, its optional lift correction, disagreement bands and empirical warnings. Those bands are not calibrated confidence intervals or mathematical error bounds. <b>B vs Classic</b> compares that implementation with NeuralFoil 0.3.3 xlarge and retains its dated validation record. <b>Research overview</b> explains the separate newer Python work. <b>Flow</b> reconstructs a visualization from predicted surface velocities, a boundary-layer model and a drag-matched wake; it is not a new CFD or wind-tunnel experiment. <b>3D view</b> extrudes that section visualization, not a validated three-dimensional wing solution. <b>Polars</b>, <b>Pressure &amp; transition</b>, <b>Model sizes</b> and <b>Compare</b> explore predictions. <b>Geometry</b> creates NACA shapes or loads coordinates. <b>Transonic lab</b> is a sensitivity and fitting playground, not a validated replacement drag law. <b>Flight lab</b> supplies simplified dimensional estimates, not flight-safety approval. <b>Checks</b> runs implementation checks; <b>Digitizer</b> extracts chart points; <b>Movie maker</b> records visualizations. Charts export PNGs, and arrow keys nudge α.</p>
   </details>
 
   <nav class="tabs" id="tabs">
@@ -3920,6 +3920,6 @@ renderFlowNote();
 renderAll();
 kick();
 </script>
-<script src="nfb.js?v=20260906b"></script>
+<script src="nfb.js?v=20260909"></script>
 </body>
 </html>

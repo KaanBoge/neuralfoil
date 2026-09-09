@@ -2,7 +2,7 @@
 
 ## Two execution paths
 
-The browser starts at `index.html` and `nfb.js` using existing assets. Research Python source is retained under `code/research/`. Do not silently substitute predictions or preprocessing between them. “New NeuralFoil” and “NeuralFoil B” in the older interface refer to that release, not a newly installed research model.
+The browser starts at `index.html` and `nfb.js` using existing assets. “NeuralFoil B” names this legacy project-specific browser wrapper, not an official upstream version. Its drag correction is disabled; it retains the legacy gated lift correction, ensemble core and empirical diagnostics. Research Python source is retained under `code/research/` with completeness additions under `code/supplement/`. Do not substitute predictions or preprocessing between these execution paths. The [research page](../research.html) explains the newer work but does not execute its trained drag policies.
 
 ## Input contract
 

@@ -1,6 +1,6 @@
 "use strict";
-/* =================== NeuralFoil B: the new NeuralFoil ===================
-   The bounded release built from the 2026 validation study. Same eight shipped
+/* =================== NeuralFoil B: legacy browser engine ===================
+   The browser release built from the earlier 2026 validation study. Same eight shipped
    NeuralFoil 0.3.3 networks, exact tensors; what is new is everything around
    them, each choice grounded in the study's measurements (wind-tunnel
    comparisons for the core selection; the atlas for the guard thresholds):
@@ -10,8 +10,8 @@
       Harris (15.05 vs 14.95 counts, point protocol), improves TN 1546 drag by
       21 percent (11.4 vs 14.4 counts), and slightly improves lift.
    2. Every force and moment coefficient carries its 8-network disagreement
-      band (p10 to p90), a fabrication-free measured lower-bound indicator of
-      error. It is shown as an
+      band (p10 to p90), an indicator of model disagreement, not a pointwise
+      lower bound on experimental error. It is shown as an
       indicator, never as statistical coverage: the study's registered conformal
       bound came out uninformative and no spread scale factor transfers across
       facilities, so no coverage guarantee is claimed.
@@ -20,9 +20,10 @@
       points from four wind-tunnel reports) and says
       in words when a number should not be trusted, including the two measured
       confidence blindspots the classic score cannot see.
-   4. Nothing else is changed. The five attempted transonic recalibrations and
+   4. The legacy low-Re lift correction is loaded below; drag correction is
+      explicitly withdrawn. The five attempted transonic recalibrations and
       both lift-break repairs FAILED their held-out tests and are therefore not
-      shipped. Honesty about that is the feature.
+      shipped. The later Python X62 drag research is separate, not installed here.
 
    This file needs the page globals of NeuralFoil Studio (index.html) and the
    weight binaries in nfweights/. All aerodynamic formulas mirror
@@ -56,20 +57,20 @@ const REGISTRY = [
    "Red no-trust zone above each airfoil's critical Mach, with the measured error sizes quoted; the failed refits are documented, not shipped"],
   ["Drag-divergence onset", "0.029 average Mach error on both holdout sets", "No fix needed: verified good; the attempted recalibration made it worse and was rejected",
    "Displayed with its verified accuracy of about 0.03 in Mach, and used as the guard boundary"],
-  ["Low Reynolds number", "At Re 50,000, 94 percent of atlas conditions disagree by more than 20 counts", "Not repairable by post-processing",
+  ["Low Reynolds number", "At Re 50,000, 94 percent of atlas conditions disagree by more than 20 counts", "Not resolved by the legacy tested repairs",
    "Verdict turns red below Re 150,000 and cautions below 500,000"],
   ["High angle of attack", "Median 8-net disagreement 80 counts at 16 degrees", "Same",
    "Caution outside alpha -4 to +10, red beyond -8 to +14, hard red past 20 (post-stall analytic blend)"],
   ["Thickness extremes", "U-shaped disagreement, floor at 9 to 12 percent t/c", "Same",
    "Caution outside 6 to 15 percent, red past 21 percent"],
-  ["Answers where XFOIL diverges", "12 percent of a stratified sample; disagreement 1.8x higher there", "Cannot be removed",
-   "The disagreement band on every number flags exactly these regions"],
+  ["Answers where XFOIL diverges", "12 percent of a stratified sample; disagreement 1.8x higher there", "No general repair established in this browser release",
+   "The disagreement band provides a diagnostic, not a detector of every failure"],
   ["Confidence never sees Mach", "Structural: cannot flag transonic error", "Unfixable without retraining",
    "The verdict engine checks Mach explicitly against each airfoil's own critical Mach"],
   ["Confidence blindspot", "7.4 percent of atlas conditions pair confidence above 0.90 with disagreement above 50 counts", "Mitigation only",
-   "A dedicated guard fires on exactly that pairing and says to trust the disagreement, not the confidence"],
+   "A dedicated guard flags the pairing; neither confidence nor disagreement alone establishes accuracy"],
   ["Registered conformal bound", "567 counts, declared uninformative", "No fix with current data",
-   "No fake guarantees: bands are labeled a measured lower-bound indicator, never coverage"],
+   "Bands are model disagreement, not a mathematical error bound or coverage guarantee"],
   ["Lift-break timing", "Model cuts lift 19 to 32 percent where measurement still rises 19 to 23 percent", "Two one-parameter repairs failed validation",
    "CL flagged above drag-divergence Mach + 0.04 with the measured mismatch quoted"],
   ["Subcritical lift level at low Re", "CL error up to 0.143 at Re 0.38e6, alpha +2", "Core-model error, unreachable from any layer",
@@ -83,7 +84,8 @@ const REGISTRY = [
    "No fix needed", "The unchanged core carries these clean bills over verbatim"],
 ];
 const STUDY_LINKS = [
-  ["study/data/research-answer.md", "The answer to the research question, parts 1 to 9, with the complete inaccuracy registry"],
+  ["research.html", "Current research overview, implementation distinction and source access"],
+  ["https://github.com/KaanBoge/neuralfoil/blob/main/study/README.md", "Historical browser study record and separate terms"],
   ["study/data/master-dataset.csv", "Every Harris and Ferri experimental point with provenance and uncertainty"],
   ["study/data/everything-we-did.md", "The full study log"],
   ["study/docs/protocol-deviations.md", "Pre-registration deviations and amendments"],
@@ -366,7 +368,7 @@ function expectedErr(spread) {
   for (const [s, e] of SPREAD_LOOKUP) if (spread <= s) return e;
   return 97;
 }
-const LVL = { 0: "in the validated envelope", 1: "reduced trust", 2: "do not trust" };
+const LVL = { 0: "no configured warning", 1: "caution", 2: "high-risk diagnostic" };
 function verdicts(alpha, Re, mach, out) {
   const f = [];
   const spread = (out.CD.hi - out.CD.lo) * CT;
@@ -376,7 +378,7 @@ function verdicts(alpha, Re, mach, out) {
   else if (Re < 2.5e5) add("all", 1, "Low Reynolds number: measured median drag error 11 to 19 counts here, with a p90 of 62 to 88 (double-clean LSAT corpus, 8,634 points). Above Re 250,000 the median falls to 7 to 8 counts, below the measurement's own spanwise spread.");
   if (Math.abs(alpha) > 20) add("all", 2, "Post-stall region: the analytic 360-degree blend takes over here and the study holds no validation data for it.");
   else if (alpha < -8 || alpha > 12) add("all", 2, "Measured median drag error 37 counts at alpha -10 to -4 and 85 counts above +12 (double-clean LSAT corpus); the atlas shows the same collapse at high alpha.");
-  else if (alpha < -4 || alpha > 8) add("all", 1, "Outside the measured comfort band: median drag error rises to 33 counts by alpha +8 to +12 and 37 on the negative side; near stall, measured CLmax is overpredicted on 74 percent of 471 sweeps (mean +0.05) and stall is called 0.9 degrees early on average (LSAT lift corpus).");
+  else if (alpha < -4 || alpha > 8) add("all", 1, "Outside the measured comfort band: median drag error rises to 33 counts by alpha +8 to +12 and 37 on the negative side. The updated legacy lift analysis reports CLmax overprediction on 74 percent of 351 stall-capturing sweeps (mean bias about +0.05), and stall about 0.9 degrees early on average; see B vs Classic for that population.");
   if (Re < 6e5 && tc < 0.07) add("all", 2, "Thin section at low Reynolds number: measured median drag error 34 counts below 7 percent t/c (double-clean LSAT corpus). Thin cambered low-Re sections are NeuralFoil's worst measured territory.");
   else if (Re < 6e5 && tc < 0.09) add("all", 1, "Thinner than 9 percent at low Reynolds number: measured median error 16 counts (double-clean LSAT corpus).");
   else if (tc > 0.21) add("all", 2, "Very thick section, far outside the atlas thickness U (proxy threshold; no measured corpus covers this).");
@@ -386,7 +388,7 @@ function verdicts(alpha, Re, mach, out) {
   if (mach >= mdd + 0.04) add("CL", 2, "The lift-break factor engages here, tied to drag divergence. Measurement shows the two decouple: lift was still rising 19 to 23 percent where the model already cuts 19 to 32 percent. Both one-parameter repairs failed validation.");
   if (cf < 0.3) add("all", 2, "NeuralFoil's own analysis confidence is very low here.");
   else if (cf < 0.6) add("all", 1, "NeuralFoil's own analysis confidence is low here.");
-  if (cf > 0.9 && Re < 5e5) add("all", 1, "The measured confidence blindspot: on the 8,634-point double-clean LSAT corpus, 35.4 percent of high-confidence points (above 0.90) carry more than 20 counts of real drag error. Below Re 500,000, trust the disagreement band, never the confidence score alone.");
+  if (cf > 0.9 && Re < 5e5) add("all", 1, "The measured confidence blindspot: on the 8,634-point double-clean LSAT corpus, 35.4 percent of high-confidence points (above 0.90) carry more than 20 counts of real drag error. Use disagreement only as a diagnostic; neither it nor confidence alone establishes accuracy.");
   if (spread > 47) add("CD", 2, "8-net disagreement above 47 counts: at this level the measured median true error is about 97 counts (LSAT ground-truth lookup).");
   else if (spread > 18) add("CD", 1, "8-net disagreement above 18 counts: measured median true error about 22 to 38 counts at this level (LSAT ground-truth lookup).");
   const worst = coef => f.filter(x => x.coef === "all" || x.coef === coef)
@@ -544,7 +546,7 @@ function renderNFB() {
          f3(out.classic.CL)) +
     card("Drag", f4(out.CDc.mean) + ' <span style="font-size:13px;color:var(--muted)">(' + (out.CDc.mean * CT).toFixed(1) + " counts)</span>",
          out.CD, v.CD, fmtBand(out.CDc, f4) + " (" + v.spread.toFixed(1) + " counts disagreement)" +
-         (out.corrZ !== 0 ? "<br>includes a measured low-Re drag correction; uncorrected mean-of-8: " + f4(out.CD.mean) : "<br>no drag correction is applied (the 2026-08-30 drag correction was withdrawn on 2026-09-06; see New vs Classic)") +
+         (out.corrZ !== 0 ? "<br>includes a measured low-Re drag correction; uncorrected mean-of-8: " + f4(out.CD.mean) : "<br>no drag correction is applied (the legacy drag correction was withdrawn on 2026-09-06; see B vs Classic)") +
          (v.expErr ? "<br>measured median true error at this disagreement: about " + v.expErr + " counts (LSAT ground-truth lookup)" : ""),
          f4(out.classic.CD)) +
     card("Moment", f4(out.CM.mean), out.CM, v.CM, fmtBand(out.CM, f4), f4(out.classic.CM)) +
@@ -559,7 +561,7 @@ function renderNFB() {
   const geomNote = FOIL.file && FOIL.file.indexOf("user-") === 0 ?
     '<div style="margin-top:6px;color:var(--warn)">Loaded coordinates: digitized geometry carries a measured noise floor of median 0.4 and worst 11 counts. Smooth or refit before trusting fine differences.</div>' : "";
   $("nfbWhy").innerHTML = "<b>Why these verdicts</b>" + (v.fired.length === 0 ?
-    '<div style="margin-top:6px;color:var(--good)">No trust rule fired. This condition sits inside the envelope where the study found its best agreement with experiment (down to one or two counts under convention-matched conditions).</div>' :
+    '<div style="margin-top:6px;color:var(--good)">No configured diagnostic warning fired. This does not establish prediction accuracy, calibrated uncertainty or safety for the requested condition.</div>' :
     '<ul style="margin:6px 0 0;padding-left:18px">' + v.fired.map(x =>
       '<li style="margin:4px 0"><span style="color:' + (x.lvl === 2 ? C.bad : C.warn) + ';font-weight:600">' +
       (x.coef === "all" ? "all outputs" : x.coef) + "</span>: " + x.why + "</li>").join("") + "</ul>") +
@@ -636,7 +638,7 @@ function renderVS() {
   const a = nfbUI.alpha, Re = nfbUI.re;
   $("vsCond").textContent = FOIL.name + " at alpha " + a.toFixed(1) + " degrees, Re " +
     (Re >= 1e6 ? (Re / 1e6).toFixed(1) + "M" : (Re / 1e3).toFixed(0) + "k") +
-    " (set on the New NeuralFoil tab), n_crit " + state.ncrit;
+    " (set on the NeuralFoil B tab), n_crit " + state.ncrit;
   const fit = fitFor(), tc = tcFor();
   const per = {};
   for (const s of SIZE_ORDER)
@@ -682,9 +684,9 @@ function renderVS() {
 function buildUI() {
   const tabs = $("tabs");
   const bNew = document.createElement("button");
-  bNew.dataset.tab = "nfb"; bNew.textContent = "New NeuralFoil";
+  bNew.dataset.tab = "nfb"; bNew.textContent = "NeuralFoil B";
   const bVs = document.createElement("button");
-  bVs.dataset.tab = "vs"; bVs.textContent = "New vs Classic";
+  bVs.dataset.tab = "vs"; bVs.textContent = "B vs Classic";
   tabs.insertBefore(bVs, tabs.firstChild);
   tabs.insertBefore(bNew, tabs.firstChild);
   [bNew, bVs].forEach(b => b.addEventListener("click", () => selectTab(b.dataset.tab)));
@@ -694,17 +696,14 @@ function buildUI() {
   const pn = document.createElement("section");
   pn.className = "panel"; pn.id = "p-nfb";
   pn.innerHTML =
-    '<div class="card"><b>NeuralFoil B: the new NeuralFoil.</b> ' +
-    "Same eight shipped 0.3.3 networks, exact tensors; new everything around them, each choice grounded in the study's measurements: " +
-    "wind-tunnel comparisons chose the core, and the 312,795-condition atlas set the guard thresholds. " +
-    "The prediction is the mean of all eight model sizes (ties the classic on Harris, 21 percent better drag on TN 1546, slightly better lift; " +
-    "confirmed at scale on the 8,634-point double-clean LSAT measured corpus, where it beats the classic on 56 percent of points), " +
-    "plus a measured lift correction learned from that corpus, the one repair in this research to pass pre-declared validation " +
-    "(35.4 percent lift error reduction on airfoils it never saw, improving in both cross-facility transfer directions; it fades to zero outside the measured domain). " +
-    "A drag correction released on 2026-08-30 was withdrawn on 2026-09-06 after an audit of the exported working folder showed its validation set contained tripped runs; the New vs Classic tab has the full account. " +
-    "Every force and moment coefficient carries its 8-network disagreement band, a fabrication-free measured lower-bound indicator of error, and a verdict from the study's " +
-    "measured failure map that says in words when not to trust it. It works on any airfoil in the search bar above, your own coordinate file, or a NACA design from the Geometry tab; " +
-    "for the airfoils covered by the LSAT measured corpus, the charts below also overlay the actual wind-tunnel points (clean configurations only). " +
+    '<div class="card"><b>NeuralFoil B: legacy browser engine.</b> ' +
+    "This project-specific wrapper uses the same eight shipped NeuralFoil 0.3.3 networks, a mean-of-eight core, " +
+    "the legacy measured lift correction where its gate applies, and empirical diagnostic warnings. " +
+    "The browser drag correction is disabled following the 2026-09-06 withdrawal; B vs Classic retains that dated record. " +
+    '<b>The newer Python drag-correction research is not running here.</b> Its methods and evaluated results are explained on the <a href="research.html">research page</a>. ' +
+    "The p10 to p90 bands show disagreement among the eight networks, not a mathematical error bound or calibrated coverage interval. " +
+    "You can evaluate library airfoils, loaded coordinates and NACA designs; accepting an input does not establish accuracy for it. " +
+    "Where available, historical LSAT wind-tunnel points are overlaid separately from predictions. " +
     'n_crit and forced trips come from the analysis-conditions panel in the toolbar. <span id="nfbStatus" style="color:var(--muted)"></span></div>' +
     '<div class="card" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">' +
     '<b id="nfbFoil"></b>' +
@@ -717,9 +716,9 @@ function buildUI() {
     '<canvas id="nfbClA" height="240" style="flex:1;min-width:320px"></canvas>' +
     '<canvas id="nfbCdA" height="240" style="flex:1;min-width:320px"></canvas></div>' +
     '<div id="nfbMeasNote" class="note" style="margin-top:4px;color:var(--good)"></div>' +
-    '<p class="note" style="margin-top:10px">Bands are the p10 to p90 disagreement of the eight networks: a measured lower bound on error, not a coverage guarantee. ' +
-    "The study's registered conformal bound was honestly uninformative (567 counts) and no spread scale factor transfers between wind tunnels, so this page refuses to fake one. " +
-    'Dashed lines are the classic single-network NeuralFoil. Full evidence: see New vs Classic and the <a href="study/data/research-answer.md">study answer document</a>.</p>';
+    '<p class="note" style="margin-top:10px">Bands show p10 to p90 network disagreement. They are neither a lower bound on experimental error nor a coverage guarantee. ' +
+    "The legacy registered conformal bound was uninformative (567 counts), and a transferable spread scale was not established in those experiments. " +
+    'Dashed lines are classic single-network NeuralFoil. See B vs Classic for the legacy comparison and the <a href="research.html#evidence">research evidence summary</a> for newer, separate procedures.</p>';
   parent.appendChild(pn);
 
   const pv = document.createElement("section");
@@ -727,44 +726,44 @@ function buildUI() {
   const evalTable = '<table class="t"><tr><th>Core candidate</th><th>Harris CD, counts</th><th>TN 1546 CD, counts</th><th>TN 1546 CL</th><th>Ferri CL</th></tr>' +
     EVAL_ROWS.map(r => "<tr" + (r[0].indexOf("new core") >= 0 ? ' style="font-weight:700"' : "") + "><td>" + r[0] + "</td><td>" + r[1].toFixed(2) +
       "</td><td>" + r[2].toFixed(2) + "</td><td>" + r[3].toFixed(2) + "</td><td>" + r[4].toFixed(2) + "</td></tr>").join("") + "</table>";
-  const regTable = '<table class="t"><tr><th>#</th><th>Inaccuracy found</th><th>Measured size</th><th>Can it be fixed?</th><th>What the new NeuralFoil does</th></tr>' +
+  const regTable = '<table class="t"><tr><th>#</th><th>Legacy finding</th><th>Reported size</th><th>Legacy assessment</th><th>Browser B response</th></tr>' +
     REGISTRY.map((r, i) => "<tr><td>" + (i + 1) + "</td><td><b>" + r[0] + "</b></td><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" + r[3] + "</td></tr>").join("") + "</table>";
   pv.innerHTML =
-    '<div class="card"><b>What actually changed, and what honestly could not.</b><br>' +
-    'The 2026 validation study measured NeuralFoil against wind-tunnel experiment across four reports, more than 600 digitized measured points, ' +
-    "312,795 atlas conditions and all eight model sizes, then tried to repair every defect it found. " +
-    "<b>Changed and shipped:</b> the core prediction is now the mean of all eight networks (ties or beats the classic on every measured group: equal within 0.1 counts on Harris, better everywhere else); " +
-    "a measured lift correction learned from the corpus, shipped only after passing airfoil-disjoint cross-validation (+35.4 percent) and both cross-facility transfer tests on the double-clean corpus, the one repair in this research to survive validation (the drag correction released on 2026-08-30 was withdrawn on 2026-09-06; the head-to-head card below explains why); every force and moment coefficient carries its 8-net disagreement band; " +
-    "a verdict engine guards the measured failure regions, including the two confidence blindspots and the transonic zone the classic confidence score structurally cannot see. " +
-    "<b>Tried, failed honestly, not shipped:</b> five transonic drag-rise recalibrations (the selected one was 78 percent worse on the Harris holdout), " +
-    "a transonic-similarity scaling, and two lift-break timing repairs. Their failure is the study's central result: " +
-    "the remaining errors live in the networks' Mach-blind training data, and the honest fix is displayed bounds and guards now, Mach-aware retraining later.</div>" +
+    '<div class="card"><b>Legacy browser comparison, updated 2026-09-06.</b><br>' +
+    "This panel preserves the earlier browser implementation and its historical evaluation populations. " +
+    "Its 8,634-point and XFOIL-converged comparisons are not the newer 8,371-observation, 93-identity research archive. " +
+    "Do not combine their percentages or interpret them as a before-and-after test of the same model. " +
+    '<a href="research.html#evidence">Read the current research comparison and its limits.</a><br>' +
+    "<b>Running here:</b> the mean of eight native networks, the legacy gated lift correction, disagreement bands and warning rules. " +
+    "<b>Not running here:</b> the withdrawn legacy drag correction, failed transonic/lift-break repairs or newer Python drag policies. " +
+    "Negative legacy experiments constrain those tested repairs; they do not prove that no future method can improve the predictions. " +
+    "Warnings and model agreement do not certify aerodynamic accuracy.</div>" +
     '<div class="card" style="margin-top:10px"><b>Live comparison at the current conditions</b> <span id="vsCond" style="color:var(--muted);font-size:12.5px"></span> <span id="vsStatus" style="color:var(--muted)"></span>' +
     '<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">' +
     '<canvas id="vsCdM" height="250" style="flex:1;min-width:320px"></canvas>' +
     '<canvas id="vsClM" height="250" style="flex:1;min-width:320px"></canvas></div>' +
     '<p class="note">Dashed: classic single-network NeuralFoil 0.3.3 xlarge. Solid with band: the new mean-of-8 with its disagreement band. ' +
     "The red zone starts at the airfoil's own critical Mach: onset location verified to about 0.03 in Mach, magnitude above it measured wrong by 2 to 8x near onset. " +
-    "The two curves use identical physics formulas; the new one differs by the ensemble core, the band, and the honesty about where neither can be trusted.</p></div>" +
-    '<div class="card" style="margin-top:10px"><b>How accurate is it against real life? The head-to-head, on identical measured points</b><br>' +
+    "The comparison differs through the ensemble core, disagreement band and legacy gated lift correction; the diagnostic rules are not a guarantee of correctness.</p></div>" +
+    '<div class="card" style="margin-top:10px"><b>Historical head-to-head on the XFOIL-converged subset</b><br>' +
     '<span style="color:var(--muted);font-size:12.5px">Wind-tunnel truth versus XFOIL 6.99 (the field\'s standard tool and NeuralFoil\'s own teacher), the classic single-network NeuralFoil, ' +
-    "and this release, scored on the 7,880 double-clean corpus points where XFOIL converged (its best case: XFOIL was submitted 8,633 double-clean conditions and diverged on 8.7 percent of them, giving no answer there, while NeuralFoil answers everywhere). " +
+    "and the legacy browser release, scored on the 7,880 double-clean corpus points where XFOIL converged. XFOIL was submitted 8,633 double-clean conditions and diverged on 8.7 percent; the neural models returned predictions on that submitted set. Numerical availability is not evidence of accuracy. " +
     "The lift correction is out-of-fold: it never saw its own test airfoil. Recomputed 2026-09-06 on the double-clean corpus after the audit described on the next card. Scope: Re 39,000 to 504,000, low Mach, smooth clean models, n_crit 9 for all programs.</span>" +
     '<table class="t"><tr><th>Program</th><th>Drag MAE, counts</th><th>Drag median</th><th>Lift MAE</th></tr>' +
     [["XFOIL 6.99", "40.8", "16.2", "0.089"], ["classic NeuralFoil (xlarge)", "35.8", "14.0", "0.085"],
      ["new NeuralFoil (mean-of-8, no drag correction)", "35.5", "14.2", "0.082"], ["new NeuralFoil + measured lift correction", "35.5", "14.2", "0.054"]]
       .map((r, i) => "<tr" + (i === 3 ? ' style="font-weight:700"' : "") + "><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" + r[3] + "</td></tr>").join("") + "</table>" +
     '<ul style="margin:6px 0 0;padding-left:18px;font-size:13px">' +
-    "<li>The new NeuralFoil is 13 percent more accurate than XFOIL on drag and, with its lift correction, 40 percent more accurate on lift against real wind-tunnel data in this regime. It beats XFOIL on drag in every Reynolds band (66 vs 68 counts below Re 75k, 40 vs 45 at 75k to 150k, 27 vs 33 at 150k to 250k, 21 vs 28 at 250k to 600k). Versus the classic NeuralFoil: one percent better drag (equal below Re 75k), 37 percent better lift.</li>" +
+    "<li>On this historical subset, the reported mean absolute error reductions are approximately 13 percent for drag and 40 percent for corrected lift versus XFOIL, and one percent for drag and 37 percent for corrected lift versus classic xlarge. These are aggregate comparisons on the stated population, not improvements for every prediction. The reported XFOIL/mean8 drag band comparisons are 68/66, 45/40, 33/27 and 28/21 counts across the four stated Reynolds ranges.</li>" +
     "<li><b>Correction notice, 2026-09-06.</b> From 2026-08-30 to 2026-09-06 this card claimed 20 percent better drag than XFOIL and 9 percent better than classic, on the strength of a learned drag correction. An audit of the exported working folder found that the validation corpus had been filtered by airfoil name only, so 1,974 of its 10,608 rows (18.6 percent) were tripped or otherwise modified runs. Retrained on the double-clean corpus under the same pre-declared rule, the drag correction fails the cross-facility test (volumes 34.8 to 35.9 counts) and has been withdrawn; the drag figures above are the uncorrected mean of eight. The lift correction passes the same rule on the double-clean corpus (+35.4 percent on unseen airfoils, both transfers improving) and ships retrained. The same audit corrected the XFOIL convergence figure: 91.3 percent of loadable submitted conditions, not 74.7 percent.</li>" +
     "<li>Fair-play notes: XFOIL is scored only where it converged; a user who needs an answer where it diverges gets nothing from it. And NeuralFoil was trained on XFOIL, so beating its own teacher against reality comes from the ensemble, the measured lift correction, and XFOIL's own divergences, not from magic.</li></ul>" +
     '<p class="note">Full numbers: <a href="study/data/dc-report.txt">dc-report.txt</a> (double-clean re-analysis) and the superseded <a href="study/data/lsat-headtohead2.txt">lsat-headtohead2.txt</a>; raw XFOIL runs: <a href="study/data/lsat-xfoil.csv">lsat-xfoil.csv</a>; the lift correction and its validation: <a href="study/data/dc-correction-cl2.json">dc-correction-cl2.json</a>; the audit records: <a href="study/docs/export-manifest-2026-09-06.md">export manifest</a>, <a href="study/docs/export-unused-data-2026-09-06.md">unused data</a>, <a href="study/docs/export-missing-files-2026-09-06.md">missing files</a>.</p></div>' +
-    '<div class="card" style="margin-top:10px"><b>The full-corpus test: 8,634 measured points, 135 airfoils, no cherry-picking</b><br>' +
+    '<div class="card" style="margin-top:10px"><b>Legacy double-clean analysis: 8,634 points, 135 nominal airfoils</b><br>' +
     '<span style="color:var(--muted);font-size:12.5px">Every drag polar in the UIUC Low-Speed Airfoil Tests that is clean by both airfoil name and comment field. ' +
     "An audit on 2026-09-06 found that the 10,608-point set published on 2026-08-29 had been filtered by name only and so included 1,974 tripped or otherwise modified runs (18.6 percent); every number on this card was recomputed on the double-clean set. " +
-    "(Summary of Low-Speed Airfoil Data volumes 1 to 3 and SoarTech 8; Selig et al., GPL data; Re 39,000 to 504,000; " +
-    "run at n_crit 9, the standard convention for this low-turbulence tunnel). This is ground truth, and it is what the verdict thresholds and the " +
-    "disagreement-to-error lookup on the New NeuralFoil tab are calibrated against.</span>" +
+    "(Summary of Low-Speed Airfoil Data volumes 1 to 3 and SoarTech 8; Selig et al.; Re 39,000 to 504,000; " +
+    "run at n_crit 9 as a modeling convention, not a measured turbulence value for every run). These are historical experimental references with their own uncertainties and source terms. They informed the warning thresholds and " +
+    "disagreement-to-error lookup on the NeuralFoil B tab. Later identity and population audits use a different denominator.</span>" +
     '<table class="t"><tr><th>Reynolds band</th><th>points</th><th>median error, counts</th><th>p90</th></tr>' +
     [["under 45k", 23, "102", "512"], ["45k to 75k", 1323, "40", "143"], ["75k to 150k", 2267, "19", "88"],
      ["150k to 250k", 2697, "11", "62"], ["250k to 350k", 1844, "8", "47"], ["350k to 600k", 480, "7", "39"]]
@@ -784,7 +783,7 @@ function buildUI() {
     '<div class="card" style="margin-top:10px"><b>How the new core was chosen: measured, not assumed</b><br>' +
     '<span style="color:var(--muted);font-size:12.5px">' + EVAL_NOTE + "</span>" + evalTable + "</div>" +
     '<div class="card" style="margin-top:10px"><b>Every inaccuracy the study found, and what this release does about each</b>' + regTable +
-    '<p class="note">Sizes and verdicts are quoted verbatim from the study answer document, parts 1 to 9.</p></div>' +
+    '<p class="note">This is the legacy finding registry. Reported sizes retain that study context; wording has been qualified to distinguish diagnostic indicators from guarantees. These are not current-research promotion claims.</p></div>' +
     '<div class="card" style="margin-top:10px"><b>Read the evidence</b><ul style="margin:6px 0 0;padding-left:18px">' +
     STUDY_LINKS.map(l => '<li><a href="' + l[0] + '">' + l[0] + "</a>: " + l[1] + "</li>").join("") + "</ul></div>";
   parent.appendChild(pv);
@@ -798,11 +797,11 @@ function buildUI() {
   if (about) {
     const d = document.createElement("div");
     d.className = "card";
-    d.innerHTML = "<b>About the new NeuralFoil (2026 release of this site).</b> " +
-      "The validation study this site was built around is complete. Its final answer document, including the honest negative results and the " +
-      "15-entry inaccuracy registry, lives at <a href='study/data/research-answer.md'>study/data/research-answer.md</a>. " +
-      "The New NeuralFoil tab is the study's product: the same networks, wrapped in the measured trust map. The New vs Classic tab shows exactly what changed and why. " +
-      "Everything that was on this site before is still here, unchanged, on the other tabs.";
+    d.innerHTML = "<b>NeuralFoil Studio by Kaan Boge.</b> " +
+      "NeuralFoil B names the legacy browser wrapper, not an official upstream release. The newer measurement-informed drag research is a separate Python source archive. " +
+      '<a href="research.html">Research overview</a> explains the methods, evaluated results, available code and limits. ' +
+      "The current manuscript and private reproduction inputs are not published here. Earlier paper records were removed from the current tree, not erased from Git history. " +
+      "The remaining Studio tools retain their existing numerical implementation.";
     about.insertBefore(d, about.firstChild);
   }
 }

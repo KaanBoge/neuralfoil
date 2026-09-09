@@ -1,0 +1,2073 @@
+{
+  "schema": "reviewed-source-supplement-v1",
+  "file_count": 114,
+  "files": [
+    {
+      "source": "modern_edition/check_layout.py",
+      "target": "code/supplement/modern_edition/check_layout.py",
+      "original_sha256": "dd351bea58abe8fa65e24de4d6e8b06e953c3b6f40696f652ee939b44dcacdc5",
+      "published_sha256": "dd351bea58abe8fa65e24de4d6e8b06e953c3b6f40696f652ee939b44dcacdc5",
+      "original_bytes": 3832,
+      "published_bytes": 3832,
+      "duplicate_aliases": [
+        "modern_edition/check_layout.py",
+        "modern_edition/release/NeuralFoil_Research_Paper/check_layout.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "modern_edition/package_edition.py",
+      "target": "code/supplement/modern_edition/package_edition.py",
+      "original_sha256": "8f5d3966d95358100a68bc034358238c83d7384ed284440fa29ff13304dc684a",
+      "published_sha256": "8f5d3966d95358100a68bc034358238c83d7384ed284440fa29ff13304dc684a",
+      "original_bytes": 4318,
+      "published_bytes": 4318,
+      "duplicate_aliases": [
+        "modern_edition/package_edition.py",
+        "modern_edition/release/NeuralFoil_Research_Paper/package_edition.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "analysis/validate_final_manuscript.py",
+      "target": "code/supplement/analysis/validate_final_manuscript.py",
+      "original_sha256": "decbde0cf5cdc5f2faa5a938f8f7aa0a2efb7ad8348bd7c48643e648397dbaac",
+      "published_sha256": "decbde0cf5cdc5f2faa5a938f8f7aa0a2efb7ad8348bd7c48643e648397dbaac",
+      "original_bytes": 18318,
+      "published_bytes": 18318,
+      "duplicate_aliases": [
+        "modern_edition/evidence/analysis/validate_final_manuscript.py",
+        "modern_edition/release/NeuralFoil_Research_Paper/evidence/analysis/validate_final_manuscript.py",
+        "analysis/validate_final_manuscript.py",
+        "output/release/NeuralFoil_Journal_Final/analysis/validate_final_manuscript.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "analysis/build_release_package.py",
+      "target": "code/supplement/analysis/build_release_package.py",
+      "original_sha256": "51f876a036eb67542bc6fc60536dd75b1376336f9db6b3f1bdb054bc16b5cf11",
+      "published_sha256": "51f876a036eb67542bc6fc60536dd75b1376336f9db6b3f1bdb054bc16b5cf11",
+      "original_bytes": 7548,
+      "published_bytes": 7548,
+      "duplicate_aliases": [
+        "modern_edition/evidence/analysis/build_release_package.py",
+        "modern_edition/release/NeuralFoil_Research_Paper/evidence/analysis/build_release_package.py",
+        "analysis/build_release_package.py",
+        "output/release/NeuralFoil_Journal_Final/analysis/build_release_package.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "modern_edition/work/make_qa_sheets.py",
+      "target": "code/supplement/modern_edition/work/make_qa_sheets.py",
+      "original_sha256": "030a669acb0777c98969ad15ad4e2e51124f93cec51b803ed5e23ca61027701f",
+      "published_sha256": "030a669acb0777c98969ad15ad4e2e51124f93cec51b803ed5e23ca61027701f",
+      "original_bytes": 719,
+      "published_bytes": 719,
+      "duplicate_aliases": [
+        "modern_edition/work/make_qa_sheets.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "reproduction_20260908_private/bundle/test_package.py",
+      "target": "code/supplement/reproduction_20260908_private/bundle/test_package.py",
+      "original_sha256": "8bcdbf8453248d08f1b7e83cdcab0fd2a744ace860b5957060118472620e8144",
+      "published_sha256": "8bcdbf8453248d08f1b7e83cdcab0fd2a744ace860b5957060118472620e8144",
+      "original_bytes": 1150,
+      "published_bytes": 1150,
+      "duplicate_aliases": [
+        "reproduction_20260908_private/bundle/test_package.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/inner_extractions/correction/private_reproduction/test_package.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/connected_attempt_1/private_reproduction/test_package.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "reproduction_20260908_private/bundle/reproduce.py",
+      "target": "code/supplement/reproduction_20260908_private/bundle/reproduce.py",
+      "original_sha256": "65b8314af15987f469190bcff924cbf00c7fd7b322a15615e02773cfb709b185",
+      "published_sha256": "65b8314af15987f469190bcff924cbf00c7fd7b322a15615e02773cfb709b185",
+      "original_bytes": 14559,
+      "published_bytes": 14559,
+      "duplicate_aliases": [
+        "reproduction_20260908_private/bundle/reproduce.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/inner_extractions/correction/private_reproduction/reproduce.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/connected_attempt_1/private_reproduction/reproduce.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "model_development_20260907_geometry_frontier/publication/build_claims.py",
+      "target": "code/supplement/model_development_20260907_geometry_frontier/publication/build_claims.py",
+      "original_sha256": "d8fdd7ef7fa2cbc35baff7bddfcf8510c511fc788b135dbb20b8571ba4426c7c",
+      "published_sha256": "d8fdd7ef7fa2cbc35baff7bddfcf8510c511fc788b135dbb20b8571ba4426c7c",
+      "original_bytes": 4443,
+      "published_bytes": 4443,
+      "duplicate_aliases": [
+        "model_development_20260907_geometry_frontier/publication/build_claims.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/build_submission_package.py",
+      "target": "code/supplement/submission_revision_20260908/build_submission_package.py",
+      "original_sha256": "026398cba289a60c7d2782dfc20376252e26da931d3b421a3e51efedcfb81e64",
+      "published_sha256": "026398cba289a60c7d2782dfc20376252e26da931d3b421a3e51efedcfb81e64",
+      "original_bytes": 10014,
+      "published_bytes": 10014,
+      "duplicate_aliases": [
+        "submission_revision_20260908/build_submission_package.py",
+        "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v3/authoring_provenance/build_submission_package.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/audit_layout.py",
+      "target": "code/supplement/submission_revision_20260908/audit_layout.py",
+      "original_sha256": "039d94258db793d5ca8b4468044b70c483d99aedb1ea2cc13d38e460eeefd3d5",
+      "published_sha256": "039d94258db793d5ca8b4468044b70c483d99aedb1ea2cc13d38e460eeefd3d5",
+      "original_bytes": 3258,
+      "published_bytes": 3258,
+      "duplicate_aliases": [
+        "submission_revision_20260908/audit_layout.py",
+        "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v1/authoring_provenance/audit_layout.py",
+        "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v2/authoring_provenance/audit_layout.py",
+        "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v3/authoring_provenance/audit_layout.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/render_version.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/render_version.py",
+      "original_sha256": "b925f31c5cfa574649c6552f31bc5d16698a26d8aa367a3a638374c8e82148f9",
+      "published_sha256": "520aad7340aee52f7de2b4b7770fd58cf08ff274021ed12a7805e9eb54be268d",
+      "original_bytes": 4020,
+      "published_bytes": 4029,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_main/v1/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_main/v2/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_supplement/v1/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_supplement/v2/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v8/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_main/v1/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_main/v2/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_supplement/v1/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_supplement/v2/render_version.py",
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_supplement/v3/render_version.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/render_version.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/renewed_manuscript_v9/render_version.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 3
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/assemble_submission.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/assemble_submission.py",
+      "original_sha256": "b544ff3999bde7a7807b145088f4bfc375f21285fe685cc52f8db2fb1c3a02a1",
+      "published_sha256": "b544ff3999bde7a7807b145088f4bfc375f21285fe685cc52f8db2fb1c3a02a1",
+      "original_bytes": 14984,
+      "published_bytes": 14984,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/assemble_submission.py",
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/assemble_submission.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_main/v1/assemble_submission.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_main/v2/assemble_submission.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_supplement/v1/assemble_submission.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_supplement/v2/assemble_submission.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/assemble_submission.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/renewed_manuscript_v9/assemble_submission.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/audit_layout.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/audit_layout.py",
+      "original_sha256": "c4890b50fef27e26f0f8d5f719ea2653058f4fe4a3260a8e2ae8efc6811b19b1",
+      "published_sha256": "c4890b50fef27e26f0f8d5f719ea2653058f4fe4a3260a8e2ae8efc6811b19b1",
+      "original_bytes": 4123,
+      "published_bytes": 4123,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/audit_layout.py",
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/audit_layout.py",
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/audit_layout.py",
+        "submission_revision_20260908/renewed_manuscript_v7/audit_layout.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/audit_layout.py",
+        "submission_revision_20260908/renewed_manuscript_v8/audit_layout.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/audit_layout.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/audit_layout.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/audit_layout.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/renewed_manuscript_v9/audit_layout.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/audit_layout.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/audit_layout.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/test_assemble_submission.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/test_assemble_submission.py",
+      "original_sha256": "3e7b5f02635e8eeed20d0be33264a3d4564b303156310f7e91e97b3cdc864de2",
+      "published_sha256": "3e7b5f02635e8eeed20d0be33264a3d4564b303156310f7e91e97b3cdc864de2",
+      "original_bytes": 8457,
+      "published_bytes": 8457,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/test_assemble_submission.py",
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/test_assemble_submission.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/test_assemble_submission.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/renewed_manuscript_v9/test_assemble_submission.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/additions/test_prepare_presentation_blocks.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/additions/test_prepare_presentation_blocks.py",
+      "original_sha256": "17eb7f0e65456d0e46df001381da342e17d448166a397c7065d269c029a809e1",
+      "published_sha256": "17eb7f0e65456d0e46df001381da342e17d448166a397c7065d269c029a809e1",
+      "original_bytes": 2742,
+      "published_bytes": 2742,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/additions/test_prepare_presentation_blocks.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/additions/four_v9_displays/test_export_review_predecessor.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/additions/four_v9_displays/test_export_review_predecessor.py",
+      "original_sha256": "537930ed24c60948ad7d240dd754f0ccc33b454e2acc9769b482d602067e7e01",
+      "published_sha256": "537930ed24c60948ad7d240dd754f0ccc33b454e2acc9769b482d602067e7e01",
+      "original_bytes": 7251,
+      "published_bytes": 7251,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/additions/four_v9_displays/test_export_review_predecessor.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/additions/four_v9_displays/test_export.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/additions/four_v9_displays/test_export.py",
+      "original_sha256": "e017eca8ef3802a45922e01f01c3b8d630625e367514599963d51224c8f57306",
+      "published_sha256": "e017eca8ef3802a45922e01f01c3b8d630625e367514599963d51224c8f57306",
+      "original_bytes": 7803,
+      "published_bytes": 7803,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/additions/four_v9_displays/test_export.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/renewed_manuscript_v9/additions/four_v9_displays/test_export.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9_v2.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9_v2.py",
+      "original_sha256": "cf6d2c17bebfde28da9628c960cf2e913c252158ab056e7357e827ec344be52d",
+      "published_sha256": "cf6d2c17bebfde28da9628c960cf2e913c252158ab056e7357e827ec344be52d",
+      "original_bytes": 18092,
+      "published_bytes": 18092,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9_v2.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9_v2.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9_v2.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9_v2.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_v9_final_config.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_v9_final_config.py",
+      "original_sha256": "54ec1625c0c2631ee4abb0285627f4d42b57bf5362031b55f2caaadd57e99761",
+      "published_sha256": "54ec1625c0c2631ee4abb0285627f4d42b57bf5362031b55f2caaadd57e99761",
+      "original_bytes": 12285,
+      "published_bytes": 12285,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_v9_final_config.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_v9_final_config.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_v9_final_config.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_v9_final_config.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_prepare_v9_final_config.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_prepare_v9_final_config.py",
+      "original_sha256": "62e573677c310ca8b721c57dd596ffc9816e9d1826aba4d9714395a1e9a60151",
+      "published_sha256": "62e573677c310ca8b721c57dd596ffc9816e9d1826aba4d9714395a1e9a60151",
+      "original_bytes": 7165,
+      "published_bytes": 7165,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_prepare_v9_final_config.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_prepare_v9_final_config.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_prepare_v9_final_config.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_prepare_v9_final_config.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9_v2.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9_v2.py",
+      "original_sha256": "027a192786e727344b45e7de5f7eb4e158abe85222d856e40afdab6ba8896341",
+      "published_sha256": "027a192786e727344b45e7de5f7eb4e158abe85222d856e40afdab6ba8896341",
+      "original_bytes": 27353,
+      "published_bytes": 27353,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9_v2.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9_v2.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9_v2.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9_v2.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/test_verify_saved_evidence.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/test_verify_saved_evidence.py",
+      "original_sha256": "e46d2b506106f5b6406d6d4e52bdea3517634f8ed9a66aea43c41d5c899d7668",
+      "published_sha256": "e46d2b506106f5b6406d6d4e52bdea3517634f8ed9a66aea43c41d5c899d7668",
+      "original_bytes": 6456,
+      "published_bytes": 6456,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/quality/package_provenance/submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/test_verify_saved_evidence.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/test_verify_saved_evidence.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/quality/package_provenance/submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/test_verify_saved_evidence.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/verify_saved_evidence.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/verify_saved_evidence.py",
+      "original_sha256": "0a92061077bed894ddc942bf8668b67318151d2ef6bf18279958a2786cedbb9b",
+      "published_sha256": "0a92061077bed894ddc942bf8668b67318151d2ef6bf18279958a2786cedbb9b",
+      "original_bytes": 8275,
+      "published_bytes": 8275,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/quality/package_provenance/submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/verify_saved_evidence.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/verify_saved_evidence.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/quality/package_provenance/submission_revision_20260908/renewed_manuscript_v9/work/saved_evidence_checker_draft_v1/verify_saved_evidence.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v9_actual_final_review/audit.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/editorial/v9_actual_final_review/audit.py",
+      "original_sha256": "05778f93470cc2c3547ae00848da1d5b0816b9ec2d649713042a06e8cd9fd265",
+      "published_sha256": "05778f93470cc2c3547ae00848da1d5b0816b9ec2d649713042a06e8cd9fd265",
+      "original_bytes": 10255,
+      "published_bytes": 10255,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/quality/package_provenance/submission_revision_20260908/work/renewed_research/model_proposal/editorial/v9_actual_final_review/audit.py",
+        "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v9_actual_final_review/audit.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/quality/package_provenance/submission_revision_20260908/work/renewed_research/model_proposal/editorial/v9_actual_final_review/audit.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v8.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v8.py",
+      "original_sha256": "013bf9d87a7a16d72c75b3e68f6d089997c95cf5abe715541fe23af361ed7570",
+      "published_sha256": "013bf9d87a7a16d72c75b3e68f6d089997c95cf5abe715541fe23af361ed7570",
+      "original_bytes": 19338,
+      "published_bytes": 19338,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v5/authoring_provenance/finalizer/finalize_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/work/renewed_research/independent_environment/final_qa_tools/finalize_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/authoring_provenance/finalizer/finalize_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/evidence/v8/work/renewed_research/independent_environment/final_qa_tools/finalize_v8.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v5/authoring_provenance/finalizer/finalize_v8.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/work/renewed_research/independent_environment/final_qa_tools/finalize_v8.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v8.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/authoring_provenance/finalizer/finalize_v8.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/evidence/v8/work/renewed_research/independent_environment/final_qa_tools/finalize_v8.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v8.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v8/prepare_final_config_v8.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v8/prepare_final_config_v8.py",
+      "original_sha256": "fb3ec2bf616b877f1fc060d4de3674a557c45bd0fac3bf45a956bb71c695c04d",
+      "published_sha256": "fb3ec2bf616b877f1fc060d4de3674a557c45bd0fac3bf45a956bb71c695c04d",
+      "original_bytes": 6712,
+      "published_bytes": 6712,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/renewed_manuscript_v8/prepare_final_config_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/prepare_final_config_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/evidence/v8/renewed_manuscript_v8/prepare_final_config_v8.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/renewed_manuscript_v8/prepare_final_config_v8.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/evidence/v8/renewed_manuscript_v8/prepare_final_config_v8.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v8/prepare_final_config_v8_v2.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v8/prepare_final_config_v8_v2.py",
+      "original_sha256": "b28af8d4efb1dd039860c4e8264d9ae9437046f3c2221006f287d1f2feac347c",
+      "published_sha256": "b28af8d4efb1dd039860c4e8264d9ae9437046f3c2221006f287d1f2feac347c",
+      "original_bytes": 3638,
+      "published_bytes": 3638,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/renewed_manuscript_v8/prepare_final_config_v8_v2.py",
+        "submission_revision_20260908/renewed_manuscript_v8/prepare_final_config_v8_v2.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/evidence/v8/renewed_manuscript_v8/prepare_final_config_v8_v2.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/renewed_manuscript_v8/prepare_final_config_v8_v2.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/evidence/v8/renewed_manuscript_v8/prepare_final_config_v8_v2.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v8/build_reading_copy_v8.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v8/build_reading_copy_v8.py",
+      "original_sha256": "20b5e4bd7b55713be5e0eb642613f383d9eb263acb5eb3fd7f609dbc9478adb4",
+      "published_sha256": "20b5e4bd7b55713be5e0eb642613f383d9eb263acb5eb3fd7f609dbc9478adb4",
+      "original_bytes": 2245,
+      "published_bytes": 2245,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/renewed_manuscript_v8/build_reading_copy_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/build_reading_copy_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/evidence/v8/renewed_manuscript_v8/build_reading_copy_v8.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/renewed_manuscript_v8/build_reading_copy_v8.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/evidence/v8/renewed_manuscript_v8/build_reading_copy_v8.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v8/build_visual_ledger_v8.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v8/build_visual_ledger_v8.py",
+      "original_sha256": "c42c7f4f3636c9aee24b078e0a4d311bc3e70e1aa7933e72dad0e7a64c34f07d",
+      "published_sha256": "c42c7f4f3636c9aee24b078e0a4d311bc3e70e1aa7933e72dad0e7a64c34f07d",
+      "original_bytes": 4492,
+      "published_bytes": 4492,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/renewed_manuscript_v8/build_visual_ledger_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/build_visual_ledger_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/evidence/v8/renewed_manuscript_v8/build_visual_ledger_v8.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/renewed_manuscript_v8/build_visual_ledger_v8.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/evidence/v8/renewed_manuscript_v8/build_visual_ledger_v8.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v8/correct_toc_config_v8.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v8/correct_toc_config_v8.py",
+      "original_sha256": "d45a94babcb4a01d78c728a92ceb71511097d7a39efed71e84da753d0579d2a5",
+      "published_sha256": "d45a94babcb4a01d78c728a92ceb71511097d7a39efed71e84da753d0579d2a5",
+      "original_bytes": 5576,
+      "published_bytes": 5576,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/finalization_v2/correct_toc_config_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/correct_toc_config_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/evidence/v8/finalization_v2/correct_toc_config_v8.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/finalization_v2/correct_toc_config_v8.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/evidence/v8/finalization_v2/correct_toc_config_v8.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v8.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v8.py",
+      "original_sha256": "d5bb9e88cd7dd4e773a334e2fa7f0b397bae9d5c4669f70b37c4e2ce62702671",
+      "published_sha256": "d5bb9e88cd7dd4e773a334e2fa7f0b397bae9d5c4669f70b37c4e2ce62702671",
+      "original_bytes": 12126,
+      "published_bytes": 12126,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v8.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/evidence/v8/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v8.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v5/evidence/v8/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v8.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/evidence/v8/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v8.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v8.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v7/prepare_package_inputs.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v7/prepare_package_inputs.py",
+      "original_sha256": "b68bed939e93c67a3bd7017550dd55f5dce47f0f1a0f7315a4b63dc4f0bf8c7e",
+      "published_sha256": "f7baded5a6d47e6b8ca5c95c01f28e7291bf960b626f9836ec17bf361d1d1f76",
+      "original_bytes": 25742,
+      "published_bytes": 25778,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/prepare_package_inputs.py",
+        "submission_revision_20260908/renewed_manuscript_v7/prepare_package_inputs.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/prepare_package_inputs.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/prepare_package_inputs.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/prepare_package_inputs.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/prepare_package_inputs.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/prepare_package_inputs.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 12
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v7/archive_build.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v7/archive_build.py",
+      "original_sha256": "99bd09b42fd6160a20d444416e20a2d2b915f191decaa15d8ff0d3b669fbbe82",
+      "published_sha256": "99bd09b42fd6160a20d444416e20a2d2b915f191decaa15d8ff0d3b669fbbe82",
+      "original_bytes": 1947,
+      "published_bytes": 1947,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/archive_build.py",
+        "submission_revision_20260908/renewed_manuscript_v7/archive_build.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/archive_build.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/archive_build.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/archive_build.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/archive_build.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/archive_build.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v7/build_reading_copy.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v7/build_reading_copy.py",
+      "original_sha256": "1a8b38099151f13f0656dc6796bdeac159fc16abed7d1186f32ec5f3faad2ef6",
+      "published_sha256": "1a8b38099151f13f0656dc6796bdeac159fc16abed7d1186f32ec5f3faad2ef6",
+      "original_bytes": 1670,
+      "published_bytes": 1670,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/build_reading_copy.py",
+        "submission_revision_20260908/renewed_manuscript_v7/build_reading_copy.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/build_reading_copy.py",
+        "submission_revision_20260908/renewed_manuscript_v8/build_reading_copy.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/build_reading_copy.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/build_reading_copy.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/build_reading_copy.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/build_reading_copy.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v7_v3.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v7_v3.py",
+      "original_sha256": "e61d1024315fd29f5b0efc1a6a2707d9b525fa2381a75ed3517e0c70254852dc",
+      "published_sha256": "e61d1024315fd29f5b0efc1a6a2707d9b525fa2381a75ed3517e0c70254852dc",
+      "original_bytes": 16628,
+      "published_bytes": 16628,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/final_qa_tools/finalize_v7_v3.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/final_qa_tools/finalize_v7_v3.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/final_qa_tools/finalize_v7_v3.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/final_qa_tools/finalize_v7_v3.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/final_qa_tools/finalize_v7_v3.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/final_qa_tools/finalize_v7_v3.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v7_v3.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v7_v3.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v7_v3.py",
+      "original_sha256": "f4ae2116639c5a36855ef6bc362a491ebde7cffeb3384bf38c50f9cf0a75a00d",
+      "published_sha256": "f4ae2116639c5a36855ef6bc362a491ebde7cffeb3384bf38c50f9cf0a75a00d",
+      "original_bytes": 8579,
+      "published_bytes": 8579,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/final_qa_tools/test_finalize_v7_v3.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/final_qa_tools/test_finalize_v7_v3.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/final_qa_tools/test_finalize_v7_v3.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/final_qa_tools/test_finalize_v7_v3.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/final_qa_tools/test_finalize_v7_v3.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/final_qa_tools/test_finalize_v7_v3.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v7_v3.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_assembly_v7/math_structure.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_assembly_v7/math_structure.py",
+      "original_sha256": "915b01d111a2edd32090eec56023301c460cc2df4ae7709191620c5af372942e",
+      "published_sha256": "915b01d111a2edd32090eec56023301c460cc2df4ae7709191620c5af372942e",
+      "original_bytes": 1701,
+      "published_bytes": 1701,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/assembly_audit/v1/math_structure.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/evidence/assembly_audit/v1/math_structure.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/assembly_audit/v1/math_structure.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/assembly_audit/v1/math_structure.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/evidence/assembly_audit/v1/math_structure.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/assembly_audit/v1/math_structure.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_assembly_v7/math_structure.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_assembly_v7/audit.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_assembly_v7/audit.py",
+      "original_sha256": "4b61e26d488a9a1f10540102ac52a158fd31ea189508c72abca25462850049fb",
+      "published_sha256": "4b61e26d488a9a1f10540102ac52a158fd31ea189508c72abca25462850049fb",
+      "original_bytes": 7007,
+      "published_bytes": 7007,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/assembly_audit/v1/audit.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/evidence/assembly_audit/v1/audit.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/assembly_audit/v1/audit.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/assembly_audit/v1/audit.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/evidence/assembly_audit/v1/audit.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/assembly_audit/v1/audit.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_assembly_v7/audit.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_assembly_v7/finalize.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_assembly_v7/finalize.py",
+      "original_sha256": "1ef395d40f678257c4e43db8b7d01f53aca68c8739f8f43d95d32cdd166f790b",
+      "published_sha256": "1ef395d40f678257c4e43db8b7d01f53aca68c8739f8f43d95d32cdd166f790b",
+      "original_bytes": 1062,
+      "published_bytes": 1062,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/assembly_audit/v1/finalize.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/evidence/assembly_audit/v1/finalize.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/assembly_audit/v1/finalize.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/assembly_audit/v1/finalize.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/evidence/assembly_audit/v1/finalize.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/assembly_audit/v1/finalize.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_assembly_v7/finalize.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/risk_replay/audit.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/risk_replay/audit.py",
+      "original_sha256": "7288bea93a2ccb37737d87634cd8994a21d5d024a92265915ae4d086c7cbe251",
+      "published_sha256": "7288bea93a2ccb37737d87634cd8994a21d5d024a92265915ae4d086c7cbe251",
+      "original_bytes": 14962,
+      "published_bytes": 14962,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/environment/risk_replay/audit.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/evidence/environment/risk_replay/audit.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/environment/risk_replay/audit.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/environment/risk_replay/audit.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/evidence/environment/risk_replay/audit.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/environment/risk_replay/audit.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/risk_replay/audit.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/risk_replay/diagnostic_replay.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/risk_replay/diagnostic_replay.py",
+      "original_sha256": "2103d3b52b4f0cda6731f14873e9d034fcf769fae4ebb048cb16e483f4aae9c2",
+      "published_sha256": "2103d3b52b4f0cda6731f14873e9d034fcf769fae4ebb048cb16e483f4aae9c2",
+      "original_bytes": 1945,
+      "published_bytes": 1945,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/environment/risk_replay/diagnostic_replay.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/evidence/environment/risk_replay/diagnostic_replay.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/environment/risk_replay/diagnostic_replay.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/evidence/environment/risk_replay/diagnostic_replay.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/evidence/environment/risk_replay/diagnostic_replay.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/evidence/environment/risk_replay/diagnostic_replay.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/risk_replay/diagnostic_replay.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v7_v2.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v7_v2.py",
+      "original_sha256": "0d727996f47128bff8dc4be0d961b5f63a8a7dc3c9627b2547ecfded6353cdfe",
+      "published_sha256": "0d727996f47128bff8dc4be0d961b5f63a8a7dc3c9627b2547ecfded6353cdfe",
+      "original_bytes": 14546,
+      "published_bytes": 14546,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/quality/attempts/helpers/finalize_v7_v2.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/quality/attempts/helpers/finalize_v7_v2.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/quality/attempts/helpers/finalize_v7_v2.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/quality/attempts/helpers/finalize_v7_v2.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/quality/attempts/helpers/finalize_v7_v2.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/quality/attempts/helpers/finalize_v7_v2.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v7_v2.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v7.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v7.py",
+      "original_sha256": "e2a7039a242a4a965eccc61e4d6acbd985c3023b7c0aebe882e37a7c131fb373",
+      "published_sha256": "e2a7039a242a4a965eccc61e4d6acbd985c3023b7c0aebe882e37a7c131fb373",
+      "original_bytes": 13602,
+      "published_bytes": 13602,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/quality/attempts/helpers/finalize_v7.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/quality/attempts/helpers/finalize_v7.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/quality/attempts/helpers/finalize_v7.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/quality/attempts/helpers/finalize_v7.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/quality/attempts/helpers/finalize_v7.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/quality/attempts/helpers/finalize_v7.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v7.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v7.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v7.py",
+      "original_sha256": "2c1c67a71e794ce69d46c97e62747197a319f47b6962d814787ab5da2fcb63ad",
+      "published_sha256": "2c1c67a71e794ce69d46c97e62747197a319f47b6962d814787ab5da2fcb63ad",
+      "original_bytes": 4681,
+      "published_bytes": 4681,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/quality/attempts/helpers/test_finalize_v7.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/quality/attempts/helpers/test_finalize_v7.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/quality/attempts/helpers/test_finalize_v7.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/quality/attempts/helpers/test_finalize_v7.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/quality/attempts/helpers/test_finalize_v7.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/quality/attempts/helpers/test_finalize_v7.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v7.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v7_v2.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v7_v2.py",
+      "original_sha256": "76238acc90845d4d159ed66837fe0915ba9a9c50af5780e81345325d7a776840",
+      "published_sha256": "76238acc90845d4d159ed66837fe0915ba9a9c50af5780e81345325d7a776840",
+      "original_bytes": 6574,
+      "published_bytes": 6574,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/quality/attempts/helpers/test_finalize_v7_v2.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/quality/attempts/helpers/test_finalize_v7_v2.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/quality/attempts/helpers/test_finalize_v7_v2.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/quality/attempts/helpers/test_finalize_v7_v2.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/quality/attempts/helpers/test_finalize_v7_v2.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/quality/attempts/helpers/test_finalize_v7_v2.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v7_v2.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/work/package_documents/test_verify_saved_evidence.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/work/package_documents/test_verify_saved_evidence.py",
+      "original_sha256": "190248df73fc3fef157f7c9e119c581c92c9171d0c162a6422409b11c6e956a5",
+      "published_sha256": "190248df73fc3fef157f7c9e119c581c92c9171d0c162a6422409b11c6e956a5",
+      "original_bytes": 7414,
+      "published_bytes": 7414,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/reproduction/v9_evidence/test_verify_saved_evidence.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/package_documents/test_verify_saved_evidence.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/reproduction/v9_evidence/test_verify_saved_evidence.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/work/package_documents/verify_saved_evidence.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/work/package_documents/verify_saved_evidence.py",
+      "original_sha256": "302c6c0b161c5138134de9efca5ef0cc0ffdf693d108169e093d32e0e325142f",
+      "published_sha256": "302c6c0b161c5138134de9efca5ef0cc0ffdf693d108169e093d32e0e325142f",
+      "original_bytes": 8353,
+      "published_bytes": 8353,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/reproduction/v9_evidence/verify_saved_evidence.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/package_documents/verify_saved_evidence.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/reproduction/v9_evidence/verify_saved_evidence.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/author_materials/build_v1/build.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/author_materials/build_v1/build.py",
+      "original_sha256": "a07642fb6ae0870eed1a7fe94037979c3d8cf6b63624c9679b063c713918403b",
+      "published_sha256": "a07642fb6ae0870eed1a7fe94037979c3d8cf6b63624c9679b063c713918403b",
+      "original_bytes": 4014,
+      "published_bytes": 4014,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/author_materials/build_v1/build.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/author_materials/build_v1/publish.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/author_materials/build_v1/publish.py",
+      "original_sha256": "e23fef212587e2254f32c4f25b30533c33161bb424c0682623b41585ff39a093",
+      "published_sha256": "60d86f7ca3f900158ce0adda05f07d22d635a8465c33c2b3b8e65a2eea6a0e2a",
+      "original_bytes": 4106,
+      "published_bytes": 4112,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/author_materials/build_v1/publish.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 2
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_1/assemble_submission.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_1/assemble_submission.py",
+      "original_sha256": "f95d87cbfd9f0f7e4c8c2dc17104e5c3961e0579b9d6515fc90cfe31b2cf71f3",
+      "published_sha256": "f95d87cbfd9f0f7e4c8c2dc17104e5c3961e0579b9d6515fc90cfe31b2cf71f3",
+      "original_bytes": 14155,
+      "published_bytes": 14155,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_1/assemble_submission.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_1/test_assemble_submission.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_1/test_assemble_submission.py",
+      "original_sha256": "14fe3b664c638e2a0d2a90c4729343a3dcc3d81670c063f21e8c259fd00c04a3",
+      "published_sha256": "14fe3b664c638e2a0d2a90c4729343a3dcc3d81670c063f21e8c259fd00c04a3",
+      "original_bytes": 7074,
+      "published_bytes": 7074,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_1/test_assemble_submission.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_2/assemble_submission.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_2/assemble_submission.py",
+      "original_sha256": "81c2ec0787954a67ac2a7f62e1ca60a942f1072ed988c1bc6d81200bbb0d6209",
+      "published_sha256": "81c2ec0787954a67ac2a7f62e1ca60a942f1072ed988c1bc6d81200bbb0d6209",
+      "original_bytes": 14475,
+      "published_bytes": 14475,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_2/assemble_submission.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_2/test_assemble_submission.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_2/test_assemble_submission.py",
+      "original_sha256": "f4cd880e7b70c1ab2bc5f3485ce91e073ea0db82f0e1cef5f1df010d480cc861",
+      "published_sha256": "f4cd880e7b70c1ab2bc5f3485ce91e073ea0db82f0e1cef5f1df010d480cc861",
+      "original_bytes": 7342,
+      "published_bytes": 7342,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/work/assembler_review_predecessor_2/test_assemble_submission.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v7/work/record_root_visual.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v7/work/record_root_visual.py",
+      "original_sha256": "1b1e7e02d50d436435e5e93254be3785a05b95b6cc5a32232fbd30cb9eca5da8",
+      "published_sha256": "1b1e7e02d50d436435e5e93254be3785a05b95b6cc5a32232fbd30cb9eca5da8",
+      "original_bytes": 1864,
+      "published_bytes": 1864,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v7/work/record_root_visual.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v8/authorize_final_config_v8.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v8/authorize_final_config_v8.py",
+      "original_sha256": "ea89073fb47aea39df4cc3e64082dd2a90370ff07f2f0e8546a1bad8ed51c9be",
+      "published_sha256": "ea89073fb47aea39df4cc3e64082dd2a90370ff07f2f0e8546a1bad8ed51c9be",
+      "original_bytes": 3706,
+      "published_bytes": 3706,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v8/authorize_final_config_v8.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v1/authoring_provenance/build_submission_package.py",
+      "target": "code/supplement/submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v1/authoring_provenance/build_submission_package.py",
+      "original_sha256": "d059e65ff22bda25915f8322c423c247747c5a93c9b3a216d53bc99a6bedd956",
+      "published_sha256": "d059e65ff22bda25915f8322c423c247747c5a93c9b3a216d53bc99a6bedd956",
+      "original_bytes": 9582,
+      "published_bytes": 9582,
+      "duplicate_aliases": [
+        "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v1/authoring_provenance/build_submission_package.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v2/authoring_provenance/build_submission_package.py",
+      "target": "code/supplement/submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v2/authoring_provenance/build_submission_package.py",
+      "original_sha256": "ca79deb3baa9f6a70b8a137d6006c7a16390521f3d49b84a1ace42569c6f6406",
+      "published_sha256": "ca79deb3baa9f6a70b8a137d6006c7a16390521f3d49b84a1ace42569c6f6406",
+      "original_bytes": 9917,
+      "published_bytes": 9917,
+      "duplicate_aliases": [
+        "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v2/authoring_provenance/build_submission_package.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/kl_bound_study/portable_plan/fresh_extraction_v1/code/overlay.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/kl_bound_study/portable_plan/fresh_extraction_v1/code/overlay.py",
+      "original_sha256": "e5ac886d09e2a2a5dc49dd66aa65115569a0ec48fade40eee945eb8e21a0c1c9",
+      "published_sha256": "e5ac886d09e2a2a5dc49dd66aa65115569a0ec48fade40eee945eb8e21a0c1c9",
+      "original_bytes": 1353,
+      "published_bytes": 1353,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/kl_bound_study/portable_plan/fresh_extraction_v1/code/overlay.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/kl_bound_study/portable_plan/fresh_extraction_v1/code/adapter.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/kl_bound_study/portable_plan/fresh_extraction_v1/code/adapter.py",
+      "original_sha256": "8763ad72337dcf386e1d3029cadd5e40c41a3b0af59afd43310f6914bdfce39f",
+      "published_sha256": "8763ad72337dcf386e1d3029cadd5e40c41a3b0af59afd43310f6914bdfce39f",
+      "original_bytes": 3937,
+      "published_bytes": 3937,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/kl_bound_study/portable_plan/fresh_extraction_v1/code/adapter.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/metrics.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/metrics.py",
+      "original_sha256": "f029c9e61e29a20b6232dd21f2b891b5e4a01c3351cf5c92e1a7518eaa1c1fb4",
+      "published_sha256": "f029c9e61e29a20b6232dd21f2b891b5e4a01c3351cf5c92e1a7518eaa1c1fb4",
+      "original_bytes": 14172,
+      "published_bytes": 14172,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/metrics.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/metrics.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/policy.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/policy.py",
+      "original_sha256": "ab2e9359c7490d82e74bdd1564bfd4542438749aae24685942bc6e6c9c1cce23",
+      "published_sha256": "ab2e9359c7490d82e74bdd1564bfd4542438749aae24685942bc6e6c9c1cce23",
+      "original_bytes": 2610,
+      "published_bytes": 2610,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/policy.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/codec.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/codec.py",
+      "original_sha256": "999b12442153d5a8b00c9d325a5a8deb606619020bcb50a6599a68eb3fbcf337",
+      "published_sha256": "999b12442153d5a8b00c9d325a5a8deb606619020bcb50a6599a68eb3fbcf337",
+      "original_bytes": 1607,
+      "published_bytes": 1607,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/range_bound_feasibility/stage1_v2/portable_plan/fresh_extraction_v1/code/codec.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_reauthentication/audit.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_reauthentication/audit.py",
+      "original_sha256": "ed9919d4cc1ee6e8e8ee3e79d91d04ede0b6fcad2373087afb1925c633505393",
+      "published_sha256": "86c66de7497e195a8018a4e3db53e78b6a07f28d7c535bb21aa20db6ec2f51d2",
+      "original_bytes": 7515,
+      "published_bytes": 7518,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_reauthentication/audit.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_reauthentication/first_attempt/audit.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_reauthentication/first_attempt/audit.py",
+      "original_sha256": "835034c3b43da3c840f848b32aaac358654d6d7cef3813d67ea4831c4e8457f8",
+      "published_sha256": "b556ccb7e09e9daa8081144dda450e85cdf76b33b128054724c9f0c041d87b8a",
+      "original_bytes": 7511,
+      "published_bytes": 7514,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_reauthentication/first_attempt/audit.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v9_external_pin_review/audit_closure.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/editorial/v9_external_pin_review/audit_closure.py",
+      "original_sha256": "7f859332a1fb56dec76c2fa7a470321fd7a9198eef03aba7a9615234a0634600",
+      "published_sha256": "7f859332a1fb56dec76c2fa7a470321fd7a9198eef03aba7a9615234a0634600",
+      "original_bytes": 4426,
+      "published_bytes": 4426,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v9_external_pin_review/audit_closure.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_config_review/review_final.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_config_review/review_final.py",
+      "original_sha256": "d94013709f1f8c2db7fb8708c08249579cfdd27ff6aa5fa89dd538650cecffb9",
+      "published_sha256": "6b252584413f6ff18a31533eb8fb50f1af1c072def64656922e02a4bcea03606",
+      "original_bytes": 3264,
+      "published_bytes": 3267,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_config_review/review_final.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_config_review/audit.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_config_review/audit.py",
+      "original_sha256": "7871459b5ba7028ab109dc5b334714b95b7cc559e082fefb3a14ea9dbc4dec93",
+      "published_sha256": "5ce854d7c8501f55cf678d2bb1e3d231d4166683e685c1198807e787655648a6",
+      "original_bytes": 8042,
+      "published_bytes": 8045,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/editorial/v8_config_review/audit.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/model_proposal/editorial/package_v5_review/audit_inventory.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/model_proposal/editorial/package_v5_review/audit_inventory.py",
+      "original_sha256": "bbb38c2d2771be4f46a420eff305627829d5a3f24a5ea9765239cd053f870ec7",
+      "published_sha256": "e9ecd20f69bbd3e0718adb11cad23b3a18f9d6cb1aa81d7953f7e89593371e83",
+      "original_bytes": 4251,
+      "published_bytes": 4254,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/model_proposal/editorial/package_v5_review/audit_inventory.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/kl_confidence_design/build_illustration.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/kl_confidence_design/build_illustration.py",
+      "original_sha256": "badfa4a8903f786b34c03eb57e24188d6fb98943737085ac6e427d4bb5311ed2",
+      "published_sha256": "cc3309987d6463b7c310131cf18fdfecf14494ae315af45c22df0f3deb0e77a5",
+      "original_bytes": 6040,
+      "published_bytes": 6043,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/kl_confidence_design/build_illustration.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/uncertainty_review/range_bound_feasibility/four_downstream_audit/record_v9_v2_review.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/uncertainty_review/range_bound_feasibility/four_downstream_audit/record_v9_v2_review.py",
+      "original_sha256": "d094ce5f15347200f2e1f598af48d2fe5f81a86718bf8bf1d8326f622eddc6e9",
+      "published_sha256": "d77a7996dd20817f2f2cadcfc16cb6b2bb007c41f00ef2799502d656de5bf1cd",
+      "original_bytes": 10287,
+      "published_bytes": 10290,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/range_bound_feasibility/four_downstream_audit/record_v9_v2_review.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/uncertainty_review/range_bound_feasibility/four_downstream_audit/audit_v9_assembly.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/uncertainty_review/range_bound_feasibility/four_downstream_audit/audit_v9_assembly.py",
+      "original_sha256": "be4a13c3b4dd6e509741c203e095428175344f20e72cb39c7b938dd6ff7aaac7",
+      "published_sha256": "bcd72c9a5cf82a77cdda1ffa65930295906e41eaa6230f76faa23e7c97853fd0",
+      "original_bytes": 4090,
+      "published_bytes": 4093,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/range_bound_feasibility/four_downstream_audit/audit_v9_assembly.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/uncertainty_review/range_bound_feasibility/four_downstream_audit/record_visual_main_v9.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/uncertainty_review/range_bound_feasibility/four_downstream_audit/record_visual_main_v9.py",
+      "original_sha256": "0d5cab63ac8cba362399cd6d8676f078f73830643d5d2b7231d3c45ac7ec897e",
+      "published_sha256": "c57367d24dcb90c844a7b7caa8f80c46342a08cc934dfde92001784b70f53a0f",
+      "original_bytes": 4731,
+      "published_bytes": 4734,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/range_bound_feasibility/four_downstream_audit/record_visual_main_v9.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/closing_freshness.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/closing_freshness.py",
+      "original_sha256": "fb6b2038dcd2e47ea979b3f9effcdbad8454e2c690a73e961489fc1346a8fa8d",
+      "published_sha256": "4bcd37f2eba1b8367b5c31d0d1d3dc982a484f7d244efce95028bbf59d9339e7",
+      "original_bytes": 5668,
+      "published_bytes": 5671,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/closing_freshness.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9.py",
+      "original_sha256": "b9945afbb04709def69269ad818b29065df16d2f8ee092cec3eef581b0d10ede",
+      "published_sha256": "b9945afbb04709def69269ad818b29065df16d2f8ee092cec3eef581b0d10ede",
+      "original_bytes": 15012,
+      "published_bytes": 15012,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_finalize_v9.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9.py",
+      "original_sha256": "103c77f1e2a5da1be65a124b121c08d0b0fd089a0b5c2a9484590e4795a7278a",
+      "published_sha256": "103c77f1e2a5da1be65a124b121c08d0b0fd089a0b5c2a9484590e4795a7278a",
+      "original_bytes": 25730,
+      "published_bytes": 25730,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/finalize_v9.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/no_fit_checks.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/no_fit_checks.py",
+      "original_sha256": "4f138da05fb9c8af6cdddf9c895a12c4a862df70c17e55d5c861d810d085c2c3",
+      "published_sha256": "4f138da05fb9c8af6cdddf9c895a12c4a862df70c17e55d5c861d810d085c2c3",
+      "original_bytes": 3976,
+      "published_bytes": 3976,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/no_fit_checks.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/extract_review.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/extract_review.py",
+      "original_sha256": "368faa0595973741feef4c78daf226f5569cfe7137fb4f5e27345239ef3035b6",
+      "published_sha256": "368faa0595973741feef4c78daf226f5569cfe7137fb4f5e27345239ef3035b6",
+      "original_bytes": 2919,
+      "published_bytes": 2919,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/extract_review.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/visual_v7_v1/inventory.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/visual_v7_v1/inventory.py",
+      "original_sha256": "908ed87cdf4c9fb32c2b2d2a0fb220a448d811fb9d30e0a8894b7dde72444c66",
+      "published_sha256": "908ed87cdf4c9fb32c2b2d2a0fb220a448d811fb9d30e0a8894b7dde72444c66",
+      "original_bytes": 1846,
+      "published_bytes": 1846,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/visual_v7_v1/inventory.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/risk_replay/test_witness.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/risk_replay/test_witness.py",
+      "original_sha256": "b19a9b3e4e9b0a35f95a3344cec163d1e3a23631426ed5a20bf5002bc82d5bd9",
+      "published_sha256": "b19a9b3e4e9b0a35f95a3344cec163d1e3a23631426ed5a20bf5002bc82d5bd9",
+      "original_bytes": 956,
+      "published_bytes": 956,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/risk_replay/test_witness.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_draft_v9_evidence.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_draft_v9_evidence.py",
+      "original_sha256": "bb251b7c631a957f93bf2a535e7d3b5e2b87763d68666d2ca944d72e3023af25",
+      "published_sha256": "bb251b7c631a957f93bf2a535e7d3b5e2b87763d68666d2ca944d72e3023af25",
+      "original_bytes": 1318,
+      "published_bytes": 1318,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_draft_v9_evidence.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/extend_v9_evidence_v4.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/extend_v9_evidence_v4.py",
+      "original_sha256": "7cdd38e5f0593e66551fbe98636062fdcf34e075c760ecf194ecebfd280e9ea1",
+      "published_sha256": "7cdd38e5f0593e66551fbe98636062fdcf34e075c760ecf194ecebfd280e9ea1",
+      "original_bytes": 4430,
+      "published_bytes": 4430,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/extend_v9_evidence_v4.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_v8_draft.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_v8_draft.py",
+      "original_sha256": "da23f24ebbd58ea8606ab3cdfc30fadb784d3552d5bc63583cbf2f4f9817b548",
+      "published_sha256": "da23f24ebbd58ea8606ab3cdfc30fadb784d3552d5bc63583cbf2f4f9817b548",
+      "original_bytes": 9039,
+      "published_bytes": 9039,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_v8_draft.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/normalize_own_reviews.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/normalize_own_reviews.py",
+      "original_sha256": "145ed07103c23a61ddd4d08a358ebc618412264e37b49272c00b6a577469c62c",
+      "published_sha256": "145ed07103c23a61ddd4d08a358ebc618412264e37b49272c00b6a577469c62c",
+      "original_bytes": 1881,
+      "published_bytes": 1881,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/normalize_own_reviews.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_extend_v9_evidence_v4.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_extend_v9_evidence_v4.py",
+      "original_sha256": "0d5704ddd09f8538ccfd03ae6ac67bfa8092b4ce4e5b1465ca0521555c76859e",
+      "published_sha256": "0d5704ddd09f8538ccfd03ae6ac67bfa8092b4ce4e5b1465ca0521555c76859e",
+      "original_bytes": 2091,
+      "published_bytes": 2091,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/test_extend_v9_evidence_v4.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/draft_v9_evidence.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/draft_v9_evidence.py",
+      "original_sha256": "7057abb1c98dba3adc99232d97d4243462019f5b81ca2e77634763e21e14e9ff",
+      "published_sha256": "7057abb1c98dba3adc99232d97d4243462019f5b81ca2e77634763e21e14e9ff",
+      "original_bytes": 12062,
+      "published_bytes": 12062,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/draft_v9_evidence.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_selected_draft.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_selected_draft.py",
+      "original_sha256": "cf2a849fa73f6bbc9bd7a4cf5f9f8c53d5a5a695e225e25fac91384b430a8b13",
+      "published_sha256": "cf2a849fa73f6bbc9bd7a4cf5f9f8c53d5a5a695e225e25fac91384b430a8b13",
+      "original_bytes": 7602,
+      "published_bytes": 7602,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/prepare_selected_draft.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/validate_saved_v9_binding.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/validate_saved_v9_binding.py",
+      "original_sha256": "a09a4627b88aa7a4ffb68db512342692c3c7b41331097a290e1e6afa51e6d7bc",
+      "published_sha256": "a09a4627b88aa7a4ffb68db512342692c3c7b41331097a290e1e6afa51e6d7bc",
+      "original_bytes": 3676,
+      "published_bytes": 3676,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/validate_saved_v9_binding.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/draft_attempt_1/prepare_v9_final_config.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/draft_attempt_1/prepare_v9_final_config.py",
+      "original_sha256": "5f83ff0e54815621ee8c309cd674992b6b26e74b2fbf1f79be9f74b2cb23e2d8",
+      "published_sha256": "5f83ff0e54815621ee8c309cd674992b6b26e74b2fbf1f79be9f74b2cb23e2d8",
+      "original_bytes": 11599,
+      "published_bytes": 11599,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/draft_attempt_1/prepare_v9_final_config.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/draft_attempt_1/test_prepare_v9_final_config.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/draft_attempt_1/test_prepare_v9_final_config.py",
+      "original_sha256": "39b2a68697e296aedae87fdbef935f616577d9dd3a263ff56b505c711887e819",
+      "published_sha256": "39b2a68697e296aedae87fdbef935f616577d9dd3a263ff56b505c711887e819",
+      "original_bytes": 6392,
+      "published_bytes": 6392,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/draft_attempt_1/test_prepare_v9_final_config.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/package_binding_review/pre_final_receipts_prepare_package_inputs.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/package_binding_review/pre_final_receipts_prepare_package_inputs.py",
+      "original_sha256": "8b6927796463a64f93f6151bf5ae6b3f06ba867128b8521b51d5642b81f2c501",
+      "published_sha256": "8fddf9503dc2847e7326f8aa047ebd5d8b1f60880ddbec5973daad8e1de20409",
+      "original_bytes": 24238,
+      "published_bytes": 24274,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/package_binding_review/pre_final_receipts_prepare_package_inputs.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 12
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/package_binding_review/pre_patch/prepare_package_inputs.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/package_binding_review/pre_patch/prepare_package_inputs.py",
+      "original_sha256": "3c357ea599f10a340f6458f2d1f31dcb64fa4356f97e825478e6b0e7dc323509",
+      "published_sha256": "3c357ea599f10a340f6458f2d1f31dcb64fa4356f97e825478e6b0e7dc323509",
+      "original_bytes": 9131,
+      "published_bytes": 9131,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/package_binding_review/pre_patch/prepare_package_inputs.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/package_binding_review/pre_audit_capture/prepare_package_inputs.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/package_binding_review/pre_audit_capture/prepare_package_inputs.py",
+      "original_sha256": "a3945c8bca3d616da30a4793268b419512875856198795d43ebf182a5181c81a",
+      "published_sha256": "a3945c8bca3d616da30a4793268b419512875856198795d43ebf182a5181c81a",
+      "original_bytes": 12302,
+      "published_bytes": 12302,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/final_qa_tools/package_binding_review/pre_audit_capture/prepare_package_inputs.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/renewed_research/independent_environment/visual_v7_v3/inventory.py",
+      "target": "code/supplement/submission_revision_20260908/work/renewed_research/independent_environment/visual_v7_v3/inventory.py",
+      "original_sha256": "714efee66f90a7fe951b9a59497054a822ae63ac7e818eb5c23153278cd76e1a",
+      "published_sha256": "714efee66f90a7fe951b9a59497054a822ae63ac7e818eb5c23153278cd76e1a",
+      "original_bytes": 3207,
+      "published_bytes": 3207,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/renewed_research/independent_environment/visual_v7_v3/inventory.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/scientific_review/audit_citations_v2.py",
+      "target": "code/supplement/submission_revision_20260908/work/scientific_review/audit_citations_v2.py",
+      "original_sha256": "fdadb0a94ce236b4d253badc96fc01ee09c02f33ec7d22423d8f7ee3d64e2868",
+      "published_sha256": "fdadb0a94ce236b4d253badc96fc01ee09c02f33ec7d22423d8f7ee3d64e2868",
+      "original_bytes": 3319,
+      "published_bytes": 3319,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/scientific_review/audit_citations_v2.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/scientific_review/audit_math_v5.py",
+      "target": "code/supplement/submission_revision_20260908/work/scientific_review/audit_math_v5.py",
+      "original_sha256": "2fe96b89d09ae479e43649402910cc947ba12a0f15c596d129d370f386764b92",
+      "published_sha256": "2fe96b89d09ae479e43649402910cc947ba12a0f15c596d129d370f386764b92",
+      "original_bytes": 2513,
+      "published_bytes": 2513,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/scientific_review/audit_math_v5.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/scientific_review/audit_assembly_v6.py",
+      "target": "code/supplement/submission_revision_20260908/work/scientific_review/audit_assembly_v6.py",
+      "original_sha256": "de62dd0d291a8c396c3ab0d17e926393ea44f5d5cbb7ff1b477d9ac283af6241",
+      "published_sha256": "de62dd0d291a8c396c3ab0d17e926393ea44f5d5cbb7ff1b477d9ac283af6241",
+      "original_bytes": 4579,
+      "published_bytes": 4579,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/scientific_review/audit_assembly_v6.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "submission_revision_20260908/work/scientific_review/audit_assembly.py",
+      "target": "code/supplement/submission_revision_20260908/work/scientific_review/audit_assembly.py",
+      "original_sha256": "1c41ee7da8f8ef4883a576b6f8397f1c89f82aa9d3d065b7ca9ede397cf045ca",
+      "published_sha256": "1c41ee7da8f8ef4883a576b6f8397f1c89f82aa9d3d065b7ca9ede397cf045ca",
+      "original_bytes": 4357,
+      "published_bytes": 4357,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/scientific_review/audit_assembly.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "paper_revision_20260907/verify_package.py",
+      "target": "code/supplement/paper_revision_20260907/verify_package.py",
+      "original_sha256": "ce9e39361696e29598c576fdba29297650fb7a9997a200ba95c1848097ea0e40",
+      "published_sha256": "ce9e39361696e29598c576fdba29297650fb7a9997a200ba95c1848097ea0e40",
+      "original_bytes": 8748,
+      "published_bytes": 8748,
+      "duplicate_aliases": [
+        "paper_revision_20260907/verify_package.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "paper_revision_20260907/inspect_layout.py",
+      "target": "code/supplement/paper_revision_20260907/inspect_layout.py",
+      "original_sha256": "8469009b5d017f28e3d14e68e16690dfddebc84af903ebc14c69ea537877be93",
+      "published_sha256": "8469009b5d017f28e3d14e68e16690dfddebc84af903ebc14c69ea537877be93",
+      "original_bytes": 1485,
+      "published_bytes": 1485,
+      "duplicate_aliases": [
+        "paper_revision_20260907/inspect_layout.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_source_only_not_runtime_validated"
+    },
+    {
+      "source": "modern_edition/build_document.py",
+      "target": "code/supplement/modern_edition/build_document.py",
+      "original_sha256": "b4b88cafdc51f4f4f37754408a1c286bc527f6a191d8c665aa8c59ec24b23303",
+      "published_sha256": "b4b88cafdc51f4f4f37754408a1c286bc527f6a191d8c665aa8c59ec24b23303",
+      "original_bytes": 16202,
+      "published_bytes": 16202,
+      "duplicate_aliases": [
+        "modern_edition/build_document.py",
+        "modern_edition/release/NeuralFoil_Research_Paper/build_document.py",
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/preserved_design.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/preserved_design.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/preserved_design.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/preserved_design.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/preserved_design.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/preserved_design.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "analysis/postprocess_docx.py",
+      "target": "code/supplement/analysis/postprocess_docx.py",
+      "original_sha256": "dc5859f485558330284e3414e166107fe2298ff6619811f9cd47a0daf5832f43",
+      "published_sha256": "dc5859f485558330284e3414e166107fe2298ff6619811f9cd47a0daf5832f43",
+      "original_bytes": 14609,
+      "published_bytes": 14609,
+      "duplicate_aliases": [
+        "modern_edition/evidence/analysis/postprocess_docx.py",
+        "modern_edition/release/NeuralFoil_Research_Paper/evidence/analysis/postprocess_docx.py",
+        "analysis/postprocess_docx.py",
+        "output/release/NeuralFoil_Journal_Final/analysis/postprocess_docx.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/build_documents.py",
+      "original_sha256": "35d2e7354f63b20922a45f3006867f3ddc03da674002b16a4eb604e501e24506",
+      "published_sha256": "4d7448742a9e676dcdc58dd34e8e41e9da89115f5684b7e11da188745619e264",
+      "original_bytes": 11632,
+      "published_bytes": 11635,
+      "duplicate_aliases": [
+        "submission_revision_20260908/build_documents.py",
+        "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v1/authoring_provenance/build_documents.py",
+        "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v2/authoring_provenance/build_documents.py",
+        "submission_revision_20260908/deliverables/NeuralFoil_Private_Submission_Package_v3/authoring_provenance/build_documents.py",
+        "submission_revision_20260908/work/render_main/v6/build_documents.py",
+        "submission_revision_20260908/work/render_main/v5/build_documents.py",
+        "submission_revision_20260908/work/render_supplement/v6/build_documents.py",
+        "submission_revision_20260908/work/render_supplement/v5/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/build_documents.py",
+      "original_sha256": "7c8a02b0990e5c4e2f17c45b1518942d2e1d696aa5e41e94971f326bd4f7c973",
+      "published_sha256": "1bf72bf47543c8ea40678ac8ec2852543a5628e803d1804e587f382f94d1f636",
+      "original_bytes": 15936,
+      "published_bytes": 15942,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_main/v2/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_supplement/v2/build_documents.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/authoring_provenance/current/submission_revision_20260908/renewed_manuscript_v9/build_documents.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/extract_attempt_1/payload/project/submission_revision_20260908/renewed_manuscript_v9/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 2
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v7/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v7/build_documents.py",
+      "original_sha256": "bc2c2c206aee0e826c5596f920d5fdd11534e8fbfda4968be579b745d6c5c007",
+      "published_sha256": "e8b58c58a166dc46d90a7184f319bbe50e7011dacce3dac3fb1e4cabe2ff590a",
+      "original_bytes": 13295,
+      "published_bytes": 13301,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/deliverables/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/deliverables/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v6/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v8/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v7/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v5/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_supplement/v6/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_supplement/v8/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_supplement/v7/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_supplement/v5/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v8/deliverables/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/build_documents.py",
+        "submission_revision_20260908/work/renewed_research/uncertainty_review/package_v6_plan/outer_extract_attempt_1/NeuralFoil_Private_Submission_Package_v6/historical/v4/authoring_provenance/build_documents.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v4_replay/fresh_extraction/NeuralFoil_Private_Submission_Package_v4/authoring_provenance/build_documents.py",
+        "submission_revision_20260908/work/renewed_research/independent_environment/package_v5_fresh_extraction_v1/NeuralFoil_Private_Submission_Package_v5/historical/v4/authoring_provenance/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 2
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v9/work/render_main/v1/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v9/work/render_main/v1/build_documents.py",
+      "original_sha256": "36042aee10774c9f36cea4f7b0bb7e6f40e3237dceba9636a9b28efe99d4d25e",
+      "published_sha256": "5bfe3256db777d65954631aad143f0222f6782226cca40546191df1e2f42637b",
+      "original_bytes": 15268,
+      "published_bytes": 15274,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_main/v1/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v9/work/render_supplement/v1/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 2
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v1/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v7/work/render_main/v1/build_documents.py",
+      "original_sha256": "64872f65366920cb4c6d4a5d3396e05cfb88d2b2b10a8d532c0253090a3384b0",
+      "published_sha256": "90b711454e2e76ab5f38c57cce2a789093bc55da92b6af0db90f4ff9a8fe8d00",
+      "original_bytes": 11858,
+      "published_bytes": 11864,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v1/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_supplement/v1/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 2
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v2/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v7/work/render_main/v2/build_documents.py",
+      "original_sha256": "f05e98643675a4e258fdde28b4abf047c45d194c8436493ba2e208e85ea976cb",
+      "published_sha256": "ebb178f56ba66550a4316ce9a93669f58d20f662c79084130fc8c39c5694d7dc",
+      "original_bytes": 12899,
+      "published_bytes": 12905,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v2/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v3/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_supplement/v2/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_supplement/v3/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 2
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v4/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v7/work/render_main/v4/build_documents.py",
+      "original_sha256": "858488c76d7b59b8760f440c628ef1a688eb1952574662d428a14bc13f229157",
+      "published_sha256": "8813473a7241e1ef52f654528727944319da996a69af66fdc90a8c4f1edef310",
+      "original_bytes": 13114,
+      "published_bytes": 13120,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_main/v4/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v7/work/render_supplement/v4/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 2
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v8/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v8/build_documents.py",
+      "original_sha256": "c8cdd95da8326a2fe5b305915dbc4b1013431c674570df9e799bcaf79c407944",
+      "published_sha256": "f83564e567c9bb18a421c5feedc79e2bd026e79d64b79840886233c55a714f56",
+      "original_bytes": 14509,
+      "published_bytes": 14515,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v8/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_main/v2/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_supplement/v2/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_supplement/v3/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 2
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/renewed_manuscript_v8/work/render_main/v1/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/renewed_manuscript_v8/work/render_main/v1/build_documents.py",
+      "original_sha256": "c967776acbe39479ad53d22f5fc0db844baa378a29224c1437a829738eba42ce",
+      "published_sha256": "b97ce226db19eaf71144e5c97730198f7e1ff361ee97c5974184523f35e1905c",
+      "original_bytes": 13736,
+      "published_bytes": 13742,
+      "duplicate_aliases": [
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_main/v1/build_documents.py",
+        "submission_revision_20260908/renewed_manuscript_v8/work/render_supplement/v1/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 2
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/work/render_main/v1/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/work/render_main/v1/build_documents.py",
+      "original_sha256": "a40b31ab3cf6e2a31b7bee50d0a0630d8b97db62e5d9d29ee6e2f908a9008595",
+      "published_sha256": "1169f5dc90041e3c35cb1f6e3f3b50e4069e19c4c228fc27b7ee8b109a5a7a1b",
+      "original_bytes": 10144,
+      "published_bytes": 10147,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/render_main/v1/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/work/render_main/v2/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/work/render_main/v2/build_documents.py",
+      "original_sha256": "b5a734aedceaf693c04fc3167fc54acfde9722406ab46484031f2daa82c92247",
+      "published_sha256": "de41fe9bbda84777e70a5e6d16b9f6435e25e26cb0b61635ca4df7e203076c8f",
+      "original_bytes": 10699,
+      "published_bytes": 10702,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/render_main/v2/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "submission_revision_20260908/work/render_main/v4/build_documents.py",
+      "target": "code/supplement/submission_revision_20260908/work/render_main/v4/build_documents.py",
+      "original_sha256": "0f726b45d4bc7878f342217811cd804a94742187d65f5b244d03b8ea8aff6a1a",
+      "published_sha256": "12502601e4bd19bc4841a194d9da924df5d704c0736a9114170ff6d2b3ee36eb",
+      "original_bytes": 10861,
+      "published_bytes": 10864,
+      "duplicate_aliases": [
+        "submission_revision_20260908/work/render_main/v4/build_documents.py",
+        "submission_revision_20260908/work/render_main/v3/build_documents.py"
+      ],
+      "transform": {
+        "kind": "literal_home_prefix_placeholder",
+        "occurrences": 1
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    },
+    {
+      "source": "paper_revision_20260907/build_reading_edition.py",
+      "target": "code/supplement/paper_revision_20260907/build_reading_edition.py",
+      "original_sha256": "5f16954bc77776ee4cdd30536aafa06c474d15d5b18f85cce2ba3408d2eed80c",
+      "published_sha256": "5f16954bc77776ee4cdd30536aafa06c474d15d5b18f85cce2ba3408d2eed80c",
+      "original_bytes": 6413,
+      "published_bytes": 6413,
+      "duplicate_aliases": [
+        "paper_revision_20260907/build_reading_edition.py"
+      ],
+      "transform": {
+        "kind": "none",
+        "occurrences": 0
+      },
+      "classification": "historical_renderer_incidental_metadata_not_current_approval"
+    }
+  ],
+  "scope": "Source only. No models, data, paper body or private archives. Historical incidental renderer titles are retained, not current approval; no runtime promise.",
+  "frozen_previous_public_ref": "c2d269a9e8fea2a44a2276d89c3e6f47e824ac2d"
+}

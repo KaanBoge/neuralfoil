@@ -19,7 +19,7 @@ The existing browser's network assets and port derive from upstream work. Preser
 
 ## Other dependencies and inputs
 
-The tracked legacy `study/README.md` contains scoped data/tool/document declarations even though the original Git index has no standalone LICENSE or NOTICE file. Its stated MIT scope is `study/tools/`, not all user-authored code. Its stated CC-BY 4.0 scope does not independently verify upstream data rights. No new project-wide grant is made here.
+The tracked legacy `study/README.md` contains scoped historical data/tool/document declarations. Its stated CC-BY 4.0 scope does not independently verify underlying data rights. The current original-code MIT grant is in the root [LICENSE](LICENSE); [LICENSING.md](LICENSING.md) explains its scope. Neither grant relicenses third-party material.
 
 XFOIL is NeuralFoil's numerical teacher, not a newly authored experimental dataset or solver from this project. Imported libraries and browser dependencies retain their own licenses; an import does not authorize redistribution of an entire installation. Environments and caches are not part of the new source archive.
 

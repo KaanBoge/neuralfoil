@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research &amp; Code | NeuralFoil Studio by Kaan Boge</title>
+  <meta name="description" content="Measurement-informed drag correction around NeuralFoil: methods, historical error reductions, transfer limits and openly published research source by Kaan Boge.">
+  <link rel="stylesheet" href="research.css?v=20260909">
+  <script src="research.js?v=20260909" defer></script>
+</head>
+<body class="research-page">
+  <a class="skip-link" href="#main">Skip to research</a>
+  <div class="research-shell">
+    <nav class="project-nav" aria-label="Project navigation">
+      <a class="project-brand" href="research.html" aria-current="page">NeuralFoil Studio <span>by Kaan Boge</span></a>
+      <div><a href="index.html">Open browser tool</a><a href="#source">Source code</a><a href="https://github.com/KaanBoge/neuralfoil">GitHub <span aria-hidden="true">↗</span></a></div>
+    </nav>
+    <main id="main">
+      <header class="research-hero">
+        <p class="section-label">Experimental aerodynamics · Open research source</p>
+        <h1>Measured corrections.<br><span>Explicit limits.</span></h1>
+        <p class="hero-summary">Can experimental measurements help a fast neural airfoil model make better predictions? This project investigates a shared drag correction around NeuralFoil, and documents where it helps, where it harms, and what has not been established.</p>
+        <div class="hero-actions"><a class="action-primary" href="#evidence">Explore the evidence <span aria-hidden="true">↓</span></a><a class="action-secondary" href="#source">Read the code</a></div>
+        <p class="hero-credit">Research and application by <a href="https://github.com/KaanBoge">Kaan Boge</a>, using <a href="https://github.com/peterdsharpe/NeuralFoil">upstream NeuralFoil</a> and AeroSandbox. A separate project, not an official upstream release.</p>
+      </header>
+
+      <section class="release-split" id="implementations" aria-labelledby="implementation-title">
+        <div class="section-heading"><p class="section-label">Know what is running</p><h2 id="implementation-title">One project. Two distinct implementations.</h2></div>
+        <div class="two-col">
+          <article class="release-card"><span class="status-tag">Available in your browser</span><h3>NeuralFoil B</h3><p>The existing browser wrapper: eight unchanged NeuralFoil 0.3.3 networks, a mean-of-eight core, a legacy gated lift correction and empirical diagnostic warnings.</p><p><strong>Its drag correction is disabled</strong> following the September 6 legacy withdrawal. Network disagreement is not a mathematical error bound.</p><a class="text-link" href="index.html#nfb">Open the legacy browser engine <span aria-hidden="true">↗</span></a></article>
+          <article class="release-card research-accent"><span class="status-tag">Python research source</span><h3>Measurement-informed drag correction</h3><p>A separate shared model uses geometry, operating conditions and baseline-model descriptors. It learns when and how strongly to adjust drag without retraining NeuralFoil's networks.</p><p><strong>Not installed in the browser.</strong> Source access does not supply all trained artifacts or experimental inputs, or establish a universal improvement.</p><a class="text-link" href="#method">Understand the research method <span aria-hidden="true">↓</span></a></article>
+        </div>
+      </section>
+
+      <section class="research-section" id="evidence" aria-labelledby="evidence-title">
+        <div class="section-heading"><p class="section-label">Evidence, with its denominator</p><h2 id="evidence-title">Lower average drag error on the historical archive.</h2><p>For the established learned-strength reference, relative to native NeuralFoil <code>xlarge</code>. These are historical research results, not a live benchmark of the browser tool.</p></div>
+        <div class="metric-grid">
+          <article class="metric"><p>Grouped assignment A</p><strong>20.47<span>%</span></strong><span>reduction in drag MAE</span></article>
+          <article class="metric"><p>Grouped assignment B</p><strong>19.69<span>%</span></strong><span>reduction in drag MAE</span></article>
+          <article class="metric metric-neutral"><p>Shared evaluation archive</p><strong>8,371</strong><span>observations · 93 conservative identities</span></article>
+        </div>
+        <aside class="evidence-caution"><strong>Two assignments, not two independent datasets.</strong> Both partitions reuse the same observations. Some rows, identities and external cases worsen. All evaluation collections were adaptively reused, so this is not untouched independent confirmation.</aside>
+        <div class="two-col detail-grid">
+          <article><h3>What “error reduction” means</h3><p>Mean absolute error (MAE) averages the absolute difference between predicted and measured drag. Reduction is <code>100 × (MAEbaseline − MAEmethod) / MAEbaseline</code>. An average gain does not mean that every prediction improves.</p><p>These percentages do not establish improvements in lift, moment, stall, flight safety or optimization derivatives.</p></article>
+          <article><h3>The gain–harm trade-off</h3><p>A half-strength core correction gives smaller historical gains but positive mean reductions across all 31 reported views against both native baselines. Those views overlap, and individual observations and identities still worsen.</p><p>Stronger calibration and numerical-bound experiments did not satisfy all unchanged advancement criteria. Their inclusion in the archive does not mean they passed.</p></article>
+        </div>
+        <p class="section-source">Trace the scope: <a href="https://github.com/KaanBoge/neuralfoil/blob/main/docs/STATUS.md">status and adverse results</a> · <a href="https://github.com/KaanBoge/neuralfoil/blob/main/docs/DATA.md">populations and access</a> · <a href="https://github.com/KaanBoge/neuralfoil/blob/main/docs/METHODS.md">evaluation protocol</a>.</p>
+      </section>
+
+      <section class="research-section" id="method" aria-labelledby="method-title">
+        <div class="section-heading"><p class="section-label">A shared correction, not one fix per airfoil</p><h2 id="method-title">How the research changes a prediction.</h2><p>Airfoil names are not deployment features. The model responds to numerical geometry and conditions; that enables transfer in principle, but does not guarantee good transfer to an unseen case.</p></div>
+        <ol class="method-steps">
+          <li><span class="step-number">01</span><h3>Start with native models</h3><p>Run the eight NeuralFoil sizes and form the mean-of-eight drag baseline. The pretrained network weights stay unchanged.</p></li>
+          <li><span class="step-number">02</span><h3>Describe the query</h3><p>Construct X62: 24 baseline/operating descriptors, 20 transition-sensitivity descriptors and 18 Kulfan geometry coefficients.</p></li>
+          <li><span class="step-number">03</span><h3>Learn a bounded adjustment</h3><p>The core learns a clipped relative drag residual. A separate strength policy chooses how much of that correction to apply.</p></li>
+          <li><span class="step-number">04</span><h3>Apply the declared gate</h3><p>The point-correction procedures return the mean-of-eight baseline outside their gate. Falling back avoids applying that correction; it does not prove the baseline is accurate.</p></li>
+        </ol>
+        <details class="technical-detail"><summary>Feature contract and inherited operating gate</summary><div><p>The inherited gate requires finite inputs, positive baseline drag, <code>0 &lt; Re ≤ 600,000</code>, <code>|α| ≤ 12°</code> and <code>0.05 ≤ thickness/chord ≤ 0.20</code>. Nominal research inference uses Mach zero and free transition. Qualified procedures may add separately declared numerical guards.</p><p>The feature order, original coordinate-to-Kulfan convention and rounding are part of the contract. The 20 sensitivity features use alternative <code>ncrit = 5, 7, 11, 13</code> against 9; they are model sensitivities, not measured tunnel turbulence. Passing a shape check does not prove compatibility.</p><p>The portable entry point consumes already constructed features, baseline predictions, an artifact and a Boolean gate. It does not turn arbitrary coordinates into a certified answer. See the <a href="https://github.com/KaanBoge/neuralfoil/blob/main/docs/METHODS.md">complete public method guide</a>.</p></div></details>
+        <details class="technical-detail"><summary>Why numerical bounds are not another accuracy percentage</summary><div><p>Interval projection, added-loss calibration and tree enclosures answer different questions. A tighter enclosure bounds a specified numerical evaluator; it does not imply the same percentage improvement against measured drag, or that every enclosed extremum is attainable.</p><p>The later eight-tree work is a separate numerical-bound experiment, not a new eight-tree accuracy result. Hard gates and trees also do not preserve global differentiability.</p></div></details>
+      </section>
+
+      <section class="research-section source-section" id="source" aria-labelledby="source-title">
+        <div class="section-heading"><p class="section-label">Inspect, reproduce, extend</p><h2 id="source-title">The code, with a visible publication boundary.</h2><p>Browse the existing browser code, research algorithms, historical experiments, tests and execution helpers. The catalog lists published source—not just successful experiments or a claim that every script runs without its original inputs.</p></div>
+        <div class="source-entrypoints">
+          <a href="https://github.com/KaanBoge/neuralfoil/blob/main/code/research/model_development_20260907_risk_policy/portable/predictor.py"><span>Inference</span><strong>Feature-level predictor <span aria-hidden="true">↗</span></strong></a>
+          <a href="https://github.com/KaanBoge/neuralfoil/blob/main/code/research/model_development_20260907_risk_policy/risk_policy.py"><span>Learning</span><strong>Correction strength policy <span aria-hidden="true">↗</span></strong></a>
+          <a href="https://github.com/KaanBoge/neuralfoil/tree/main/tests"><span>Public checks</span><strong>Synthetic tests and integrity <span aria-hidden="true">↗</span></strong></a>
+        </div>
+        <div class="source-browser">
+          <div class="source-controls"><div><label for="source-search">Find a source file</label><input id="source-search" type="search" placeholder="Search a filename, method or folder" autocomplete="off"></div><div><label for="source-language">Language</label><select id="source-language"><option value="">All languages</option></select></div></div>
+          <p id="source-status" class="source-status" role="status" aria-live="polite">Loading the published source catalog…</p>
+          <ul id="source-results" class="source-results" aria-label="Matching source files"></ul>
+          <button id="source-more" class="action-secondary" type="button" hidden>Show more files</button>
+          <noscript><p>JavaScript is only needed for catalog search. <a href="https://github.com/KaanBoge/neuralfoil">Browse all repository files on GitHub</a>.</p></noscript>
+          <p class="section-source"><a href="code/source-catalog.json">Download the source catalog</a> · <a href="https://github.com/KaanBoge/neuralfoil/blob/main/code/README.md">Source and completeness guide</a> · <a href="https://github.com/KaanBoge/neuralfoil/archive/refs/heads/main.zip">Download the public repository ZIP</a></p>
+        </div>
+        <details class="technical-detail"><summary>What the public release does—and does not—contain</summary><div><p>Source publication is not a complete private-workspace backup or a ready-to-use trained correction package. The current paper and its figures, new trained artifacts, recovered measurements and geometry, private replay packages, environments and dependency caches are excluded. Public historical assets retain their separate provenance.</p><p>Code can name a missing file without supplying it. Some archived scripts retain home-directory placeholders and local assumptions. The synthetic public example checks an interface, not aerodynamic accuracy. For publication completeness and explicit exclusions, consult the <a href="https://github.com/KaanBoge/neuralfoil/blob/main/code/README.md">source guide</a>.</p><p>Original code and new associated technical documentation use the <a href="https://github.com/KaanBoge/neuralfoil/blob/main/LICENSE">MIT License</a>. Third-party code, network assets and research data retain their applicable terms. MIT permission is not safety certification.</p></div></details>
+      </section>
+
+      <section class="research-section next-section" aria-labelledby="next-title"><div class="section-heading"><p class="section-label">What stronger evidence requires</p><h2 id="next-title">The next milestone is independent validation.</h2></div><p>Untouched experimental measurements, a frozen model and evaluation protocol, a reproducible deployment contract, and explicit reporting of both gains and harms. More parameter searching on reused outcomes cannot substitute for that evidence.</p><a class="text-link" href="https://github.com/KaanBoge/neuralfoil/blob/main/CONTRIBUTING.md">Contribute a reproducible test or report <span aria-hidden="true">↗</span></a></section>
+    </main>
+    <footer class="research-footer"><p><strong>NeuralFoil Studio · Kaan Boge</strong><br>Browser tools and experimental correction research.</p><p><a href="https://github.com/KaanBoge/neuralfoil/blob/main/THIRD_PARTY_NOTICES.md">Upstream attribution</a> · <a href="https://github.com/KaanBoge/neuralfoil/blob/main/LICENSING.md">License scope</a> · <a href="https://github.com/KaanBoge/neuralfoil/blob/main/CITATION.cff">Cite the software</a></p><p class="assistance-note">Substantive generative-AI assistance supported implementation, analysis, review, testing and documentation. It is not independent human peer review. No journal acceptance, research DOI, universal accuracy guarantee or flight-safety certification is claimed.</p></footer>
+  </div>
+</body>
+</html>

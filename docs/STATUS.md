@@ -2,7 +2,7 @@
 
 ## Existing website
 
-The Studio is the existing browser application. Its older “New NeuralFoil” terminology is preserved in the [historical README](LEGACY_STUDIO.md). New Python source is not silently installed into that interface. Publication does not establish browser parity with newer procedures.
+The Studio is the existing browser application. “NeuralFoil B” identifies that legacy wrapper; earlier “New NeuralFoil” terminology remains in the [historical README](LEGACY_STUDIO.md), not as a claim of a new upstream release. The research overview and searchable source catalog are presentation/access additions. The numerical models, weights and correction gates have not changed in this site update. Publication does not establish browser parity with newer Python procedures.
 
 ## Research archive
 

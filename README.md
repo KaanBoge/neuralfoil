@@ -4,17 +4,20 @@
 
 **An airfoil analysis and research-code project by [Kaan Boge](https://github.com/KaanBoge).** This repository combines the existing browser Studio with a source archive for measurement-informed drag correction, calibration and numerical verification. It is separate from upstream NeuralFoil.
 
-**[Open the Studio](https://kaanboge.github.io/neuralfoil/)** · **[Methods](docs/METHODS.md)** · **[Data and access](docs/DATA.md)** · **[Current scope](docs/STATUS.md)**
+**[Research overview](https://kaanboge.github.io/neuralfoil/research.html)** · **[Open the Studio](https://kaanboge.github.io/neuralfoil/)** · **[Methods](docs/METHODS.md)** · **[Data and access](docs/DATA.md)** · **[Current scope](docs/STATUS.md)**
 
 **[Browse the source guide](code/README.md)** · [Original code: MIT](LICENSE) · [License scope](LICENSING.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 
 > The browser application and newer research procedures are different implementations. Adding research source does **not** install the newer correction in the website. The current manuscript, its figures and private reproduction packages are not part of this release.
+
+**About the name:** NeuralFoil B is the existing browser wrapper's name: mean-of-eight native models, the legacy gated lift correction and empirical diagnostics. It is not an official upstream NeuralFoil version or the name of a newly installed research drag predictor. The [research page](https://kaanboge.github.io/neuralfoil/research.html) makes this distinction visible and provides a searchable [complete tracked-source catalog](code/source-catalog.json). The catalog measures published coverage, not ownership clearance or end-to-end reproducibility.
 
 ## Start here
 
 | If you want to… | Start with |
 |---|---|
 | Explore the existing airfoil interface | [Browser Studio](https://kaanboge.github.io/neuralfoil/) |
+| Read the research without the manuscript | [Research overview](https://kaanboge.github.io/neuralfoil/research.html) |
 | Find runnable examples and archived source | [Source guide](code/README.md) |
 | Understand correction and preprocessing | [Methods and reproducibility](docs/METHODS.md) |
 | Identify required but unavailable inputs | [Data guide](docs/DATA.md) |
@@ -57,14 +60,18 @@ The example and six targeted tests passed in Python 3.12.14 with NumPy 2.3.5. Th
 
 ```text
 index.html, nfb.js       Existing browser application
+research.html/.css/.js   Research overview and searchable source catalog
 nfweights/              Existing model assets and references
 study/                  Earlier website and study material
-code/research/          Research source with original relative paths
+code/research/          Original reviewed research archive
+code/supplement/        Source-only completeness additions; see its manifest
 examples/, tests/       Explicitly synthetic public examples and smoke tests
 docs/                   Technical guides and historical README
 ```
 
 The research tree is a source archive, not a ready-made Python package. Some scripts retain local paths and authenticated-input assumptions. Full reconstruction requires authorized inputs, compatible dependencies and reviewed path adapters. Do not assume broad test discovery across archived experiments is synthetic or self-contained.
+
+The [source guide](code/README.md) explains completeness, generic utility additions, historical failures and excluded manuscript content. The source catalog can be regenerated from the Git index with `python -B tools/build_source_catalog.py --repo .`; after staging it, `python -B tools/verify_source_catalog.py --repo .` verifies the complete tracked-source set and its hashes. This is a repository-integrity check, not an accuracy evaluation.
 
 ## Attribution and reuse
 
