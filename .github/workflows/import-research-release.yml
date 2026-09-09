@@ -1,0 +1,140 @@
+name: Import reviewed NeuralFoil source
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: neuralfoil-reviewed-source-import
+  cancel-in-progress: false
+jobs:
+  import:
+    if: github.repository == 'KaanBoge/neuralfoil' && github.actor == 'KaanBoge'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Authenticate and import the fixed source-only payload
+        env:
+          RELEASE_SHA256: cea0092066b64881130a709e45bf29b4015268b0495841135ea9628f2edee715
+        run: |
+          python3 - <<'PY'
+          """One-time fixed-content import. Runs only after the reviewed ZIP hash matches."""
+          import hashlib
+          import json
+          import os
+          from pathlib import Path, PurePosixPath
+          import stat
+          import subprocess
+          import zipfile
+
+          ARCHIVE = 'neuralfoil-source-release-20260909.zip'
+          WORKFLOW = '.github/workflows/import-research-release.yml'
+          REMOVALS = {'study/NeuralFoil-Study-Complete-Record.pdf',
+                      'study/data/research-answer.md', 'study/docs/paper-outline-FINAL.md'}
+          ROOT_FILES = {'.gitignore', 'README.md', 'CITATION.cff', 'CONTRIBUTING.md',
+                        'THIRD_PARTY_NOTICES.md', 'LICENSE', 'LICENSING.md', 'requirements-smoke.txt',
+                        'study/README.md'}
+          PREFIXES = ('code/', 'docs/', 'examples/', 'tests/', 'tools/')
+
+
+          def git(*args, binary=False):
+              result = subprocess.check_output(['git', *args])
+              return result if binary else result.decode().strip()
+
+
+          def tree(ref):
+              out = {}
+              for line in git('ls-tree', '-r', '-z', ref, binary=True).split(b'\0'):
+                  if not line:
+                      continue
+                  meta, raw_name = line.split(b'\t', 1)
+                  mode, kind, sha = meta.decode().split()
+                  if mode != '100644' or kind != 'blob':
+                      raise ValueError('Only ordinary baseline files are supported')
+                  out[raw_name.decode()] = sha
+              return out
+
+
+          def allowed(name):
+              p = PurePosixPath(name)
+              return (not p.is_absolute() and '..' not in p.parts and '\\' not in name
+                      and p.as_posix() == name and
+                      (name in ROOT_FILES or name.startswith(PREFIXES)) and
+                      p.suffix.lower() not in {'.pdf', '.docx', '.npz', '.npy', '.pkl',
+                                               '.pickle', '.csv', '.zip', '.gz'})
+
+
+          def main():
+              if os.environ.get('GITHUB_REPOSITORY') != 'KaanBoge/neuralfoil':
+                  raise ValueError('Wrong repository')
+              if os.environ.get('GITHUB_ACTOR') != 'KaanBoge':
+                  raise ValueError('Only the repository owner may dispatch this import')
+              archive = Path(ARCHIVE)
+              if hashlib.sha256(archive.read_bytes()).hexdigest() != os.environ['RELEASE_SHA256']:
+                  raise ValueError('Release ZIP hash mismatch')
+              if git('status', '--porcelain'):
+                  raise ValueError('Import requires a clean checkout')
+              with zipfile.ZipFile(archive) as z:
+                  infos = z.infolist()
+                  if len(infos) > 1000 or sum(i.file_size for i in infos) > 15000000:
+                      raise ValueError('Unexpected archive size')
+                  names = [i.filename for i in infos]
+                  if len(names) != len(set(names)) or any(i.is_dir() for i in infos):
+                      raise ValueError('Unexpected duplicate or directory member')
+                  if any(stat.S_ISLNK(i.external_attr >> 16) for i in infos):
+                      raise ValueError('No symlink members allowed')
+                  manifest = json.loads(z.read('release-manifest.json'))
+                  if manifest['schema'] != 'finite-source-import-v1':
+                      raise ValueError('Unknown release manifest')
+                  entries = manifest['files']
+                  if len(entries) != manifest['file_count']:
+                      raise ValueError('Bad manifest count')
+                  if {e['path'] for e in entries} != set(names) - {'release-manifest.json'}:
+                      raise ValueError('Unlisted archive content')
+                  if len({e['path'] for e in entries}) != len(entries):
+                      raise ValueError('Duplicate target')
+                  if {d['path'] for d in manifest['deletions']} != REMOVALS:
+                      raise ValueError('Unexpected removal scope')
+                  subprocess.run(['git', 'merge-base', '--is-ancestor', manifest['base_commit'], 'HEAD'], check=True)
+                  baseline = tree(manifest['base_commit'])
+                  live = tree('HEAD')
+                  for temporary in (ARCHIVE, WORKFLOW):
+                      live.pop(temporary, None)
+                  if live != baseline:
+                      raise ValueError('Repository changed beyond the two import transport files; stop for review')
+                  payload = {}
+                  for entry in entries:
+                      name = entry['path']
+                      if not allowed(name) or baseline.get(name) != entry['old_blob_sha']:
+                          raise ValueError('Invalid target or baseline: ' + name)
+                      raw = z.read(name)
+                      if len(raw) != entry['bytes'] or hashlib.sha256(raw).hexdigest() != entry['sha256']:
+                          raise ValueError('Invalid payload bytes: ' + name)
+                      payload[name] = raw
+                  for entry in manifest['deletions']:
+                      if baseline.get(entry['path']) != entry['old_blob_sha']:
+                          raise ValueError('Removal baseline mismatch')
+              # All source, path and baseline checks complete before the first write.
+              for name, raw in payload.items():
+                  target = Path(name)
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(raw)
+              for name in sorted(REMOVALS):
+                  Path(name).unlink()
+              archive.unlink()
+              names = sorted(payload) + sorted(REMOVALS) + [ARCHIVE]
+              subprocess.run(['git', 'add', '--', *names], check=True)
+              subprocess.run(['python3', '-B', 'tools/verify_source_archive.py'], check=True)
+              subprocess.run(['git', 'config', 'user.name', 'Kaan Boge'], check=True)
+              subprocess.run(['git', 'config', 'user.email', '294922497+KaanBoge@users.noreply.github.com'], check=True)
+              subprocess.run(['git', 'commit', '-m', 'Publish reviewed NeuralFoil research source and repository guides'], check=True)
+              print('Verified source import commit:', git('rev-parse', 'HEAD'))
+              subprocess.run(['git', 'push', 'origin', 'HEAD:main'], check=True)
+
+
+          if __name__ == '__main__':
+              main()
+          PY
