@@ -1,0 +1,183 @@
+name: Import reviewed NeuralFoil site and source
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: neuralfoil-reviewed-source-import
+  cancel-in-progress: false
+jobs:
+  import:
+    if: github.repository == 'KaanBoge/neuralfoil' && github.actor == 'KaanBoge'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Authenticate and import the fixed source/site payload
+        env:
+          RELEASE_SHA256: af7700e19db9bffefcb5ea609427906fa61c65433b200c14339c0dea8e6e99b6
+        run: |
+          python3 - <<'PY'
+          """Fixed reviewed site/source import; no baseline deletions, ordinary Git push only."""
+          import hashlib
+          import json
+          import os
+          from pathlib import Path, PurePosixPath
+          import re
+          import stat
+          import subprocess
+          import zipfile
+
+          BASE = 'c2d269a9e8fea2a44a2276d89c3e6f47e824ac2d'
+          ARCHIVE = 'neuralfoil-complete-source-site-20260909.zip'
+          WORKFLOW = '.github/workflows/import-site-source-release.yml'
+          ROOT_FILES = {'README.md', 'THIRD_PARTY_NOTICES.md', 'index.html', 'nfb.js',
+                        'research.html', 'research.css', 'research.js'}
+          PREFIXES = ('code/', 'docs/', 'tools/', 'tests/')
+          MAX_FILES = 5000
+          MAX_BYTES = 64 * 1024 * 1024
+
+
+          def git(*args, binary=False):
+              raw = subprocess.check_output(['git', *args])
+              return raw if binary else raw.decode('utf-8').strip()
+
+
+          def allowed(name):
+              if not isinstance(name, str) or not name or any(ord(c) < 32 for c in name):
+                  return False
+              path = PurePosixPath(name)
+              return (not path.is_absolute() and path.as_posix() == name and
+                      not any(p in ('.', '..', '.git') for p in path.parts) and '\\' not in name and
+                      (name in ROOT_FILES or name.startswith(PREFIXES)) and
+                      path.suffix.lower() not in {'.pdf', '.docx', '.npz', '.npy', '.pkl',
+                                                 '.pickle', '.csv', '.zip', '.gz', '.tar', '.7z'})
+
+
+          def tree(ref):
+              result = {}
+              for row in git('ls-tree', '-r', '-z', ref, binary=True).split(b'\0'):
+                  if not row:
+                      continue
+                  header, name = row.split(b'\t', 1)
+                  mode, kind, oid = header.decode('ascii').split()
+                  if kind != 'blob' or mode not in ('100644', '100755'):
+                      raise ValueError('Only regular tracked files supported')
+                  result[name.decode('utf-8')] = (mode, oid)
+              return result
+
+
+          def digest(path):
+              h = hashlib.sha256()
+              with path.open('rb') as handle:
+                  for block in iter(lambda: handle.read(1024 * 1024), b''):
+                      h.update(block)
+              return h.hexdigest()
+
+
+          def no_symlinks(path):
+              if any(p.is_symlink() for p in (path, *path.parents)):
+                  raise ValueError('Symlink destination or input')
+
+
+          def unique_object(pairs):
+              value = {}
+              for key, item in pairs:
+                  if key in value:
+                      raise ValueError('Duplicate manifest JSON key')
+                  value[key] = item
+              return value
+
+
+          def main():
+              if os.environ.get('GITHUB_REPOSITORY') != 'KaanBoge/neuralfoil' or os.environ.get('GITHUB_ACTOR') != 'KaanBoge':
+                  raise ValueError('Wrong repository or actor')
+              expected_sha = os.environ.get('RELEASE_SHA256', '')
+              if not re.fullmatch('[0-9a-f]{64}', expected_sha):
+                  raise ValueError('Explicit archive SHA256 required')
+              if Path.cwd().resolve() != Path(git('rev-parse', '--show-toplevel')).resolve():
+                  raise ValueError('Run at repository root')
+              archive = Path(ARCHIVE)
+              no_symlinks(archive)
+              if archive.stat().st_size > MAX_BYTES or digest(archive) != expected_sha:
+                  raise ValueError('Release ZIP size/hash mismatch')
+              if git('status', '--porcelain', '--untracked-files=all'):
+                  raise ValueError('Clean checkout required')
+              subprocess.run(['git', 'merge-base', '--is-ancestor', BASE, 'HEAD'], check=True)
+              baseline, live = tree(BASE), tree('HEAD')
+              if ARCHIVE in baseline or WORKFLOW in baseline:
+                  raise ValueError('Transport collides with baseline')
+              if not all(p in live for p in (ARCHIVE, WORKFLOW)):
+                  raise ValueError('Both transport files must be committed')
+              if {p: v for p, v in live.items() if p not in (ARCHIVE, WORKFLOW)} != baseline:
+                  raise ValueError('Unexpected baseline changes; stop for review')
+              with zipfile.ZipFile(archive) as z:
+                  infos = z.infolist()
+                  names = [i.filename for i in infos]
+                  if len(infos) > MAX_FILES + 1 or sum(i.file_size for i in infos) > MAX_BYTES:
+                      raise ValueError('Archive exceeds fixed scope')
+                  if len(names) != len(set(names)) or any(i.is_dir() or stat.S_ISLNK(i.external_attr >> 16) for i in infos):
+                      raise ValueError('Duplicate, directory or symlink member')
+                  manifest = json.loads(z.read('release-manifest.json'), object_pairs_hook=unique_object)
+                  if set(manifest) != {'schema', 'base_commit', 'file_count', 'files', 'deletions'}:
+                      raise ValueError('Unexpected manifest fields')
+                  if manifest['schema'] != 'finite-site-source-import-v1' or manifest['base_commit'] != BASE or manifest['deletions'] != []:
+                      raise ValueError('Wrong manifest scope')
+                  entries = manifest['files']
+                  if type(manifest['file_count']) is not int or len(entries) != manifest['file_count'] or not entries:
+                      raise ValueError('Invalid file count')
+                  if len({e['path'] for e in entries}) != len(entries) or {e['path'] for e in entries} != set(names) - {'release-manifest.json'}:
+                      raise ValueError('Incomplete payload inventory')
+                  payload, expected_tree = {}, dict(baseline)
+                  # Keep this authenticated transport workflow. The owner removes it through
+                  # GitHub separately; the import token need not delete a workflow file.
+                  expected_tree[WORKFLOW] = live[WORKFLOW]
+                  for entry in entries:
+                      if set(entry) != {'path', 'mode', 'old_blob_sha', 'bytes', 'sha256'}:
+                          raise ValueError('Unexpected entry fields')
+                      name = entry['path']
+                      if not allowed(name) or entry['mode'] not in ('100644', '100755'):
+                          raise ValueError('Invalid source target')
+                      old = baseline.get(name)
+                      if (old[1] if old else None) != entry['old_blob_sha']:
+                          raise ValueError('Wrong predecessor blob')
+                      no_symlinks(Path(name))
+                      raw = z.read(name)
+                      if type(entry['bytes']) is not int or len(raw) != entry['bytes'] or hashlib.sha256(raw).hexdigest() != entry['sha256']:
+                          raise ValueError('Payload integrity failure')
+                      payload[name] = raw
+                      oid = subprocess.check_output(['git', 'hash-object', '--stdin'], input=raw).decode().strip()
+                      expected_tree[name] = (entry['mode'], oid)
+              # No destination writes occur until every source and baseline check passes.
+              for name, raw in payload.items():
+                  target = Path(name)
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(raw)
+                  target.chmod(0o755 if expected_tree[name][0] == '100755' else 0o644)
+              archive.unlink()
+              subprocess.run(['git', 'add', '--', *sorted(payload), ARCHIVE], check=True)
+              if tree(git('write-tree')) != expected_tree:
+                  raise ValueError('Staged tree differs from exact expected payload and baseline')
+              # Deliberately do not execute research code or the catalog verifier here.
+              # Full catalog verification follows the owner's separate workflow cleanup.
+              subprocess.run(['python3', '-B', 'tools/verify_source_archive.py'], check=True)
+              if tree(git('write-tree')) != expected_tree or git('diff', '--name-only'):
+                  raise ValueError('Verifier changed tracked files')
+              subprocess.run(['git', 'config', 'user.name', 'Kaan Boge'], check=True)
+              subprocess.run(['git', 'config', 'user.email', '294922497+KaanBoge@users.noreply.github.com'], check=True)
+              identity = dict(os.environ, GIT_AUTHOR_NAME='Kaan Boge', GIT_COMMITTER_NAME='Kaan Boge',
+                              GIT_AUTHOR_EMAIL='294922497+KaanBoge@users.noreply.github.com',
+                              GIT_COMMITTER_EMAIL='294922497+KaanBoge@users.noreply.github.com')
+              subprocess.run(['git', 'commit', '-m', 'Publish complete reviewed source catalog and research site'], check=True, env=identity)
+              if tree('HEAD') != expected_tree:
+                  raise ValueError('Committed tree mismatch')
+              print('Verified site/source import commit:', git('rev-parse', 'HEAD'))
+              subprocess.run(['git', 'push', 'origin', 'HEAD:main'], check=True)
+
+
+          if __name__ == '__main__':
+              main()
+          PY
