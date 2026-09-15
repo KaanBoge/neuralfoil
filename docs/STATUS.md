@@ -18,8 +18,8 @@ The work does not establish universal improvement, flight safety, improved lift/
 
 Local input reconstruction, numerical replay and runtime checks have specific environments and workloads. Source publication does not automatically reproduce those checks elsewhere. Preserve first failures and reviewed successors instead of describing uninterrupted success.
 
-## Assistance and responsibility
+## Project maintenance
 
-Kaan Boge maintains the project. Substantive generative-AI assistance supported implementation, mathematical/numerical review, analysis, testing and documentation. It is not independent human peer review or an authorship attestation, and was not limited to language editing. Scientific interpretation and release decisions remain the maintainer's responsibility.
+Kaan Boge maintains the project.
 
 No journal acceptance, research DOI or blanket input-redistribution permission is claimed.
