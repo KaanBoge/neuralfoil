@@ -6,11 +6,11 @@
         "files": 2
       },
       "HTML": {
-        "bytes": 5236119,
+        "bytes": 5236249,
         "files": 4
       },
       "JavaScript": {
-        "bytes": 88048,
+        "bytes": 88851,
         "files": 5
       },
       "PowerShell": {
@@ -22,7 +22,7 @@
         "files": 861
       }
     },
-    "bytes": 10827522,
+    "bytes": 10828455,
     "files": 879
   },
   "directory_policy": "All tracked source directories included, including vendor and dependencies",
@@ -5738,18 +5738,18 @@
       "sha256": "9689699833f4b2be6e320b6eac3735c9cfcfed6cc7d304c9b7ccd1e61a824696"
     },
     {
-      "bytes": 3249310,
+      "bytes": 3249325,
       "language": "HTML",
       "path": "index.html",
       "role": "embedded-data HTML/report",
-      "sha256": "a909a863a8cce7d5a01d6f414e65769688eaee25c0b9e11bafebe130fa7abced"
+      "sha256": "3465ac568815d4da2f8bb532bee50a98ed1a1abb6de47fb2283f5017279396f7"
     },
     {
-      "bytes": 58879,
+      "bytes": 58960,
       "language": "JavaScript",
       "path": "nfb.js",
       "role": "browser UI",
-      "sha256": "9f406e40b4e45e5a94c5ac2111a13b38efb42290157706cd7e14c34b554df5c4"
+      "sha256": "d1fdaf6f0693c1102cbdc4128789a2ad1a8c8ac2347d218918587dd6568183f0"
     },
     {
       "bytes": 22347,
@@ -5759,11 +5759,11 @@
       "sha256": "a63098832815db12442381a2b64a56eb02dd05491209f8df5abbb8ed23347967"
     },
     {
-      "bytes": 18467,
+      "bytes": 18582,
       "language": "HTML",
       "path": "research.html",
       "role": "embedded-data HTML/report",
-      "sha256": "def4fa7caf6ae190b4a12e3329ccefc7d1fd1ce92f298de9db1ea78b89743090"
+      "sha256": "db03ee64cf028e60660bc7d69d793fa68004fefb8223e11c74d88787411db058"
     },
     {
       "bytes": 6795,
@@ -6151,11 +6151,11 @@
       "sha256": "535e1588eecf2bfafd1d474bb09ea44bb3233b6201f87b3539bb3c9da1a11607"
     },
     {
-      "bytes": 3977,
+      "bytes": 4699,
       "language": "JavaScript",
       "path": "tests/test_presentation.cjs",
       "role": "public checks/utilities",
-      "sha256": "e89ce8c529573758c9ca53f46903a5032191bf7fa8fec3ff6749ec4c233339e0"
+      "sha256": "8489893e72bd09616fb3562df03068e2ed46e045270c8f742d43be837bdf21bd"
     },
     {
       "bytes": 2723,
