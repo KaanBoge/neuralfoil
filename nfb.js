@@ -43,7 +43,7 @@ const EVAL_NOTE = "Protocol: point-by-point mean absolute error on measured subc
   "TN 1546 drag (free transition, n_crit 6, Re(M), strictly below each point's critical Mach, M up to 0.50, 48 points), " +
   "TN 1546 lift (32 points) and Ferri WR-L143 lift (Re 3.8e5, 12 points). " +
   "Absolute levels include facility effects; the fair comparison is between rows. " +
-  "The study's convention-matched plateau gates (1.3 and 0.5 counts on Harris) remain the absolute-accuracy reference.";
+  "The study's convention-matched plateau errors (1.3 and 0.5 counts on Harris) remain the absolute-accuracy reference.";
 const EVAL_ROWS = [
   ["classic xlarge", 14.95, 14.41, 0.03, 0.10],
   ["mean of 8 (the new core)", 15.05, 11.38, 0.02, 0.08],
@@ -80,7 +80,7 @@ const REGISTRY = [
    "Loaded-coordinate airfoils get an advisory: smooth or refit before trusting fine differences"],
   ["Moment coefficient uncertainty", "p90 spread across sizes is about 18 percent of a typical cambered CM", "Never scored against experiment (out of scope)",
    "CM always carries its spread and an unvalidated-against-experiment note"],
-  ["Positive audits", "0 impossible outputs in 2,160 conditions; smoothness kinks at most 0.09 counts; transition handling clean; subsonic gates 1.3 and 0.5 counts",
+  ["Positive audits", "0 impossible outputs in 2,160 conditions; smoothness kinks at most 0.09 counts; transition handling clean; subsonic plateau errors 1.3 and 0.5 counts",
    "No fix needed", "The unchanged core carries these clean bills over verbatim"],
 ];
 const STUDY_LINKS = [
@@ -698,7 +698,7 @@ function buildUI() {
   pn.innerHTML =
     '<div class="card"><b>NeuralFoil B: legacy browser engine.</b> ' +
     "This project-specific wrapper uses the same eight shipped NeuralFoil 0.3.3 networks, a mean-of-eight core, " +
-    "the legacy measured lift correction where its gate applies, and empirical diagnostic warnings. " +
+    "the legacy measured lift correction within its specified operating limits, and empirical diagnostic warnings. " +
     "The browser drag correction is disabled following the 2026-09-06 withdrawal; B vs Classic retains that dated record. " +
     '<b>The newer Python drag-correction research is not running here.</b> Its methods and evaluated results are explained on the <a href="research.html">research page</a>. ' +
     "The p10 to p90 bands show disagreement among the eight networks, not a mathematical error bound or calibrated coverage interval. " +
@@ -734,7 +734,7 @@ function buildUI() {
     "Its 8,634-point and XFOIL-converged comparisons are not the newer 8,371-observation, 93-identity research archive. " +
     "Do not combine their percentages or interpret them as a before-and-after test of the same model. " +
     '<a href="research.html#evidence">Read the current research comparison and its limits.</a><br>' +
-    "<b>Running here:</b> the mean of eight native networks, the legacy gated lift correction, disagreement bands and warning rules. " +
+    "<b>Running here:</b> the mean of eight native networks, the legacy lift correction within specified operating limits, disagreement bands and warning rules. " +
     "<b>Not running here:</b> the withdrawn legacy drag correction, failed transonic/lift-break repairs or newer Python drag policies. " +
     "Negative legacy experiments constrain those tested repairs; they do not prove that no future method can improve the predictions. " +
     "Warnings and model agreement do not certify aerodynamic accuracy.</div>" +
@@ -744,7 +744,7 @@ function buildUI() {
     '<canvas id="vsClM" height="250" style="flex:1;min-width:320px"></canvas></div>' +
     '<p class="note">Dashed: classic single-network NeuralFoil 0.3.3 xlarge. Solid with band: the new mean-of-8 with its disagreement band. ' +
     "The red zone starts at the airfoil's own critical Mach: onset location verified to about 0.03 in Mach, magnitude above it measured wrong by 2 to 8x near onset. " +
-    "The comparison differs through the ensemble core, disagreement band and legacy gated lift correction; the diagnostic rules are not a guarantee of correctness.</p></div>" +
+    "The comparison differs through the ensemble core, disagreement band and legacy lift correction within specified operating limits; the diagnostic rules are not a guarantee of correctness.</p></div>" +
     '<div class="card" style="margin-top:10px"><b>Historical head-to-head on the XFOIL-converged subset</b><br>' +
     '<span style="color:var(--muted);font-size:12.5px">Wind-tunnel truth versus XFOIL 6.99 (the field\'s standard tool and NeuralFoil\'s own teacher), the classic single-network NeuralFoil, ' +
     "and the legacy browser release, scored on the 7,880 double-clean corpus points where XFOIL converged. XFOIL was submitted 8,633 double-clean conditions and diverged on 8.7 percent; the neural models returned predictions on that submitted set. Numerical availability is not evidence of accuracy. " +

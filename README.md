@@ -15,7 +15,7 @@ An airfoil workbench and measurement-correction research archive by [Kaan Boge](
 
 [Download public source](https://github.com/KaanBoge/neuralfoil/archive/refs/heads/main.zip) · [Source guide](code/README.md) · [MIT license](LICENSE) · [License scope](LICENSING.md)
 
-> **Two implementations, not one accuracy claim.** The browser’s NeuralFoil B wrapper retains its legacy gated lift correction; **drag correction is disabled**. Newer Python drag-correction procedures are archived research, **not installed in the browser**. Model disagreement is not a calibrated error guarantee.
+> **Two implementations, not one accuracy claim.** The browser’s NeuralFoil B wrapper retains its legacy lift correction within its specified operating limits; **drag correction is disabled**. Newer Python drag-correction procedures are archived research, **not installed in the browser**. Model disagreement is not a calibrated error guarantee.
 
 ## What is here
 
@@ -23,7 +23,7 @@ The browser combines eight unchanged upstream NeuralFoil 0.3.3 networks with the
 
 The established learned-strength reference reduced historical drag MAE by **20.47% and 19.69% relative to xlarge**, on two grouped assignments of the **same 8,371 observations and 93 conservative identities**. Some rows, identities and external cases worsened. The collections were adaptively reused: these are not independent experimental replications or universal accuracy gains.
 
-The archive includes half-strength controls, interval projection, added-loss calibration and conservative tree bounds—not only successful experiments. A tighter bound is not an equal percentage improvement in prediction. Trees and hard gates do not preserve global differentiability. See [methods](docs/METHODS.md), [status and known harms](docs/STATUS.md), and [data requirements](docs/DATA.md).
+The archive includes half-strength controls, interval projection, added-loss calibration and conservative tree bounds—not only successful experiments. A tighter bound is not an equal percentage improvement in prediction. Trees and abrupt threshold-based switching do not preserve global differentiability. See [methods](docs/METHODS.md), [status and known harms](docs/STATUS.md), and [data requirements](docs/DATA.md).
 
 **Release boundary:** reviewed source, technical documentation and synthetic examples are public. The current manuscript, its figures, private reproduction packages and new measurement/model payloads are not included. Existing site assets and older study material retain their own histories and terms. Source availability is not a flight-safety certificate or one-command reproduction of the private study.
 
@@ -68,7 +68,7 @@ python3 -m venv .venv
 .venv/bin/python -B -m unittest discover -s tests -p test_public_smoke.py -v
 ```
 
-The example and six targeted tests passed in Python 3.12.14 with NumPy 2.3.5. The artificial example returns CD `[0.0125, 0.02]`, applied strength `[0.5, 0.0]`, and an exact false-gate fallback. It constructs constant parameters and demonstrates an interface, **not aerodynamic accuracy or a released trained model**. Setup commands are instructions, not evidence of a fresh-install reproduction test.
+The example and six targeted tests passed in Python 3.12.14 with NumPy 2.3.5. The artificial example returns CD `[0.0125, 0.02]`, applied strength `[0.5, 0.0]`, and the exact baseline when the eligibility flag is false. It constructs constant parameters and demonstrates an interface, **not aerodynamic accuracy or a released trained model**. Setup commands are instructions, not evidence of a fresh-install reproduction test.
 
 With Node.js 18 or newer, the explorer’s synthetic navigation suite is:
 
