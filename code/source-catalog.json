@@ -2,15 +2,15 @@
   "counts": {
     "by_language": {
       "CSS": {
-        "bytes": 26353,
+        "bytes": 26354,
         "files": 2
       },
       "HTML": {
-        "bytes": 5236249,
+        "bytes": 5236101,
         "files": 4
       },
       "JavaScript": {
-        "bytes": 88851,
+        "bytes": 89599,
         "files": 5
       },
       "PowerShell": {
@@ -22,7 +22,7 @@
         "files": 861
       }
     },
-    "bytes": 10828455,
+    "bytes": 10829056,
     "files": 879
   },
   "directory_policy": "All tracked source directories included, including vendor and dependencies",
@@ -5752,18 +5752,18 @@
       "sha256": "d1fdaf6f0693c1102cbdc4128789a2ad1a8c8ac2347d218918587dd6568183f0"
     },
     {
-      "bytes": 22347,
+      "bytes": 22348,
       "language": "CSS",
       "path": "research.css",
       "role": "browser UI",
-      "sha256": "a63098832815db12442381a2b64a56eb02dd05491209f8df5abbb8ed23347967"
+      "sha256": "a089868f18564dd0acc87eddadc6ae55b3f612270169eb623be52a7a39ff419c"
     },
     {
-      "bytes": 18582,
+      "bytes": 18434,
       "language": "HTML",
       "path": "research.html",
       "role": "embedded-data HTML/report",
-      "sha256": "db03ee64cf028e60660bc7d69d793fa68004fefb8223e11c74d88787411db058"
+      "sha256": "5cded1cede71f2a8b888ba873c589a3907bba6695448c86cd699c8ac499e37fa"
     },
     {
       "bytes": 6795,
@@ -6151,11 +6151,11 @@
       "sha256": "535e1588eecf2bfafd1d474bb09ea44bb3233b6201f87b3539bb3c9da1a11607"
     },
     {
-      "bytes": 4699,
+      "bytes": 5447,
       "language": "JavaScript",
       "path": "tests/test_presentation.cjs",
       "role": "public checks/utilities",
-      "sha256": "8489893e72bd09616fb3562df03068e2ed46e045270c8f742d43be837bdf21bd"
+      "sha256": "d2961827f1c50de6604457c61f1bb7553df8b0ff32770b252d0c4ba6e4ea5a3e"
     },
     {
       "bytes": 2723,
