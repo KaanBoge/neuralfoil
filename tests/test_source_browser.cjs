@@ -178,7 +178,11 @@ test("HTML contract has unique IDs, labels, static fallback and ordered deferred
   for (const id of ["source-search", "source-language", "source-sort"]) assert.ok(html.includes(`for="${id}"`));
   assert.match(html, /<noscript>/);
   assert.ok(html.indexOf("source-browser.js") < html.indexOf("research.js"));
-  assert.ok(html.indexOf('id="source"') < html.indexOf('id="implementations"'));
+  // Editorial landing page explains the evidence before the full file listing.
+  // Direct query-filter links still land at #source (covered by URL-state tests).
+  assert.ok(html.indexOf('id="implementations"') < html.indexOf('id="evidence"'));
+  assert.ok(html.indexOf('id="evidence"') < html.indexOf('id="source"'));
+  assert.match(html, /class="reader-paths"[\s\S]*?href="#source"/);
 });
 test("published catalog partitions exhaustively and README explorer links return results", () => {
   const published = api.prepare(JSON.parse(fs.readFileSync(path.join(root, "code/source-catalog.json"), "utf8")));
