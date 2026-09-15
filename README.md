@@ -1,63 +1,33 @@
 # NeuralFoil Studio
 
-### Interactive airfoil tools. Open research source. Explicit limits.
+![NeuralFoil Studio: an original analytic airfoil outline, not flow simulation or measured data](assets/neuralfoil-overview.svg)
 
-**An airfoil analysis and research-code project by [Kaan Boge](https://github.com/KaanBoge).** This repository combines the existing browser Studio with a source archive for measurement-informed drag correction, calibration and numerical verification. It is separate from upstream NeuralFoil.
+**Explore airfoils. Inspect the evidence. Read the source.**
 
-**[Open the Studio ↗](https://kaanboge.github.io/neuralfoil/)** · **[Explore & filter source ↗](https://kaanboge.github.io/neuralfoil/research.html#source)** · **[Research evidence ↗](https://kaanboge.github.io/neuralfoil/research.html#evidence)** · **[Download public source ↓](https://github.com/KaanBoge/neuralfoil/archive/refs/heads/main.zip)**
+An airfoil workbench and measurement-correction research archive by [Kaan Boge](https://github.com/KaanBoge), built on upstream [NeuralFoil](https://github.com/peterdsharpe/NeuralFoil). This is a separate project, not an official upstream version.
 
-**[Browse the source guide](code/README.md)** · [Original code: MIT](LICENSE) · [License scope](LICENSING.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
+### Three ways in
 
-> The browser application and newer research procedures are different implementations. Adding research source does **not** install the newer correction in the website. The current manuscript, its figures and private reproduction packages are not part of this release.
-
-## Browse by collection
-
-| Collection | What you will find | GitHub folders | Filtered explorer |
-|---|---|---|---|
-| **Research archive** | Correction models, transfer experiments, calibration and numerical bounds | [Open source](code/research) | [Research only →](https://kaanboge.github.io/neuralfoil/research.html?collection=research#source) |
-| **Source supplement** | Historical helpers, generic report builders and execution utilities | [Open source](code/supplement) | [Supplement only →](https://kaanboge.github.io/neuralfoil/research.html?collection=supplement#source) |
-| **Browser application** | Studio interface, browser wrapper and research explorer | [Interface](index.html) · [Engine](nfb.js) | [Browser only →](https://kaanboge.github.io/neuralfoil/research.html?collection=browser#source) |
-| **Public checks & examples** | Synthetic interface tests and source-integrity tools | [Tests](tests) · [Tools](tools) · [Examples](examples) | [Checks only →](https://kaanboge.github.io/neuralfoil/research.html?collection=checks#source) |
-| **Legacy study** | Earlier study scripts and browser-era research material | [Open source](study) | [Legacy only →](https://kaanboge.github.io/neuralfoil/research.html?collection=study#source) |
-
-**Jump into a topic:** [Portable inference](https://kaanboge.github.io/neuralfoil/research.html?collection=research&q=portable#source) · [Risk policy](https://kaanboge.github.io/neuralfoil/research.html?collection=research&q=risk+policy#source) · [Calibration](https://kaanboge.github.io/neuralfoil/research.html?collection=research&q=calibrat#source) · [Tree bounds](https://kaanboge.github.io/neuralfoil/research.html?collection=research&q=tree+bound#source) · [Python files](https://kaanboge.github.io/neuralfoil/research.html?language=Python#source) · [JavaScript files](https://kaanboge.github.io/neuralfoil/research.html?language=JavaScript#source)
-
-GitHub navigation above uses ordinary links. The **[live explorer](https://kaanboge.github.io/neuralfoil/research.html#source)** adds combined collection/language/search filters, sorting, matching counts, shareable views, raw-file links, SHA-256 details and a metadata export. Categories follow file locations, not a claim that an experiment passed. The [complete tracked-source catalog](code/source-catalog.json) measures published coverage, not ownership clearance or end-to-end reproducibility.
-
-## Choose an implementation
-
-| | Browser Studio · NeuralFoil B | Python correction research |
+| Workbench | Research evidence | Searchable source |
 |---|---|---|
-| **Purpose** | Explore airfoil predictions and model disagreement | Study measurement-informed drag corrections and their limits |
-| **Core** | Eight unchanged upstream 0.3.3 networks; mean-of-eight baseline | Separate geometry- and condition-dependent correction around native models |
-| **Correction status** | Legacy gated lift correction; **drag correction disabled** | Research procedures; **not installed in the browser** |
-| **What is public** | Browser application and existing assets | Reviewed source, synthetic examples and integrity tests; not all trained artifacts or measurements |
-| **Start here** | [Launch the workbench](https://kaanboge.github.io/neuralfoil/) | [Methods](docs/METHODS.md) · [Input requirements](docs/DATA.md) · [Known harms](docs/STATUS.md) |
+| Explore the existing browser predictions and model disagreement. | Understand the correction studies, observed gains and adverse cases. | Filter published code by collection, language and topic. |
+| **[Open Studio →](https://kaanboge.github.io/neuralfoil/)** | **[Read the evidence →](https://kaanboge.github.io/neuralfoil/research.html#evidence)** | **[Explore source →](https://kaanboge.github.io/neuralfoil/research.html#source)** |
 
-**About the name:** NeuralFoil B is this project's existing browser wrapper, not an official upstream NeuralFoil version. Network disagreement and empirical warnings are not calibrated error guarantees. The upstream project is [peterdsharpe/NeuralFoil](https://github.com/peterdsharpe/NeuralFoil).
+[Download public source](https://github.com/KaanBoge/neuralfoil/archive/refs/heads/main.zip) · [Source guide](code/README.md) · [MIT license](LICENSE) · [License scope](LICENSING.md)
 
-## Start here
+> **Two implementations, not one accuracy claim.** The browser’s NeuralFoil B wrapper retains its legacy gated lift correction; **drag correction is disabled**. Newer Python drag-correction procedures are archived research, **not installed in the browser**. Model disagreement is not a calibrated error guarantee.
 
-| If you want to… | Start with |
-|---|---|
-| Explore the existing airfoil interface | [Browser Studio](https://kaanboge.github.io/neuralfoil/) |
-| Read the research without the manuscript | [Research overview](https://kaanboge.github.io/neuralfoil/research.html) |
-| Find runnable examples and archived source | [Source guide](code/README.md) |
-| Understand correction and preprocessing | [Methods and reproducibility](docs/METHODS.md) |
-| Identify required but unavailable inputs | [Data guide](docs/DATA.md) |
-| Separate measured gains from guarantees | [Status](docs/STATUS.md) |
-| Understand older website terminology | [Historical README](docs/LEGACY_STUDIO.md) |
-| Propose a reproducible change | [Contributing](CONTRIBUTING.md) |
+## What is here
 
-## What the research code does
+The browser combines eight unchanged upstream NeuralFoil 0.3.3 networks with the existing interface and empirical diagnostics. The research archive studies a separate shared drag correction using geometry, operating conditions and NeuralFoil-derived features, leaving the neural-network weights unchanged. It starts from the mean of eight model sizes; xlarge is a separate comparison baseline.
 
-The correction leaves NeuralFoil's neural-network weights unchanged. A separate shared model uses geometry, operating conditions and NeuralFoil-derived descriptors to correct drag. It starts from the mean of eight native model sizes; xlarge remains a separate comparison baseline.
+The established learned-strength reference reduced historical drag MAE by **20.47% and 19.69% relative to xlarge**, on two grouped assignments of the **same 8,371 observations and 93 conservative identities**. Some rows, identities and external cases worsened. The collections were adaptively reused: these are not independent experimental replications or universal accuracy gains.
 
-The established learned-strength reference reduced historical drag mean absolute error by **20.47% and 19.69% relative to xlarge**, in two grouped assignments of the **same 8,371 observations and 93 conservative airfoil identities**. These are not independent experimental replications. Some rows, identities and external cases became worse, and all evaluation collections were adaptively reused.
+The archive includes half-strength controls, interval projection, added-loss calibration and conservative tree bounds—not only successful experiments. A tighter bound is not an equal percentage improvement in prediction. Trees and hard gates do not preserve global differentiability. See [methods](docs/METHODS.md), [status and known harms](docs/STATUS.md), and [data requirements](docs/DATA.md).
 
-The archive also covers half-strength controls, interval projection, added-loss calibration and conservative tree bounds. A tighter bound is not an equal percentage improvement in prediction. These are research procedures, not a universal replacement or flight-safety certificate. Their trees and hard gates do not preserve global differentiability.
+**Release boundary:** reviewed source, technical documentation and synthetic examples are public. The current manuscript, its figures, private reproduction packages and new measurement/model payloads are not included. Existing site assets and older study material retain their own histories and terms. Source availability is not a flight-safety certificate or one-command reproduction of the private study.
 
-## Run the existing site locally
+## Open locally
 
 With Python 3 installed, run from the repository root:
 
@@ -65,19 +35,31 @@ With Python 3 installed, run from the repository root:
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open [the Studio](http://localhost:8000) or [the source explorer](http://localhost:8000/research.html). HTTP is needed for relative data fetches. This serves the existing application; it does not run the Python experiments. The static explorer has no build step or external JavaScript dependencies.
+Open [the workbench](http://localhost:8000) or [the source explorer](http://localhost:8000/research.html). HTTP enables relative data fetches. This serves the existing website; it does not run Python research experiments. The static explorer needs no build step or external JavaScript dependencies.
 
-With Node.js 18 or newer, run the explorer's synthetic navigation tests:
+## Go deeper
 
-```sh
-node --test tests/test_source_browser.cjs
-```
+<details>
+<summary><strong>Browse collections and research topics</strong></summary>
 
-These check catalog validation, filtering, sorting, URL state and UI behavior using a synthetic DOM harness—not aerodynamic accuracy or browser rendering.
+| Collection | Contents | Folder |
+|---|---|---|
+| [Research archive](https://kaanboge.github.io/neuralfoil/research.html?collection=research#source) | Correction models, transfer experiments, calibration and numerical bounds | [code/research](code/research) |
+| [Source supplement](https://kaanboge.github.io/neuralfoil/research.html?collection=supplement#source) | Historical helpers, generic report builders and execution utilities | [code/supplement](code/supplement) |
+| [Browser application](https://kaanboge.github.io/neuralfoil/research.html?collection=browser#source) | Studio, browser wrapper and research explorer | [index.html](index.html) · [nfb.js](nfb.js) |
+| [Public checks and examples](https://kaanboge.github.io/neuralfoil/research.html?collection=checks#source) | Synthetic interfaces and source-integrity tools | [tests](tests) · [tools](tools) · [examples](examples) |
+| [Legacy study](https://kaanboge.github.io/neuralfoil/research.html?collection=study#source) | Earlier scripts and browser-era research material | [study](study) |
 
-## Try the source interface with artificial inputs
+**Topics:** [Portable inference](https://kaanboge.github.io/neuralfoil/research.html?collection=research&q=portable#source) · [Risk policy](https://kaanboge.github.io/neuralfoil/research.html?collection=research&q=risk+policy#source) · [Calibration](https://kaanboge.github.io/neuralfoil/research.html?collection=research&q=calibrat#source) · [Tree bounds](https://kaanboge.github.io/neuralfoil/research.html?collection=research&q=tree+bound#source) · [Python](https://kaanboge.github.io/neuralfoil/research.html?language=Python#source) · [JavaScript](https://kaanboge.github.io/neuralfoil/research.html?language=JavaScript#source)
 
-This example needs only Python and NumPy, not NeuralFoil, trained correction weights or measurements. From the repository root:
+The explorer combines collection/language/search filters, sorting, matching counts, shareable views, raw-file links, SHA-256 details and a metadata export. Categories follow file locations; inclusion is not model promotion. The [tracked-source catalog](code/source-catalog.json) measures published coverage, not ownership clearance or end-to-end reproducibility.
+
+</details>
+
+<details>
+<summary><strong>Try a synthetic Python interface</strong></summary>
+
+This example needs Python and NumPy, not NeuralFoil, trained correction weights or measurements. From the repository root:
 
 ```sh
 python3 -m venv .venv
@@ -86,30 +68,51 @@ python3 -m venv .venv
 .venv/bin/python -B -m unittest discover -s tests -p test_public_smoke.py -v
 ```
 
-The example and six targeted tests passed in Python 3.12.14 with NumPy 2.3.5. The artificial example returns CD `[0.0125, 0.02]`, applied strength `[0.5, 0.0]`, and an exact false-gate fallback. This demonstrates the interface, **not aerodynamic accuracy**. The example constructs constant parameters; no trained model is released by that demonstration. Environment creation and installation commands are setup instructions, not a claim of a fresh-install reproduction test.
+The example and six targeted tests passed in Python 3.12.14 with NumPy 2.3.5. The artificial example returns CD `[0.0125, 0.02]`, applied strength `[0.5, 0.0]`, and an exact false-gate fallback. It constructs constant parameters and demonstrates an interface, **not aerodynamic accuracy or a released trained model**. Setup commands are instructions, not evidence of a fresh-install reproduction test.
 
-## Repository structure
+With Node.js 18 or newer, the explorer’s synthetic navigation suite is:
+
+```sh
+node --test tests/test_source_browser.cjs
+```
+
+It checks catalog validation, filtering, sorting, URL state and UI behavior using a synthetic DOM harness—not aerodynamic accuracy or browser rendering.
+
+</details>
+
+<details>
+<summary><strong>Understand the repository and reproduction boundary</strong></summary>
 
 ```text
 index.html, nfb.js       Existing browser application
 research.html/.css/.js   Research hub and interactive source explorer
-source-browser.js       Deterministic filters, sorting and shareable URL state
+source-browser.js       Filters, sorting and shareable URL state
+assets/                 Presentation assets, including the original SVG overview
 nfweights/              Existing model assets and references
 study/                  Earlier website and study material
 code/research/          Original reviewed research archive
-code/supplement/        Source-only completeness additions; see its manifest
+code/supplement/        Source-only completeness additions
 examples/, tests/       Explicitly synthetic public examples and smoke tests
+tools/                  Public source-integrity utilities
 docs/                   Technical guides and historical README
 ```
 
-The research tree is a source archive, not a ready-made Python package. Some scripts retain local paths and authenticated-input assumptions. Full reconstruction requires authorized inputs, compatible dependencies and reviewed path adapters. Do not assume broad test discovery across archived experiments is synthetic or self-contained.
+The research tree is an archive, not a ready-made Python package. Some scripts retain local paths and authenticated-input assumptions. Full reconstruction requires authorized inputs, compatible dependencies and reviewed path adapters. **Do not assume broad test discovery across archived experiments is synthetic or self-contained.**
 
-The [source guide](code/README.md) explains completeness, generic utility additions, historical failures and excluded manuscript content. The source catalog can be regenerated from the Git index with `python -B tools/build_source_catalog.py --repo .`; after staging it, `python -B tools/verify_source_catalog.py --repo .` verifies the complete tracked-source set and its hashes. This is a repository-integrity check, not an accuracy evaluation.
+The [source guide](code/README.md) covers completeness, utility additions, historical failures and excluded manuscript content. Regenerate the catalog from the Git index with `python -B tools/build_source_catalog.py --repo .`; after staging it, `python -B tools/verify_source_catalog.py --repo .` verifies the complete tracked-source set and hashes. This is an integrity check, not an accuracy evaluation.
+
+For older terminology, read the [historical Studio README](docs/LEGACY_STUDIO.md). To propose a reproducible change, see [Contributing](CONTRIBUTING.md).
+
+The overview banner is an original analytic NACA 0012 geometry illustration. Its construction lines are not simulated flow, measurements or a paper figure.
+
+</details>
 
 ## Attribution and reuse
 
-Original project code and new associated technical documentation are available under the **[MIT License](LICENSE)**, copyright (c) 2026 Kaan Boge. Commercial use and integration are permitted subject to its notice requirements. The [scope guide](LICENSING.md) preserves third-party and historical data/document terms. This is not a blanket research-data license or a safety, universal-accuracy or real-time-performance guarantee.
+Original project code and new associated technical documentation are available under the **[MIT License](LICENSE)**, copyright (c) 2026 Kaan Boge. Commercial use and integration are permitted subject to its notice requirements. [License scope](LICENSING.md) and [third-party notices](THIRD_PARTY_NOTICES.md) preserve separate terms for upstream software, assets and historical material; this is not a blanket research-data license.
 
-[CITATION.cff](CITATION.cff) supplies software metadata; record the exact commit and procedure used. No DOI, journal acceptance or independent experimental confirmation is claimed.
+NeuralFoil and AeroSandbox are developed by **Peter Sharpe and contributors**. This project’s browser network assets and port derive from upstream work. NeuralFoil B is a project-specific wrapper, not an upstream release or endorsement.
 
-Third-party software and data retain their own terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Repository visibility alone does not grant rights to measurement collections or recovered coordinates. Substantive generative-AI assistance supported implementation, analysis, testing and documentation; it was not limited to language editing.
+[CITATION.cff](CITATION.cff) supplies software metadata; record the exact commit and procedure used. No DOI, journal acceptance, independent experimental confirmation, universal accuracy, safety or real-time-performance guarantee is claimed. Public visibility does not grant redistribution rights to measurement collections or recovered coordinates.
+
+Substantive generative-AI assistance supported implementation, analysis, testing and documentation—not only language editing. Scientific interpretation and release decisions remain the maintainer’s responsibility.
