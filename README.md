@@ -114,5 +114,3 @@ Original project code and new associated technical documentation are available u
 NeuralFoil and AeroSandbox are developed by **Peter Sharpe and contributors**. This project’s browser network assets and port derive from upstream work. NeuralFoil B is a project-specific wrapper, not an upstream release or endorsement.
 
 [CITATION.cff](CITATION.cff) supplies software metadata; record the exact commit and procedure used. No DOI, journal acceptance, independent experimental confirmation, universal accuracy, safety or real-time-performance guarantee is claimed. Public visibility does not grant redistribution rights to measurement collections or recovered coordinates.
-
-Substantive generative-AI assistance supported implementation, analysis, testing and documentation—not only language editing. Scientific interpretation and release decisions remain the maintainer’s responsibility.
