@@ -2,7 +2,7 @@
 
 ## Two execution paths
 
-The browser starts at `index.html` and `nfb.js` using existing assets. “NeuralFoil B” names this legacy project-specific browser wrapper, not an official upstream version. Its drag correction is disabled; it retains the legacy gated lift correction, ensemble core and empirical diagnostics. Research Python source is retained under `code/research/` with completeness additions under `code/supplement/`. Do not substitute predictions or preprocessing between these execution paths. The [research page](../research.html) explains the newer work but does not execute its trained drag policies.
+The browser starts at `index.html` and `nfb.js` using existing assets. “NeuralFoil B” names this legacy project-specific browser wrapper, not an official upstream version. Its drag correction is disabled; it retains the legacy lift correction within specified operating limits, ensemble core and empirical diagnostics. Research Python source is retained under `code/research/` with completeness additions under `code/supplement/`. Do not substitute predictions or preprocessing between these execution paths. The [research page](../research.html) explains the newer work but does not execute its trained drag policies.
 
 ## Input contract
 
@@ -18,7 +18,7 @@ Let `b` denote mean8 drag and `y` measured drag. The bounded core learns `clip((
 
 The core output lies between `0.5*b` and `2*b`. Half strength is `b + 0.5*(core-b)`, not half the learned policy output. The learned transfer reference chooses strength from numerical risk descriptors using training-only out-of-fold predictions. Airfoil names and measured test outcomes are not deployment features.
 
-The inherited physical gate requires finite inputs, positive mean8 drag, `0 < Re <= 600000`, `abs(alpha) <= 12` degrees and thickness/chord between 0.05 and 0.20. Point corrections return mean8 outside the gate. Interval projection instead preserves its supplied baseline. Qualified procedures can add a separately declared numerical guard.
+The inherited applicability conditions require finite inputs, positive mean8 drag, `0 < Re <= 600000`, `abs(alpha) <= 12` degrees and thickness/chord between 0.05 and 0.20. Point corrections return mean8 when these conditions are not met. Interval projection instead preserves its supplied baseline. Qualified procedures can add a separately declared numerical guard.
 
 ## Evaluation
 
@@ -32,7 +32,7 @@ Interval coverage, added-loss control and tree enclosures answer different quest
 
 The small public inference entrypoint is `code/research/model_development_20260907_risk_policy/portable/predictor.py`. Its API is `predict(artifact, X62, BASE_CD, all_model_CD, gate, label)`, returning `(CD, applied_strength)`. It performs no filesystem access or sklearn/pickle loading.
 
-Supply finite numerical X62 of shape `(n,62)`, positive mean8 `BASE_CD` of shape `(n,)`, positive native drag of shape `(n,8)` in `xxsmall/xsmall/small/medium/large/xlarge/xxlarge/xxxlarge` order, and a mandatory Boolean gate of shape `(n,)`. The caller must construct the physical gate and correct feature contract; the predictor does not derive them from raw coordinates or verify that the supplied baseline equals the arithmetic mean. Invalid inputs are rejected even when their gate is false.
+Supply finite numerical X62 of shape `(n,62)`, positive mean8 `BASE_CD` of shape `(n,)`, positive native drag of shape `(n,8)` in `xxsmall/xsmall/small/medium/large/xlarge/xxlarge/xxxlarge` order, and a mandatory Boolean eligibility flag of shape `(n,)`. The caller must construct this flag from the applicability conditions and follow the feature contract; the predictor does not derive them from raw coordinates or verify that the supplied baseline equals the arithmetic mean. Invalid inputs are rejected even when their eligibility flag is false.
 
 Select `risk_transfer`, `unpenalized_transfer` or `risk_group` explicitly. The example chooses `unpenalized_transfer`; the function's historical default is `risk_transfer`, not a universal recommendation. This older feature-level interface is distinct from later qualified H/KL procedures.
 

@@ -18,7 +18,7 @@ Research scripts may reference absent local files. A path is not a download link
 
 Historical sources combine SoarTech 8 and the first three UIUC low-speed airfoil-data volumes. Recovered source occurrences and conservative identity grouping determine this population. Older audits have different denominators.
 
-All 497 external rows remain in complete-panel reporting, including 25 outside the correction gate. Eligible external views use 472 rows. Neither collection is untouched confirmation data. The 23 complete-row panels and eight eligible views are not 31 independent datasets.
+All 497 external rows remain in complete-panel reporting, including 25 outside the correction's operating limits. Eligible external views use 472 rows. Neither collection is untouched confirmation data. The 23 complete-row panels and eight eligible views are not 31 independent datasets.
 
 ## Permissions and required inputs
 
