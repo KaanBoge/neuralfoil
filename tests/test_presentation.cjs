@@ -32,6 +32,18 @@ test("research has a unique heading and three explicit entry paths", () => {
   const nav = research.match(/<nav class="reader-paths"[\s\S]*?<\/nav>/)[0];
   for (const dest of ["index.html", "#evidence", "#source"]) assert.ok(nav.includes(`href="${dest}"`));
 });
+test("research keeps its white-and-green identity independent of OS dark preference", () => {
+  const css = read("research.css");
+  assert.match(research, /<meta name="color-scheme" content="light">/);
+  assert.match(research, /<meta name="theme-color" content="#ffffff">/);
+  const tokens = css.match(/\.research-page\s*\{([^}]*--page:[^}]*)\}/)[1];
+  for (const declaration of ["--page:#fff;", "--surface:#fff;", "--ink:#123c32;", "--aero:#146657;", "color-scheme:only light;"]) {
+    assert.ok(tokens.includes(declaration), declaration);
+  }
+  assert.doesNotMatch(css, /prefers-color-scheme/);
+  assert.equal([...css.matchAll(/--page:/g)].length, 1, "one page-theme token block");
+  assert.doesNotMatch(studio, /<meta name="color-scheme" content="light">/);
+});
 test("local presentation assets and page links exist", () => {
   for (const html of [studio, research]) {
     for (const match of html.matchAll(/(?:href|src)="([^"#]+)"/g)) {
