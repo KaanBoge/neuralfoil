@@ -68,3 +68,14 @@ test("overview is an explicitly illustrative local SVG with no script or externa
   assert.match(svg, /illustration/i);
   assert.doesNotMatch(svg, /<script|<foreignObject|(?:href|src)="(?:https?:|data:)/i);
 });
+test("current reader-facing wording describes applicability directly", () => {
+  const retiredTerm = /\b(?:gate|gates|gated|gating)\b/i;
+  for (const file of ["README.md", "research.html", "index.html", "nfb.js", "docs/METHODS.md", "docs/DATA.md", "docs/STATUS.md"]) {
+    // The public API signature remains exact; this is an editorial check, not an API rename.
+    const prose = read(file).replace(/```[\s\S]*?```|`[^`]*`/g, "");
+    assert.doesNotMatch(prose, retiredTerm, file);
+  }
+  assert.ok(read("docs/METHODS.md").includes("predict(artifact, X62, BASE_CD, all_model_CD, gate, label)"));
+  assert.ok(research.includes("Check the operating limits"));
+  assert.ok(research.includes("Boolean eligibility flag"));
+});
