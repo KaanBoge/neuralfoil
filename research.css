@@ -8,7 +8,9 @@
 .research-notice { padding:15px 18px; margin:17px 0; border:1px solid var(--line,#e2e6e9); border-left:3px solid var(--aero,#236fbd); border-radius:0 10px 10px 0; background:var(--surface,#fff); color:var(--muted,#646b73); font-size:13px; max-width:100ch; }
 .research-notice strong { display:block; color:var(--ink,#16191d); margin-bottom:3px; }
 .research-notice a { display:block; margin-top:6px; color:var(--aero,#236fbd); font-weight:650; }
-.research-page { --page:#f6f7f5; --surface:#fff; --ink:#152b2d; --muted:#526767; --line:#dbe3df; --aero:#146657; --chip:#eaf1ed; margin:0; color:var(--ink); background:var(--page); font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif; }
+/* Fixed white-and-green identity, including when the OS prefers dark mode.
+   Keep theme tokens on this body so the workbench's own theme is unaffected. */
+.research-page { --page:#fff; --surface:#fff; --ink:#123c32; --muted:#52665f; --line:#dbe7e0; --aero:#146657; --chip:#edf5f0; --accent:#146657; --control-line:#7d9989; color-scheme:only light; margin:0; color:var(--ink); background:var(--page); font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif; }
 .research-page * { box-sizing:border-box; }
 .research-page a { color:var(--aero); text-underline-offset:4px; }
 .research-page a:hover { text-decoration-thickness:2px; }
@@ -82,11 +84,6 @@
 .research-footer p { margin:0; }
 .research-footer strong { color:var(--ink); }
 .research-footer .assistance-note { grid-column:1/-1; max-width:930px; font-size:13px; }
-@media (prefers-color-scheme:dark) {
-  .research-page { --page:#10201f; --surface:#172b29; --ink:#e4ece7; --muted:#acbdb5; --line:#30453f; --aero:#9ac9ad; --chip:#233c33; color-scheme:dark; }
-  .research-hero { background:radial-gradient(ellipse at 90% 30%,#213b2d 0,transparent 55%); }
-  .evidence-caution { background:#342f21; color:#d1c59e; border-color:#b89b54; }
-}
 /* Explorer controls retain their original interaction contract. */
 .explorer-hero { padding:32px 0 28px; background:none; }
 .explorer-hero h1 { font-size:clamp(34px,4.8vw,54px); letter-spacing:-.05em; margin-bottom:14px; }
@@ -129,7 +126,6 @@
 .workbench-links { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0; font:600 14px/1.5 system-ui,sans-serif; }
 .workbench-links a { padding:8px 12px; border:1px solid var(--line,#e2e6e9); border-radius:6px; color:var(--ink,#16191d); background:var(--surface,#fff); text-decoration:none; }
 .workbench-links a:hover { border-color:var(--aero,#236fbd); color:var(--aero,#236fbd); }
-@media (prefers-color-scheme:dark) { .explorer-hero { background:none; } }
 @media (max-width:760px) {
   .source-controls { grid-template-columns:1fr 1fr; }
   .search-field { grid-column:1/-1; }
@@ -172,7 +168,6 @@
 
 /* Editorial research edition. Scoped to this page: shared workbench navigation
    and solver presentation are intentionally unaffected. */
-.research-page { --page:#f5f5ef; --surface:#fdfdf9; --ink:#152b2d; --muted:#50625e; --line:#d4dcd3; --aero:#146657; --chip:#e7eee5; --accent:#aa502b; }
 .research-page .research-shell { max-width:1280px; padding-inline:48px; }
 .research-page .project-nav { padding:8px 0 26px; gap:20px; }
 .research-page .project-brand { font-size:18px; letter-spacing:-.04em; }
@@ -214,7 +209,7 @@
 .research-page .metric p { font:11px/1.7 ui-monospace,monospace; }
 .research-page .metric > strong { font-weight:450; margin:12px 0 8px; font-size:clamp(42px,5vw,64px); }
 .research-page .metric > span { font-size:13px; }
-.research-page .evidence-caution { background:#f1e9dc; color:#61482f; border-color:var(--accent); border-radius:0; padding:20px 24px; font-size:14px; line-height:1.8; margin-block:20px 32px; }
+.research-page .evidence-caution { background:var(--chip); color:var(--ink); border-color:var(--accent); border-radius:0; padding:20px 24px; font-size:14px; line-height:1.8; margin-block:20px 32px; }
 .research-page .detail-grid { gap:56px; }
 .research-page .detail-grid h3 { font-size:20px; }
 .research-page .method-steps { gap:28px; margin:38px 0; }
@@ -228,8 +223,9 @@
 .research-page .explorer-heading { margin-bottom:28px; }
 .research-page .catalog-stats { padding-bottom:5px; }
 .research-page .source-browser { border-radius:4px; padding:32px; box-shadow:0 12px 36px #152b2d04; }
-.research-page .source-controls input,.research-page .source-controls select { min-height:48px; border-radius:3px; }
-.research-page .collection-filters button { border-radius:3px; }
+.research-page .source-controls input,.research-page .source-controls select { min-height:48px; border-radius:3px; border-color:var(--control-line); }
+.research-page .collection-filters button { border-radius:3px; border-color:var(--control-line); }
+.research-page .collection-filters button:hover,.research-page .collection-filters button[aria-pressed="true"] { border-color:var(--aero); }
 .research-page .source-results .source-row { padding:23px 0; }
 .research-page .source-results .source-file { font-size:17px; }
 .research-page .source-entrypoints > a { padding:24px; border-radius:3px; }
@@ -239,10 +235,6 @@
 .research-page .next-section > p { max-width:760px; font-size:18px; line-height:1.85; }
 .research-page .research-footer { padding:36px 0; line-height:1.9; }
 .research-page .quiet-button,.research-page .catalog-toolbar a { min-height:32px; display:inline-flex; align-items:center; }
-@media (prefers-color-scheme:dark) {
-  .research-page { --page:#10201f; --surface:#172b29; --ink:#e7eee7; --muted:#b2c1b6; --line:#354b42; --aero:#9dd7b8; --chip:#233c33; --accent:#e6aa81; }
-  .research-page .evidence-caution { background:#342c20; color:#e4ceb4; }
-}
 @media (max-width:960px) {
   .research-page .research-shell { padding-inline:28px; }
   .research-page .explorer-hero { gap:30px; padding-top:60px; grid-template-columns:minmax(0,1.5fr) minmax(220px,1fr); }
