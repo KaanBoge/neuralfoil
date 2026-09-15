@@ -79,3 +79,14 @@ test("current reader-facing wording describes applicability directly", () => {
   assert.ok(research.includes("Check the operating limits"));
   assert.ok(research.includes("Boolean eligibility flag"));
 });
+test("current public pages omit the removed standalone assistance passages", () => {
+  for (const file of ["README.md", "research.html", "docs/STATUS.md"]) {
+    const content = read(file);
+    assert.doesNotMatch(content, /Substantive\s+generative[\s-]*AI\s+assistance/i, file);
+    assert.doesNotMatch(content, /not (?:only|limited to) language editing/i, file);
+    assert.doesNotMatch(content, /Assistance and responsibility/i, file);
+  }
+  assert.ok(research.includes('class="publication-note"'));
+  assert.ok(research.includes("No journal acceptance, research DOI, universal accuracy guarantee"));
+  assert.ok(read("docs/STATUS.md").includes("No journal acceptance, research DOI or blanket input-redistribution permission is claimed."));
+});
